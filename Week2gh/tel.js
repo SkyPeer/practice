@@ -2,7 +2,6 @@
 var book = [];
 var namesMap = {};
 var result = [];
-//var telarray = [];
 
 function add(name, tel){
     if (book.length == 0 ) {
@@ -37,6 +36,7 @@ function remove(tel) {
     var telarrayfiltered = telarray.filter(function (telnum) {return telnum != tel});
 
     book[i].tels = telarrayfiltered.join(',');
+
     }
 
 }
