@@ -45,11 +45,15 @@ function show()
 {
     for (var i=0; i<book.length; i++)
     {
-        result.push(book[i].name+':'+' '+book[i].tels);
-    }
-    console.log(result);
-}
+        if (book[i].tels !== '')
+        {
+            result.push(book[i].name+':'+' '+book[i].tels);
+        }
 
+    }
+    console.log('result',result.sort());
+}
+add('Peter','779222222222');
 add('Valya','74957654321');
 add('Valya','32178840');
 add('Valdemar','7495765432100');
@@ -58,14 +62,16 @@ add('Valdemar','7444455');
 add('Vadim','45678955');
 add('Vadim','4567843335');
 add('Vadim','45678957782325');
-//console.log('result:', book);
+console.log('result:', book);
 
 console.log('-----------------------------------');
 
-//console.log('After remove');
+console.log('After remove');
 remove('4567843335');
+remove('779222222222');
+console.log(book);
+console.log('-----------------------------------');
 
-//console.log(book);
 show();
 
 
