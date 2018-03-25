@@ -1,7 +1,7 @@
 
 var book = [];
 var namesMap = {};
-var telarray = [];
+//var telarray = [];
 
 function add(name, tel){
     if (book.length == 0 ) {
@@ -30,49 +30,33 @@ function add(name, tel){
 
 function remove(tel) {
     var telarray = [];
-var a = tel;
-
     for (var i=0; i<book.length; i++ )
-    {
-        telarray = book[i].tels.split(',');
-        console.log('telarray', telarray);
+    {telarray = book[i].tels.split(',');
 
-    //telarray.forEach(telFilter);
-    var telarrayfiltered = telarray.filter(telFilter);
-    console.log(telarrayfiltered);
+    var telarrayfiltered = telarray.filter(function (telnum) {return telnum != tel});
 
-    function telFilter(telnumb, index) {
-        if (telarray == telnumb){
-            var tags = telarray;
-            return tags.indexOf(a) !== -1;
-        }
-    }
-
-     /*   for (j=0; j < telarray; j++)
-                {
-                    if (telarray[j] = tel)
-                    {
-                        console.log('j',j);
-                        telarrayfiltered.push(telarray[j]);
-                        console.log('telarrayfiltered=', telarrayfiltered);
-                    }
-                } */
     book[i].tels = telarrayfiltered.join(',');
     }
 
-};
+}
 
 add('Valya','74957654321');
 add('Valya','32178840');
-add('Ivan','74957654321');
+add('Ivan','7495765432100');
 add('Valya','32178840,3321231231');
 add('Ivan','7444455');
 add('Vadim','45678955');
 add('Vadim','4567843335');
 add('Vadim','45678957782325');
-//console.log('result:', book);
+console.log('result:', book);
 
+console.log('-----------------------------------');
+
+console.log('After remove');
 remove('4567843335');
+remove('45678957782325');
+remove('7495765432100');
+remove('32178840');
+remove('3321231231');
 console.log(book);
-
 
