@@ -1,6 +1,7 @@
 
 var book = [];
 var namesMap = {};
+var result = [];
 //var telarray = [];
 
 function add(name, tel){
@@ -40,23 +41,31 @@ function remove(tel) {
 
 }
 
+function show()
+{
+    for (var i=0; i<book.length; i++)
+    {
+        result.push(book[i].name+':'+' '+book[i].tels);
+    }
+    console.log(result);
+}
+
 add('Valya','74957654321');
 add('Valya','32178840');
-add('Ivan','7495765432100');
+add('Valdemar','7495765432100');
 add('Valya','32178840,3321231231');
-add('Ivan','7444455');
+add('Valdemar','7444455');
 add('Vadim','45678955');
 add('Vadim','4567843335');
 add('Vadim','45678957782325');
-console.log('result:', book);
+//console.log('result:', book);
 
 console.log('-----------------------------------');
 
-console.log('After remove');
+//console.log('After remove');
 remove('4567843335');
-remove('45678957782325');
-remove('7495765432100');
-remove('32178840');
-remove('3321231231');
-console.log(book);
+
+//console.log(book);
+show();
+
 
