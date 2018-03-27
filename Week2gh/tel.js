@@ -1,7 +1,7 @@
 
 var book = [];
 var namesMap = {};
-var result = [];
+
 
 function add(name, tel){
     if (book.length == 0 ) {
@@ -9,13 +9,11 @@ function add(name, tel){
         namesMap[name] = true;
     }
     else {
-
         if (!namesMap.hasOwnProperty(name))
         {
            book.push({name: name, tels: tel});
            namesMap[name] = true;
         }
-
             else
                 for (var i = 0; i < book.length; i++) {
 
@@ -27,51 +25,91 @@ function add(name, tel){
     }
 }
 
-
 function remove(tel) {
+    var removeresult = false;
     var telarray = [];
-    for (var i=0; i<book.length; i++ )
-    {telarray = book[i].tels.split(',');
+    for (var i = 0; i < book.length; i++ )
+    {
+        telarray = book[i].tels.split(',');
+        var telarrayfiltered = telarray.filter(function (telnum) {return telnum != tel});
 
-    var telarrayfiltered = telarray.filter(function (telnum) {return telnum != tel});
-
-    book[i].tels = telarrayfiltered.join(',');
-
+        book[i].tels = telarrayfiltered.join(',');
+        if (telarray.length != telarrayfiltered.length){removeresult = true}
     }
-
+    return removeresult;
 }
 
-function show()
-{
+function show() {
+    var result = [];
     for (var i=0; i<book.length; i++)
     {
         if (book[i].tels !== '')
         {
             result.push(book[i].name+':'+' '+book[i].tels);
         }
-
     }
-    console.log('result',result.sort());
+   return result.sort();
 }
-add('Peter','779222222222');
-add('Valya','74957654321');
-add('Valya','32178840');
-add('Valdemar','7495765432100');
-add('Valya','32178840,3321231231');
-add('Valdemar','7444455');
-add('Vadim','45678955');
-add('Vadim','4567843335');
-add('Vadim','45678957782325');
-console.log('result:', book);
 
-console.log('-----------------------------------');
+function phoneBook(cmd) {
+var commandArray = cmd.split(' ');
+//console.log(commandArray);
 
-console.log('After remove');
-remove('4567843335');
-remove('779222222222');
-console.log(book);
-console.log('-----------------------------------');
+    if (commandArray[0] == 'ADD')
+    {
+    console.log('CMD:',commandArray[0],' name:',commandArray[1],' tels:', commandArray[2]);
+    add(commandArray[1],commandArray[2])
+    }
 
-show();
+    if (commandArray[0] == 'REMOVE_PHONE')
+    {
+        console.log('CMD:',commandArray[0],' tel:', commandArray[1]);
+        console.log('remove result:', remove(commandArray[1]));
+    }
+
+    if (commandArray[0] == 'SHOW')
+    {
+        console.log(show());
+    }
+
+}
+
+/*
+add('Ivan', '555-10-01,555-10-03');
+add('Ivan', '555-10-02');
+console.log(show());
+console.log(remove('555-10-03'));
+add('Alex', '555-20-01');
+console.log(show());
+console.log(remove('555-20-01'));
+console.log(show());
+*/
 
 
+phoneBook('ADD Ivan 555-10-01,555-10-03');
+
+phoneBook('ADD Ivan 555-10-02');
+
+phoneBook('SHOW');
+
+// Вывод:
+
+// ["Ivan: 555-10-01, 555-10-03, 555-10-02"]
+
+phoneBook('REMOVE_PHONE 555-10-03');
+
+phoneBook('ADD Alex 555-20-01');
+
+phoneBook('SHOW');
+
+// Вывод:
+
+// ["Alex: 555-20-01", "Ivan: 555-10-01, 555-10-02"]
+
+phoneBook('REMOVE_PHONE 555-20-01');
+
+phoneBook('SHOW');
+
+// Вывод:
+
+// ["Ivan: 555-10-01, 555-10-02"]
