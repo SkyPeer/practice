@@ -65,7 +65,7 @@ module.exports = function (command) {
     if (parts[0] === 'REMOVE_PHONE') {
         return removePhone(parts[1]);
     }
-    
+
     if (parts[0] === 'SHOW') {
         return showPhoneBook();
     }
