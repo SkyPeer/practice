@@ -52,7 +52,7 @@ function showPhoneBook() {
  * @param {String} command
  * @returns {*} - результат зависит от команды
  */
-module.exports = function (command) {
+function phonebook(command) {
 
     var parts = command.split(' ');
 
@@ -70,3 +70,21 @@ module.exports = function (command) {
         return showPhoneBook();
     }
 };
+
+
+phonebook('ADD Ivan 555-10-01,555-10-03');
+console.log(phoneBook);
+
+phonebook('ADD Ivan 555-10-02');
+console.log(phoneBook);
+
+phonebook('REMOVE_PHONE 555-10-03'),
+console.log(phoneBook);
+
+phonebook('ADD Alex 555-20-01');
+console.log(phoneBook);
+
+phonebook('REMOVE_PHONE 555-20-01');
+console.log(phoneBook);
+
+phonebook('SHOW')
