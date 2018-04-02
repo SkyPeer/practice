@@ -16,8 +16,8 @@
 
 
 
-/*
-let tweet = {
+
+let tweet1 = {
     likes: 10,
     setLikes: function(count) {
         if (count < 0) {
@@ -28,16 +28,15 @@ let tweet = {
     }
 };
 
-
 try {
-    tweet.setLikes(25);
+    tweet1.setLikes(25);
 }
 catch (e) {
     console.error('Ошибка!');
 }
 
-console.log(tweet.likes);
-*/
+console.log(tweet1.likes);
+
 
 // сравнение
 /*
@@ -76,9 +75,7 @@ console.log(tweet.likes);
 tweet.likes = 25;
 console.log(tweet.likes);
 
-console.log(new Date());
-console.log(Math.random());
-
+console.log('-------------------------------------------');
 
 try {
     throw new Error('Ошибка');
@@ -87,5 +84,8 @@ try {
     console.log(err.message);
 }
 
+console.log('-------------------------------------------');
+
 var text = 'мороз и солнце'.replace(/[а-я]+/, 'снег');
 console.log(text);
+
