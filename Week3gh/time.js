@@ -1,10 +1,14 @@
+/*
 var timeObject =
+
     {
       year: 0,
       mounth: 0,
         day: 2
     };
 console.log(new Date(timeObject.year, timeObject.mounth, timeObject.day));
+*/
+
 
 /*function time(time) {
 
@@ -19,14 +23,37 @@ var time = date('2017-05-16 13:45')
 console.log(time.value);
 */
 
-function sum(a) {
-    this.x = a - 10;
-return this.x;
+/*
+function createObject() {
+    return {
+        first: function () {
+            return this;
+        },
+        second: function () {
+            return this;
+        }
+    }
+}
+*/
+
+
+function sum(num) {
+
+    return {
+        add: function add(num2){
+        var itog = num + num2;
+        return itog;
+    }
 }
 
-function add(a) {
-    this.x = a + 80;
-    return this.x;
 }
 
-console.log(sum(25).add(65));
+var s = sum(50).add(25);
+
+console.log(s);
+
+/*
+var time = date('2017-05-16 13:45').add(24, 'hours').add(3, 'days').add(15, 'minutes');
+/*
+console.log(time);
+    */
