@@ -1,6 +1,8 @@
-var a = 2018
-var t = (new Date(a, 9, 1, 17, 1, 8));
-console.log(t);
+var timeObject =
+    {
+      year: 0,
+      mounth: 0,
+        day: 2
+    };
+console.log(new Date(timeObject.year, timeObject.mounth, timeObject.day));
 
-a = a + 1;
-console.log(new Date(a, 9, 1, 17, 1, 8));
