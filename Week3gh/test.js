@@ -54,7 +54,8 @@ let tweet  ={
   _likes: 16
 };
 
-Object.defineProperty(tweet, 'likes', {
+Object.defineProperty(tweet, 'likes',
+    {
     get:
         function () {
         console.log('get method');
@@ -86,6 +87,4 @@ try {
 
 console.log('-------------------------------------------');
 
-var text = 'мороз и солнце'.replace(/[а-я]+/, 'снег');
-console.log(text);
 
