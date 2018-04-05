@@ -36,21 +36,38 @@ function createObject() {
 }
 */
 
+var tweet = {
+    likes: 16,
 
-function sum(num) {
+    getFunc: function () {
+        return this;
+    },
 
-    return {
-        add: function add(num2){
-        var itog = num + num2;
-        return itog;
+    getLikes: function() {
+        return this.likes;
+    },
+
+    setLikes: function(value) {
+        this.likes = parseInt(value) || 0;
+        return this;
+    },
+
+    setLikes2: function(value) {
+        this.likes = this.likes + parseInt(value) || 0;
+        return this;
+    },
+
+    getAuthor: function() {
+        return this.user.screenName;
+
     }
-}
 
-}
+};
 
-var s = sum(50).add(25);
+console.log(tweet.getFunc().setLikes(35).setLikes2(25).getLikes());
 
-console.log(s);
+
+
 
 /*
 var time = date('2017-05-16 13:45').add(24, 'hours').add(3, 'days').add(15, 'minutes');
