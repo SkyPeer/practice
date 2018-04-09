@@ -14,9 +14,8 @@
         }
     };*/
 
-
-
-
+//twet1
+/*
 let tweet1 = {
     likes: 10,
     setLikes: function(count) {
@@ -36,7 +35,7 @@ catch (e) {
 }
 
 console.log(tweet1.likes);
-
+*/
 
 // сравнение
 /*
@@ -50,34 +49,61 @@ console.log('text2', text2)
 console.log('String(text2)',String(text2));
  */
 
+// tweet Object.defineProperty
+/*
 let tweet  ={
   _likes: 16
 };
-
 Object.defineProperty(tweet, 'likes',
     {
     get:
-        function () {
-        console.log('get method');
-      return this._likes;
+        function () {console.log('get method');return this._likes;
     },
-
     set: function (value) {
         console.log('set method', value);
         this._likes = parseInt(value) || 0;
-
-    }
-
-    }
-);
-
-console.log(tweet.likes);
-
-tweet.likes = 25;
-console.log(tweet.likes);
+    }});
 
 console.log('-------------------------------------------');
+console.log('tweet.likes = ', tweet.likes); // get method
+tweet.likes = 25; // set method
+console.log('tweet.likes = ', tweet.likes); // get method
+console.log('-------------------------------------------');
+*/
 
+
+//tweet likes
+/*
+var tweet = {
+    likes: 16,
+    getFunc: function () {
+        return this;
+    },
+    getLikes: function() {
+        return this.likes;
+    },
+    setLikes: function(value) {
+        this.likes = this.likes + parseInt(value) || 0;
+        return this;
+    },
+
+    setLikes2: function(value) {
+        this.likes = this.likes + parseInt(value) || 0;
+        return this;
+    },
+
+    getAuthor: function() {
+        return this.user.screenName;
+
+    }
+
+};
+
+console.log(tweet.getFunc().setLikes(35).setLikes(25).getLikes());
+/*
+
+// try
+/*
 try {
     throw new Error('Ошибка');
     console.log('Привет!')
@@ -86,5 +112,5 @@ try {
 }
 
 console.log('-------------------------------------------');
-
+*/
 

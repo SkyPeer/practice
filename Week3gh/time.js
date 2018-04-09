@@ -36,41 +36,19 @@ function createObject() {
 }
 */
 
-var tweet = {
-    likes: 16,
+function date(funcArg) {
+    var argArray = funcArg.split(' ');
+    var date = argArray[0].split('-'); var year = date[0]; var mounth = parseInt(date[1])-1; var day = date[2];
+    var time = argArray[1].split(':'); var hour = parseInt(time[0])+3; var min = time [1];
 
-    getFunc: function () {
-        return this;
-    },
+    console.log('date:', year, mounth, day, 'time:',hour, min);
 
-    getLikes: function() {
-        return this.likes;
-    },
-
-    setLikes: function(value) {
-        this.likes = this.likes + parseInt(value) || 0;
-        return this;
-    },
-
-    setLikes2: function(value) {
-        this.likes = this.likes + parseInt(value) || 0;
-        return this;
-    },
-
-    getAuthor: function() {
-        return this.user.screenName;
+    var dateObj = {
 
     }
 
-};
-
-console.log(tweet.getFunc().setLikes(35).setLikes(25).getLikes());
+}
 
 
-
-
-/*
-var time = date('2017-05-16 13:45').add(24, 'hours').add(3, 'days').add(15, 'minutes');
-/*
-console.log(time);
-    */
+var time = date('2017-05-16 13:45');
+/*.add(24, 'hours').add(3, 'days').add(15, 'minutes')  */
