@@ -48,7 +48,7 @@ var tweet = {
     },
 
     setLikes: function(value) {
-        this.likes = parseInt(value) || 0;
+        this.likes = this.likes + parseInt(value) || 0;
         return this;
     },
 
@@ -64,7 +64,7 @@ var tweet = {
 
 };
 
-console.log(tweet.getFunc().setLikes(35).setLikes2(25).getLikes());
+console.log(tweet.getFunc().setLikes(35).setLikes(25).getLikes());
 
 
 
