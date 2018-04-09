@@ -14,7 +14,7 @@
         }
     };*/
 
-//twet1
+//tweet1
 /*
 let tweet1 = {
     likes: 10,
@@ -72,8 +72,8 @@ console.log('-------------------------------------------');
 */
 
 
-//tweet likes
-/*
+//tweet likes, цепочка вызовов
+
 var tweet = {
     likes: 16,
     getFunc: function () {
@@ -86,21 +86,20 @@ var tweet = {
         this.likes = this.likes + parseInt(value) || 0;
         return this;
     },
-
+    /* setLikes2func
     setLikes2: function(value) {
         this.likes = this.likes + parseInt(value) || 0;
         return this;
     },
-
+    */
+    /* getAuthorFunc
     getAuthor: function() {
         return this.user.screenName;
 
     }
-
+    */
 };
-
 console.log(tweet.getFunc().setLikes(35).setLikes(25).getLikes());
-/*
 
 // try
 /*
