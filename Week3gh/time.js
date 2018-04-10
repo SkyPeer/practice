@@ -3,7 +3,7 @@ function date(funcArg) {
     var date = argArray[0].split('-'); var year = date[0]; var mounths = parseInt(date[1])-1;
     var days = date[2];
     var time = argArray[1].split(':'); var hours = parseInt(time[0])+3; var minutes = time [1];
-    
+
         var dateObj = {
 
             add: function (arg, typeOfArg) {
@@ -24,10 +24,12 @@ function date(funcArg) {
             getTime: function() {
                 this.time = new Date(year, mounths, days, hours, minutes);
                 return this.time;
-            }
+            },
+
         };
 
     return dateObj;
+
 }
 
 var time = date('2017-05-16 13:45')
@@ -35,5 +37,5 @@ var time = date('2017-05-16 13:45')
     .subtract(1, 'months')
     .add(3, 'days')
     .add(15, 'minutes');
-console.log(time.getTime());
+console.log(Object.keys(time));
 // "2017-04-20 14:00"

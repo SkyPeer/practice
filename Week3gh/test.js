@@ -73,6 +73,7 @@ console.log('-------------------------------------------');
 
 
 //tweet likes, цепочка вызовов
+
 function tweet(likes) {
     var tweet = {
         likes: likes,
@@ -83,23 +84,17 @@ function tweet(likes) {
         getLikes: function() {
             return this.likes;
         },
-
-        /* setLikes2func
+        //setLikes2func
          setLikes2: function(value) {
          this.likes = this.likes + parseInt(value) || 0;
          return this;
          },
-         */
-        /* getAuthorFunc
+
+        //getAuthorFunc
          getAuthor: function() {
          return this.user.screenName;
 
          }
-         */
-        /*getFunc: function () {
-         return this;
-         },*/
-
     };
 
    /*
@@ -113,8 +108,8 @@ function tweet(likes) {
                 console.log('set method', value);
                 this._likes = parseInt(value) || 0;
            }});
+*/
 
-     */
     return tweet;
 }
 
