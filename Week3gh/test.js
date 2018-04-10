@@ -73,33 +73,53 @@ console.log('-------------------------------------------');
 
 
 //tweet likes, цепочка вызовов
+function tweet(likes) {
+    var tweet = {
+        likes: likes,
+        setLikes: function(value) {
+            this.likes = this.likes + parseInt(value);
+            return this;
+        },
+        getLikes: function() {
+            return this.likes;
+        },
 
-var tweet = {
-    likes: 16,
-    getFunc: function () {
-        return this;
-    },
-    getLikes: function() {
-        return this.likes;
-    },
-    setLikes: function(value) {
-        this.likes = this.likes + parseInt(value) || 0;
-        return this;
-    },
-    /* setLikes2func
-    setLikes2: function(value) {
-        this.likes = this.likes + parseInt(value) || 0;
-        return this;
-    },
-    */
-    /* getAuthorFunc
-    getAuthor: function() {
-        return this.user.screenName;
+        /* setLikes2func
+         setLikes2: function(value) {
+         this.likes = this.likes + parseInt(value) || 0;
+         return this;
+         },
+         */
+        /* getAuthorFunc
+         getAuthor: function() {
+         return this.user.screenName;
 
-    }
-    */
-};
-console.log(tweet.getFunc().setLikes(35).setLikes(25).getLikes());
+         }
+         */
+        /*getFunc: function () {
+         return this;
+         },*/
+
+    };
+
+   /*
+    Object.defineProperty(tweet, 'likes',
+        {
+            get:
+                function () {console.log('get method');return this._likes;
+                },
+
+            set: function (value) {
+                console.log('set method', value);
+                this._likes = parseInt(value) || 0;
+           }});
+
+     */
+    return tweet;
+}
+
+
+console.log(tweet(16).setLikes(35).setLikes(25).setLikes(4).getLikes());
 
 // try
 /*

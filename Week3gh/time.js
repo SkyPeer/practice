@@ -25,25 +25,42 @@ function createObject() {
 
 function date(funcArg) {
     var argArray = funcArg.split(' ');
-    var date = argArray[0].split('-'); var year = date[0]; var mounth = parseInt(date[1])-1; var day = date[2];
-    var time = argArray[1].split(':'); var hour = parseInt(time[0])+3; var min = time [1];
+    var date = argArray[0].split('-'); var year = date[0]; var mounths = parseInt(date[1])-1;
+    var days = date[2];
+    var time = argArray[1].split(':'); var hours = parseInt(time[0])+3; var minutes = time [1];
 
-    //console.log('date:', year, mounth, day, 'time:',hour, min);
-   // console.log('time:', time);
+   // console.log(new Date(year, mounth, day,hour, parseInt(min)));
 
-    var dateObj = {
-        newdate: new Date(year,mounth,day,hour, min),
-        add: function (minutes) {
-            console.log(this.newdate, 'param', minutes);
-            this.newdate.setMinutes(parseInt(min) + minutes);
-            console.log(this.newdate.getMinutes());
-            return this;
-        }
-    };
-return dateObj;
+        var dateObj = {
+
+            add: function (arg, typeOfArg) {
+                if (typeOfArg == 'months') {mounths = parseInt(mounths) + parseInt(arg)}
+                if (typeOfArg == 'days') {days = parseInt(days) + parseInt(arg)}
+                if (typeOfArg == 'hours') {hours = parseInt(hours) + parseInt(arg)}
+                if (typeOfArg == 'minutes') {minutes = parseInt(minutes) + parseInt(arg)}
+                return this;
+            },
+            subtract: function (arg, typeOfArg) {
+                if (typeOfArg == 'months') {mounths = parseInt(mounths) - parseInt(arg)}
+                if (typeOfArg == 'days') {days = parseInt(days) - parseInt(arg)}
+                if (typeOfArg == 'hours') {hours = parseInt(hours) - parseInt(arg)}
+                if (typeOfArg == 'minutes') {minutes = parseInt(minutes) - parseInt(arg)}
+                return this;
+            },
+
+            getTime: function() {
+                this.time = new Date(year, mounths, days, hours, minutes);
+                return this.time;
+            }
+        };
+
+    return dateObj;
 }
 
-var time = date('2017-05-16 13:45').add(10).add(3);
-console.log(time);
-
-/* .add(24, 'hours').add(3, 'days').add(15, 'minutes')  */
+var time = date('2017-05-16 13:45')
+    .add(24, 'hours')
+    .subtract(1, 'months')
+    .add(3, 'days')
+    .add(15, 'minutes');
+console.log(time.getTime());
+// "2017-04-20 14:00"
