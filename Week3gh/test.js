@@ -97,7 +97,7 @@ function tweet(likes) {
          }
     };
 
-   /*
+
     Object.defineProperty(tweet, 'likes',
         {
             get:
@@ -107,8 +107,10 @@ function tweet(likes) {
             set: function (value) {
                 console.log('set method', value);
                 this._likes = parseInt(value) || 0;
-           }});
-*/
+           }
+        }
+        );
+
 
     return tweet;
 }
