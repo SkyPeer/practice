@@ -1,36 +1,9 @@
-/*
-var timeObject =
-
-    {
-      year: 0,
-      mounth: 0,
-        day: 2
-    };
-console.log(new Date(timeObject.year, timeObject.mounth, timeObject.day));
-*/
-
-/*
-function createObject() {
-    return {
-        first: function () {
-            return this;
-        },
-        second: function () {
-            return this;
-        }
-    }
-}
-*/
-
-
 function date(funcArg) {
     var argArray = funcArg.split(' ');
     var date = argArray[0].split('-'); var year = date[0]; var mounths = parseInt(date[1])-1;
     var days = date[2];
     var time = argArray[1].split(':'); var hours = parseInt(time[0])+3; var minutes = time [1];
-
-   // console.log(new Date(year, mounth, day,hour, parseInt(min)));
-
+    
         var dateObj = {
 
             add: function (arg, typeOfArg) {
