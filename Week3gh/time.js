@@ -3,7 +3,7 @@ function date(funcArg) {
 
     var _date = argArray[0].split('-'); var year = _date[0]; var mounths = parseInt(_date[1])-1; var days = _date[2];
 
-    var _time = argArray[1].split(':'); var hours = parseInt(_time[0])+3; var minutes = _time [1];
+    var _time = argArray[1].split(':'); var hours = parseInt(_time[0]); var minutes = _time [1];
 
         var dateObj = {
 
@@ -26,8 +26,17 @@ function date(funcArg) {
         Object.defineProperty(dateObj, 'value',
             {
             get: function () {
+
+                Number.prototype.padLeft = function(base,chr){
+                    var  len = (String(base || 10).length - String(this).length)+1;
+                    return len > 0? new Array(len).join(chr || '0')+ this : this;}
+
                 this.time = new Date(year, mounths, days, hours, minutes);
-                return this.time;
+
+                this.timeFormat = [this.time.getFullYear(), (this.time.getMonth()+1).padLeft(), this.time.getDate().padLeft()].join('-') +' ' +
+                    [this.time.getHours().padLeft(), this.time.getMinutes().padLeft()].join(':');
+
+                return this.timeFormat;
             }
             });
 
