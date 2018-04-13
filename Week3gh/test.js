@@ -15,7 +15,7 @@
     };*/
 
 //tweet1
-/*
+
 let tweet1 = {
     likes: 10,
     setLikes: function(count) {
@@ -35,7 +35,7 @@ catch (e) {
 }
 
 console.log(tweet1.likes);
-*/
+
 
 // сравнение
 /*
@@ -73,7 +73,7 @@ console.log('-------------------------------------------');
 
 
 //tweet likes, цепочка вызовов
-
+/*
 function tweet(likes) {
     var tweet = {
         likes: likes,
@@ -117,6 +117,9 @@ function tweet(likes) {
 
 
 console.log(tweet(16).setLikes(35).setLikes(25).setLikes(4).getLikes());
+*/
+
+console.log('hello world')
 
 // try
 /*
