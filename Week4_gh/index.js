@@ -3,15 +3,19 @@
  * @params {Function[]} – Функции для запроса
  * @returns {Array}
  */
-function query(collection) {
+var collectionArray = [];
+var filtercollectionArray = [];
 
+function query(collection) {
+collectionArray = collection;
+//console.log(collectionArray);
+    return this;
 }
 
 /**
  * @params {String[]}
  */
 function select() {
-
 }
 
 /**
@@ -19,6 +23,7 @@ function select() {
  * @param {Array} values – Массив разрешённых значений
  */
 function filterIn(property, values) {
+
 
 }
 
