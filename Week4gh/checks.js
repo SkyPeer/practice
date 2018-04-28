@@ -51,18 +51,17 @@ var friends = [
 ];
 
 // Выполняем выборку и фильтрацию с помощью нашего конструктора
-var result = lib.query(
+/*var result = lib.query(
     friends,
     lib.select('name', 'gender', 'email'),
     lib.filterIn('favoriteFruit', ['Яблоко', 'Картофель'])
 );
+*/
 
+var a = 5;
+var result = lib.query(a, lib.select(2),lib.select(3));
 
-
-//var result = lib.query();
-//console.log(result);
-
-
+console.log('result =', result);
 
 /*
 // Сравниваем полученный результат с ожидаемым

@@ -4,34 +4,42 @@
  * @returns {Array}
  */
 
-var array = ['a:0', 'b:2'];
+var aValue = 0;
 
 function query(collection) {
-//collectionArray = collection;
-console.log('query func');
-//console.log(typeof(collection))
-console.log(typeof(collection));
-console.log(Array.isArray(array));
+    console.log('aValue', aValue);
+    console.log('collection = ',collection);
+    console.log('query.arguments = ', query.arguments)
+   // console.log('query = ', a);
+    return collection * query.arguments[1] * query.arguments[2]
+
 }
 
 /**
  * @params {String[]}
  */
-function select() {
-console.log('select func')
+
+function select (argument) {
+    console.log(select.arguments)
+    var funcArg = argument * 2;
+    aValue = aValue + funcArg;
+    return funcArg;
+
 }
+
 
 /**
  * @param {String} property – Свойство для фильтрации
  * @param {Array} values – Массив разрешённых значений
  */
-function filterIn(property, values) {
-console.log('filter ok');
+
+function filterIn(value) {
+    console.log(filterIn.arguments)
+    var funcArg = value * 2;
+    aValue = aValue + funcArg;
+ return funcArg;
 }
 
-function add() {
-
-}
 
 module.exports = {
     query: query,
