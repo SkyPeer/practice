@@ -69,28 +69,50 @@ assert.deepEqual(result, [
 
 console.info('OK!');
 */
+
 var friendsArray = [];
 var selectParams = selectParamsFunc('name', 'gender', 'email')
 
 function selectParamsFunc() {
     var paramsObject = selectParamsFunc.arguments;
     var paramsArray = [];
-    console.log(paramsObject);
-    console.log(selectParamsFunc.arguments.length)
+    //console.log(paramsObject);
+    //console.log(selectParamsFunc.arguments.length)
 
-    for (var i=0; i < paramsObject.length; i++)
-    {
-     paramsArray.push(paramsObject[i]);
+    for (var i = 0; i < paramsObject.length; i++) {
+        paramsArray.push(paramsObject[i]);
     }
-    console.log('paramsArray',paramsArray)
+    //console.log('paramsArray', paramsArray)
+
+    //console.log(Object.keys(friends[1]))
+
+    var source = friends[1];
+
+    var newobject = {};
+
+    Object.defineProperties(newobject, {
+        'name': {value: 'Vasya'},
+        'age': {value: '15'}
+    });
+
+    console.log('newobject:', newobject.name);
+}
+// скопируем в него все свойства user
+   // console.log(friends);
+
+https://www.google.ru/search?q=delete+object+keys+javascript&oq=delete+object+ket&aqs=chrome.2.69i57j0l5.7611j0j7&sourceid=chrome&ie=UTF-8
 
 
+
+/*
     for (var i = 0; i < friends.length; i++)
     {
-        friendsArray=
+        friendsArray.push(friends[i].keys(paramsObject))
     }
 
 }
+*/
+
 
 
 //console.log('friendsArray', friendsArray);
