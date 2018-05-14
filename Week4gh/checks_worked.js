@@ -57,9 +57,8 @@ var result = lib.query(
     lib.filterIn('favoriteFruit', ['Яблоко', 'Картофель'])
 );
 
-
-
 // Сравниваем полученный результат с ожидаемым
+/*
 assert.deepEqual(result, [
     { name: 'Сэм', gender: 'Мужской', email: 'luisazamora@example.com' },
     { name: 'Эмили', gender: 'Женский', email: 'example@example.com' },
@@ -69,3 +68,76 @@ assert.deepEqual(result, [
 ]);
 
 console.info('OK!');
+*/
+
+// FUNCTION SELECT !!!!
+
+function selectParamsFunc() {
+    var paramsObject = selectParamsFunc.arguments;
+    var paramsArray = [];
+
+    for (var i = 0; i < paramsObject.length; i++) {
+        paramsArray.push(paramsObject[i]);
+    }
+    console.log('paramsArray', paramsArray) // paramsArray - МАССИВ!
+return paramsArray;
+}
+
+function filterfunc (db, keys) {
+
+    var friendsFilteredArray = [];
+
+    filter = (db, keys) => keys.reduce((a, key) => (a[key] = db[key], a), {}); // ????? //
+
+    for (var i = 0; i < friends.length; i++) {
+        friendsFilteredArray.push(filter(db[i], keys))
+    }
+return(friendsFilteredArray);
+}
+
+var selectParams = selectParamsFunc('name', 'gender', 'email');
+console.log(filterfunc(friends, selectParams));
+
+
+// FUNCTION FILTER
+function filter(key, params) {
+    var key = key; // string
+    var params = params; // array
+    var filteredArray = [];
+
+    function paramsCheck(key, params, num) {
+        var key = key; // string
+        var params = params; // array
+        var num = num;
+            for (var i = 0; i < params.length; i++){
+                if (friends[num][key] == params[i]) {return true;}
+            }
+    }
+
+    for (var i=0; i < friends.length; i++){
+        if (friends[i].hasOwnProperty(key) == true && paramsCheck(key, params, i) == true){
+            filteredArray.push(friends[i]);
+        }
+    }
+
+    return filteredArray;
+}
+/*
+var key = 'name';
+var param = 'Эмили';
+test = friends[1];
+console.log(test[key] === param);
+*/
+
+console.log(filter('favoriteFruit', ['Яблоко', 'Картофель']));
+
+/*
+if (friends[1].hasOwnProperty('favoriteFruit') == true){
+    var a = true;
+}
+else
+{
+    var a = false;
+}
+console.log(a);
+    */

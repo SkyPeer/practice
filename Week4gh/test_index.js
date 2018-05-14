@@ -4,13 +4,12 @@
  * @returns {Array}
  */
 
-var aValue = 0;
+
 
 function query(collection) {
-    console.log('aValue', aValue);
     console.log('collection = ',collection);
-    console.log('query.arguments = ', query.arguments)
-
+    var queryObj = query.arguments;
+    console.log('query.arguments = ', queryObj[2]['fil'])
     return collection * query.arguments[1] * query.arguments[2]
 
 }
@@ -22,7 +21,6 @@ function query(collection) {
 function select (argument) {
     console.log('select', select.arguments)
     var funcArg = argument * 2;
-    aValue = aValue + funcArg;
     return funcArg;
 
 }
@@ -34,10 +32,8 @@ function select (argument) {
  */
 
 function filterIn(value) {
-    console.log(filterIn.arguments)
-    var funcArg = value * 2;
-    aValue = aValue + funcArg;
- return funcArg;
+    console.log('filterIn',filterIn.arguments)
+ return {fil: value * 2};
 }
 
 
