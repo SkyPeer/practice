@@ -79,24 +79,45 @@ function selectParamsFunc() {
     for (var i = 0; i < paramsObject.length; i++) {
         paramsArray.push(paramsObject[i]);
     }
-    console.log('paramsArray', paramsArray) // paramsArray - МАССИВ!
+  //  console.log('paramsArray', paramsArray) // paramsArray - МАССИВ!
 return paramsArray;
 }
 
 function filterfunc (db, keys) {
 
     var friendsFilteredArray = [];
-
+/*
     filter = (db, keys) => keys.reduce((a, key) => (a[key] = db[key], a), {}); // ????? //
 
-    for (var i = 0; i < friends.length; i++) {
+    for (var i = 0; i < db.length; i++) {
         friendsFilteredArray.push(filter(db[i], keys))
     }
-return(friendsFilteredArray);
-}
 
-var selectParams = selectParamsFunc('name', 'gender', 'email');
-console.log(filterfunc(friends, selectParams));
+    */
+
+    for (var i = 0; i < db.length; i++)
+    {
+        friendsFilteredArray.push(objectFilter(db[i], keys));
+    }
+
+                function objectFilter(obj, filterBy) {
+                    let filtered = {};
+
+                    for(let key in obj) { // запускаем циклический обход объекта
+                        filterBy.forEach(function(filterItem) { // сравниваем ключ со всеми элементами массива
+                            if (key == filterItem) filtered[key] = obj[key];  // и если совпадение есть, записываем пару ключ-значение в новый объект
+                        });
+                    }
+                    return filtered;
+                }
+
+    return(friendsFilteredArray);
+
+   }
+
+
+var resultfunc = filterfunc(friends, selectParamsFunc('name', 'gender', 'email'));
+console.log(resultfunc);
 
 
 // FUNCTION FILTER
@@ -129,8 +150,9 @@ test = friends[1];
 console.log(test[key] === param);
 */
 
+/*
 console.log(filter('favoriteFruit', ['Яблоко', 'Картофель']));
-
+*/
 /*
 if (friends[1].hasOwnProperty('favoriteFruit') == true){
     var a = true;

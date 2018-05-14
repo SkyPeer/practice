@@ -22,11 +22,10 @@ function query(collection) {
 
 
     }
-  //  console.log('selectParams:', selectParams, ', filterProp:', filterProp, ', filterKeys:', filterKeys)
 
     function filter(key, params, newcollection) {
 
-        //console.log(key, params);
+
 
         var key = key; // string
         var params = params; // array
@@ -53,18 +52,28 @@ function query(collection) {
     }
 
     var filteredCollection = filter(filterProp,filterKeys,collection);
-    //console.log(filteredArray)
 
     function selectfunc(db, keys) {
 
-        var collectionSelectedArray = [];
+        var selectedCollection = [];
 
-        filter = (db, keys) => keys.reduce((a, key) => (a[key] = db[key], a), {}); // ????? //
-
-        for (var i = 0; i < db.length; i++) {
-            collectionSelectedArray.push(filter(db[i], keys))
+        for (var i = 0; i < db.length; i++)
+        {
+            selectedCollection.push(objectFilter(db[i], keys));
         }
-        return collectionSelectedArray;
+
+                    function objectFilter(obj, filterBy) {
+                        var filtered = {};
+
+                        for(var key in obj) {
+                            filterBy.forEach(function(filterItem) {
+                                if (key == filterItem) filtered[key] = obj[key];
+                            });
+                        }
+                        return filtered;
+                    }
+
+        return selectedCollection;
     }
 
 
@@ -93,7 +102,8 @@ function select() {
  * @param {Array} values – Массив разрешённых значений
  */
 function filterIn(property, values) {
-    return {property, values}
+
+    return {property: property, values: values}
 }
 
 module.exports = {
