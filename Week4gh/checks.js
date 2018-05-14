@@ -70,9 +70,8 @@ assert.deepEqual(result, [
 console.info('OK!');
 */
 
-var friendsArray = [];
-var selectParams = selectParamsFunc('name', 'gender', 'email')
-
+// FUNCTION SELECT !!!!
+/*
 function selectParamsFunc() {
     var paramsObject = selectParamsFunc.arguments;
     var paramsArray = [];
@@ -82,37 +81,68 @@ function selectParamsFunc() {
     for (var i = 0; i < paramsObject.length; i++) {
         paramsArray.push(paramsObject[i]);
     }
-    //console.log('paramsArray', paramsArray)
-
+    console.log('paramsArray', paramsArray) // paramsArray - МАССИВ!
     //console.log(Object.keys(friends[1]))
-
-    var source = friends[1];
-
-    var newobject = {};
-
-    Object.defineProperties(newobject, {
-        'name': {value: 'Vasya'},
-        'age': {value: '15'}
-    });
-
-    console.log('newobject:', newobject.name);
+return paramsArray;
 }
-// скопируем в него все свойства user
-   // console.log(friends);
 
-https://www.google.ru/search?q=delete+object+keys+javascript&oq=delete+object+ket&aqs=chrome.2.69i57j0l5.7611j0j7&sourceid=chrome&ie=UTF-8
+function filterfunc (db, keys) {
 
+    var friendsFilteredArray = [];
 
+    filter = (db, keys) => keys.reduce((a, key) => (a[key] = db[key], a), {}); // ????? //
 
-/*
-    for (var i = 0; i < friends.length; i++)
-    {
-        friendsArray.push(friends[i].keys(paramsObject))
+    for (var i = 0; i < friends.length; i++) {
+        friendsFilteredArray.push(filter(db[i], keys))
     }
-
+return(friendsFilteredArray);
 }
+
+var selectParams = selectParamsFunc('name', 'gender', 'email');
+console.log(filterfunc(friends, selectParams));
 */
 
 
 
-//console.log('friendsArray', friendsArray);
+// FUNCTION FILTER
+function filter(key, params) {
+    var key = key; // string
+    var params = params; // array
+    var filteredArray = [];
+
+    function paramsCheck(key, params, num) {
+        var key = key; // string
+        var params = params; // array
+        var num = num;
+            for (var i = 0; i < params.length; i++){
+                if (friends[num][key] == params[i]) {return true;}
+            }
+    }
+
+    for (var i=0; i < friends.length; i++){
+        if (friends[i].hasOwnProperty(key) == true && paramsCheck(key, params, i) == true){
+            filteredArray.push(friends[i]);
+        }
+    }
+
+    return filteredArray;
+}
+/*
+var key = 'name';
+var param = 'Эмили';
+test = friends[1];
+console.log(test[key] === param);
+*/
+
+console.log(filter('favoriteFruit', ['Яблоко', 'Картофель']));
+
+/*
+if (friends[1].hasOwnProperty('favoriteFruit') == true){
+    var a = true;
+}
+else
+{
+    var a = false;
+}
+console.log(a);
+    */
