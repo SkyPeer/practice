@@ -10,7 +10,7 @@ function query(collection) {
     console.log('aValue', aValue);
     console.log('collection = ',collection);
     console.log('query.arguments = ', query.arguments)
-   // console.log('query = ', a);
+
     return collection * query.arguments[1] * query.arguments[2]
 
 }
@@ -20,7 +20,7 @@ function query(collection) {
  */
 
 function select (argument) {
-    console.log(select.arguments)
+    console.log('select', select.arguments)
     var funcArg = argument * 2;
     aValue = aValue + funcArg;
     return funcArg;
