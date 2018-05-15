@@ -9,7 +9,8 @@
 function query(collection) {
     console.log('collection = ',collection);
     var queryObj = query.arguments;
-    console.log('query.arguments = ', queryObj[2]['fil'])
+
+
     return collection * query.arguments[1] * query.arguments[2]
 
 }
@@ -20,7 +21,7 @@ function query(collection) {
 
 function select (argument) {
     console.log('select', select.arguments)
-    var funcArg = argument * 2;
+    var funcArg = argument * 1;
     return funcArg;
 
 }
@@ -33,7 +34,7 @@ function select (argument) {
 
 function filterIn(value) {
     console.log('filterIn',filterIn.arguments)
- return {fil: value * 2};
+ return  value * 1;
 }
 
 
