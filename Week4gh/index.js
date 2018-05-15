@@ -26,7 +26,6 @@ function query(collection) {
     function filter(key, params, newcollection) {
 
 
-
         var key = key; // string
         var params = params; // array
         var filteredArray = [];
@@ -87,6 +86,7 @@ function query(collection) {
  * @params {String[]}
  */
 function select() {
+
     var paramsObject = select.arguments;
     var paramsArray = [];
 
