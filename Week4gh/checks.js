@@ -51,21 +51,21 @@ var friends = [
 ];
 
 // Выполняем выборку и фильтрацию с помощью нашего конструктора
-/* var result = lib.query(
+var result = lib.query(
     friends,
     lib.select('name', 'gender', 'email'),
     lib.filterIn('favoriteFruit', ['Яблоко', 'Картофель'])
-); */
+);
 
-var result = lib.query(friends,lib.select('name', 'gender', 'email'))
+//var result = lib.query(friends,lib.select('name','gender'),lib.filterIn('favoriteFruit', ['Яблоко']),lib.select('name'))
 
 console.log(result)
 
 console.log('----------------------------')
 console.log('result is Array = ', Array.isArray(result))
 
-/*
-// Сравниваем полученный результат с ожидаемым
+
+//Сравниваем полученный результат с ожидаемым
 assert.deepEqual(result, [
     { name: 'Сэм', gender: 'Мужской', email: 'luisazamora@example.com' },
     { name: 'Эмили', gender: 'Женский', email: 'example@example.com' },
@@ -73,5 +73,4 @@ assert.deepEqual(result, [
     { name: 'Шерри', gender: 'Женский', email: 'danamcgee@example.com' },
     { name: 'Стелла', gender: 'Женский', email: 'waltersguzman@example.com' }
 ]);
-*/
 
