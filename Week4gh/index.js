@@ -5,12 +5,8 @@
  */
 
 var data = [];
-var selectCount = 0;
-var filterCount = 0;
-function query(collection) {
 
-    //console.log('selectCount',selectCount,' , filterCount',filterCount);
-   // console.log(query.arguments);
+function query(collection) {
 
     if (query.arguments.length == 1)
     {
@@ -27,8 +23,6 @@ function query(collection) {
             if (query.arguments[i].name=='filterIn') {var priority = 'a'}
             if (query.arguments[i].name=='select') {var priority = 'b'}
             functionArray.push({priority: priority, func: query.arguments[i]})
-
-            //data = query.arguments[i](data);
         }
 
         var functionArraySorted = functionArray.slice().sort(function (a, b) {
@@ -51,7 +45,6 @@ function query(collection) {
  * @params {String[]}
  */
 function select() {
-    selectCount++;
     var paramsObject = select.arguments;
     var paramsArray = [];
 
@@ -59,8 +52,6 @@ function select() {
     for (var i = 0; i < paramsObject.length; i++) {
         paramsArray.push(paramsObject[i]);
     }
-
-    //console.log(' *****  SELECT FUNC:', '1) ParamsArray:',paramsArray, '2) Arguments:',select.arguments);
 
     return function select(collection) {
         var selectedCollection = [];
@@ -94,12 +85,10 @@ function select() {
  * @param {Array} values – Массив разрешённых значений
  */
 function filterIn(property, values) {
-    filterCount++;
     var key = property; // string
     var params = values; // array
     var filteredArray = [];
 
-    //console.log(' *****  FILTER FUNC:', '1) Params:',key,' , ', params, '2) Arguments:',filterIn.arguments);
 
     return function filterIn(collection) {
 
