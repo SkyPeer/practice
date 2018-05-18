@@ -51,10 +51,7 @@ var friends = [
 ];
 
 // Выполняем выборку и фильтрацию с помощью нашего конструктора
-var result = lib.query(
-    friends,
-    lib.select('name', 'gender', 'email'),
-    lib.filterIn('favoriteFruit', ['Яблоко', 'Картофель'])
+var result = lib.query(friends, lib.select('name', 'gender', 'email'), lib.filterIn('favoriteFruit', ['Яблоко', 'Картофель'])
 );
 
 //var result = lib.query(friends,lib.select('name','gender'),lib.filterIn('favoriteFruit', ['Яблоко']),lib.select('name'))

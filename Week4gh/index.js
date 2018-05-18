@@ -6,8 +6,9 @@
 
 var data = [];
 
+//function query(collection, ...handlers) {
 function query(collection) {
-
+// spread http://learn.javascript.ru/destructuring
     if (query.arguments.length == 1)
     {
         data = collection.slice();
@@ -103,6 +104,7 @@ function filterIn(property, values) {
 
         for (var i = 0; i < collection.length; i++) {
             if (collection[i].hasOwnProperty(key) == true && paramsCheck(key, params, i) == true) {
+            //if (collection[i][key]  && paramsCheck(key, params, i) == true) {
                 filteredArray.push(collection[i]);
             }
         }
