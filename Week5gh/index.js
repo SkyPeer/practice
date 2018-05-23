@@ -61,11 +61,11 @@ module.exports = {
 
         for (var i=0; i<this.emitters.length; i++)
         {
-            console.log(Object.keys(this.emitters[i]));
+          //  console.log(Object.keys(this.emitters[i]));
         }
 
 
-        console.log('after ------------------------------')
+       // console.log('after ------------------------------')
 
         for (var i=0; i<this.emitters.length; i++) {
             if (Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
@@ -80,9 +80,6 @@ module.exports = {
 
 
         }
-
-
-
 
         //console.log(this.emitters[1]);
         /*
