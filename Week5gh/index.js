@@ -1,12 +1,28 @@
 module.exports = {
 
+
     /**
      * @param {String} event
      * @param {Object} subscriber
      * @param {Function} handler
      */
+    emitters: [],
+
     on: function (event, subscriber, handler) {
-        console.log('on',arguments);
+        /*
+        console.log('event ->', event,' *** TYPE:', typeof(event));
+        console.log('subscriber ->', subscriber,' *** TYPE:', typeof(subscriber));
+        console.log('handler ->', handler,' *** TYPE:', typeof(handler));
+        */
+
+        this.emitters.push({event: event, subscriber: subscriber, handler:handler});
+
+
+        //this.emitters.push({event: event, subscriber: subscriber}); - WORK!!!
+
+
+
+      // console.log(this.emitters);
         return this;
 
     },
@@ -16,7 +32,8 @@ module.exports = {
      * @param {Object} subscriber
      */
     off: function (event, subscriber) {
-        console.log('off',arguments)
+    /*    console.log('event:', event)
+        console.log('subscriber:',subscriber)*/
         return this;
     },
 
@@ -24,8 +41,12 @@ module.exports = {
      * @param {String} event
      */
     emit: function (event) {
-        console.log('emit',arguments)
-        return this;
+
+    //console.log('EMIT:',this.emitters[0].subscriber.count());
+    console.log('EMIT2:',this.emitters[0].subscriber);
+
+       // Object.values(this.emitters[0].subscriber)[1]
+       return this;
     }
 
 };
