@@ -31,7 +31,7 @@ emitter
     })
 
     .emit('new_notification');
-//console.log(emitter)
+console.log(emitter)
 
 
 // Проверяем количество нотификаций
@@ -39,7 +39,7 @@ emitter
 //console.log(logger.logs)
 
 assert.equal(notifications.counter, 1, 'Получена одна нотификация');
-//console.log('1 check - ok')
+console.log('1 check - ok')
 // В логе сохранено событие
 // Так как обработчик notifications.count отработал первым,
 //  в логах сохранено правильное количество нотификаций
@@ -49,7 +49,7 @@ assert.deepEqual(logger.logs, [
     'Произошло новое событие new_notification',
     'Добавлена новая нотификация. Количество - 1'
 ]);
-//console.log('2 check - ok')
+console.log('2 check - ok')
 /* ---------------------------------- */
 
 
@@ -57,14 +57,14 @@ assert.deepEqual(logger.logs, [
 
 // На время отключаем логгирование, а затем снова включаем
 
-/*
+
 emitter
     .off('new_notification', logger)
     .emit('new_notification')
 
     .on('new_notification', logger, function () {this.logs.push('Новое событие new_notification!');})
     .emit('new_notification');
-*/
+
 
 
 

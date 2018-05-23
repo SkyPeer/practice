@@ -38,19 +38,15 @@ module.exports = {
 
        // console.log(this.emitters);
 
-        for (var i = 0; i<this.emitters.length; i++)
+        for (var i = 0; i < this.emitters.length; i++)
         {
 
-           // console.log(this.emitters[i].subscriber)
-
-
-
-           /* if (this.emitters[i].subscriber == subscriber)
-           {
-
-           } */
+          if (this.emitters[i].subscriber.hasOwnProperty('logs') == false)
+          {
+              filteredArray.push(this.emitters[i]);
+          }
         }
-
+        this.emitters = filteredArray.slice();
 
         return this;
     },
@@ -95,11 +91,6 @@ module.exports = {
        tempObject.func();
         console.log(tempObject);
         */
-
-        for (var i=0; i<this.emitters.length; i++)
-        {
-            console.log(this.emitters[i].subscriber.hasOwnProperty('logs'));
-        }
 
         return this;
     }
