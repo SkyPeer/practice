@@ -32,8 +32,26 @@ module.exports = {
      * @param {Object} subscriber
      */
     off: function (event, subscriber) {
-    /*    console.log('event:', event)
-        console.log('subscriber:',subscriber)*/
+      //  console.log('event:', event);
+      //  console.log('subscriber:',subscriber);
+        filteredArray = [];
+
+       // console.log(this.emitters);
+
+        for (var i = 0; i<this.emitters.length; i++)
+        {
+
+           // console.log(this.emitters[i].subscriber)
+
+
+
+           /* if (this.emitters[i].subscriber == subscriber)
+           {
+
+           } */
+        }
+
+
         return this;
     },
 
@@ -45,6 +63,14 @@ module.exports = {
     //console.log('EMIT:',this.emitters[0].subscriber.count());
     //console.log('EMIT2:',this.emitters[0].subscriber);
 
+        for (var i=0; i<this.emitters.length; i++)
+        {
+            console.log(Object.keys(this.emitters[i]));
+        }
+
+
+        console.log('after ------------------------------')
+
         for (var i=0; i<this.emitters.length; i++) {
             if (Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
                 this.emitters[i].subscriber.count()
@@ -54,7 +80,13 @@ module.exports = {
                 tempObject = {logs: this.emitters[i].subscriber.logs, func: this.emitters[i].handler};
                 tempObject.func()
             }
+
+
+
         }
+
+
+
 
         //console.log(this.emitters[1]);
         /*
@@ -63,6 +95,12 @@ module.exports = {
        tempObject.func();
         console.log(tempObject);
         */
+
+        for (var i=0; i<this.emitters.length; i++)
+        {
+            console.log(this.emitters[i].subscriber.hasOwnProperty('logs'));
+        }
+
         return this;
     }
 
