@@ -43,10 +43,27 @@ module.exports = {
     emit: function (event) {
 
     //console.log('EMIT:',this.emitters[0].subscriber.count());
-    console.log('EMIT2:',this.emitters[0].subscriber);
+    //console.log('EMIT2:',this.emitters[0].subscriber);
 
-       // Object.values(this.emitters[0].subscriber)[1]
-       return this;
+        for (var i=0; i<this.emitters.length; i++) {
+            if (Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
+                this.emitters[i].subscriber.count()
+            }
+            if (Object.keys(this.emitters[i].subscriber)[0] == 'logs' )
+            {
+                tempObject = {logs: this.emitters[i].subscriber.logs, func: this.emitters[i].handler};
+                tempObject.func()
+            }
+        }
+
+        //console.log(this.emitters[1]);
+        /*
+        tempObject = {logs: this.emitters[1].subscriber.logs, func: this.emitters[1].handler};
+        console.log(tempObject);
+       tempObject.func();
+        console.log(tempObject);
+        */
+        return this;
     }
 
 };
