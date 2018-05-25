@@ -14,7 +14,6 @@ emitter.emit(eventName);
 
 var PubSub = function ()
 {
-
     var handlers = {};
 
     this.subscribe = function (event, handler) {
@@ -27,31 +26,23 @@ var PubSub = function ()
        // console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',console.log())
     };
 
-
-
     this.publish = function (event) {
       //  console.log(' * ARG: this.publish', arguments);
 
         if (handlers[event] === undefined) return;
         var i = 0, len = handlers[event].length;
-        console.log(len);
 
         for (i; i < len; i++)
         {
-        //    console.log('arguments[i]  :  ',arguments[i]);
-        //    console.log('arguments[i+1]  :  ',arguments[i+1]);
             handlers[event][i](arguments[i+1]);
         }
     };
 
     this.unsubscrbe = function (event) {
-
         console.log(handlers)
-        console.log('delete result:', delete handlers[event])
+        console.log('delete result:', delete handlers[event]);
         console.log(handlers)
-
     }
-
 };
 
 pubSub = new PubSub();
@@ -77,11 +68,9 @@ pubSub.publish('myNewEvent', 'and... it myNEwArg');
 var testObject = {}
 
 var testArray = [1,2,3,7];
-testObject = {a: 2}
+testObject = {a: 2};
 
 //var a='x';
 testObject.b = testArray;
 //console.log('testObject : ',testObject.x);
 console.log('testObject : ',testObject);
-
-
