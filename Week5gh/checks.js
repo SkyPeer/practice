@@ -44,6 +44,8 @@ assert.deepEqual(logger.logs, [
 emitter
     .off('new_notification', logger)
     .emit('new_notification')
+
+
     .on('new_notification', logger, function () {
         this.logs.push('Новое событие new_notification!');
     })

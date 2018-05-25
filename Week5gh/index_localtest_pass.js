@@ -41,7 +41,7 @@ module.exports = {
         for (var i = 0; i < this.emitters.length; i++)
         {
 
-          if (this.emitters[i].event == event && this.emitters[i].subscriber.hasOwnProperty('logs') == false)
+          if (this.emitters[i].subscriber.hasOwnProperty('logs') == false)
           {
               filteredArray.push(this.emitters[i]);
           }
@@ -68,10 +68,10 @@ module.exports = {
        // console.log('after ------------------------------')
 
         for (var i=0; i<this.emitters.length; i++) {
-            if (this.emitters[i].event == event && Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
+            if (Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
                 this.emitters[i].subscriber.count()
             }
-            if (this.emitters[i].event == event && Object.keys(this.emitters[i].subscriber)[0] == 'logs' )
+            if (Object.keys(this.emitters[i].subscriber)[0] == 'logs' )
             {
                 tempObject = {logs: this.emitters[i].subscriber.logs, func: this.emitters[i].handler};
                 tempObject.func()
