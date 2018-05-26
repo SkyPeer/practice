@@ -1,38 +1,40 @@
 var PubSub =
 {
-    handlers: {},
+    emitters: [],
 
-    subscribe: function (event, handler) {
+    on: function (event, subscriber, handler) {
       //  console.log('| HANDLER IN:',handler,'  |');
       //  console.log(' * ARG: this.subscribe', arguments);
-        if (this.handlers[event] === undefined)
-        {
-            this.handlers[event] = []; this.handlers[event].push(handler)
-        }
+       // if (this.handlers[event] === undefined)
+     //   {
+         //   this.emitters.push({event: event, subscriber: subscriber, handler:handler});
+     //   }
        // console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',console.log())
+
+        console.log(this.emitters, this.emitters.length);
         return this;
     },
 
-    publish: function (event) {
-      //  console.log(' * ARG: this.publish', arguments);
-        if (this.handlers[event] === undefined) return;
-        var i = 0, len = this.handlers[event].length;
+    off: function (event) {
+        delete this.emitters[event];
+        return this;
+    },
 
-        for (i; i < len; i++)
+
+    emit: function (event) {
+    //  console.log(' * ARG: this.publish', arguments, '  event: ', event);
+        //if (this.handlers[event] === undefined) return;
+
+        for (var i = 0; i < this.emitters.length; i++)
         {
-            this.handlers[event][i](arguments[i+1]);
+         //   this.emitters[event][i](arguments[i+1]);
         }
-        return this;
-    },
-
-    unsubscrbe: function (event) {
-        delete this.handlers[event];
         return this;
     }
 
 };
 
-pubSub = PubSub;
+emitter = PubSub;
 
 var notifications = {
     counter: 0,
@@ -43,15 +45,22 @@ var notifications = {
 
 
 
+
 var logger = {
     logs: []
 };
 
+console.log(notifications.counter);
 
+emitter
+ //   .on('myEvent', function Arg(arg){ console.log("myEvent Работает + аргумент:" + arg) } )
+    .on('new_notification', notifications, notifications.count);
+    //.on('new_notification', logger, function () {this.logs.push('Произошло новое событие new_notification');})
 
-pubSub.subscribe('myEvent', function Arg(arg){ console.log("myEvent worked. Arg: " + arg) } );
-pubSub.publish('myEvent', 'it myArg');
+   // .emit('new_notification');
+ console.log(notifications.counter);
 
+/*
 pubSub.subscribe('myNewEvent',
     function Arg2(arg2)
     {
@@ -63,5 +72,59 @@ pubSub.publish('myNewEvent', 'and... it myNEwArg again');
 
 pubSub.unsubscrbe('myNewEvent');
 pubSub.publish('myNewEvent', 'and... it myNEwArg');
+*/
 
 
+/*
+
+ on: function (event, subscriber, handler)
+ off: function (event, subscriber) {
+ emit: function (event) {
+
+
+
+emitter
+    .on('new_notification', notifications, notifications.count)
+    .on('new_notification', logger, function () {
+        this.logs.push('Произошло новое событие new_notification');
+    })
+    .on('new_notification', logger, function () {
+        // this указывает на logger
+        this.logs.push('Добавлена новая нотификация. Количество - ' + notifications.counter);
+    })
+    .emit('new_notification');
+
+// Проверяем количество нотификаций
+assert.equal(notifications.counter, 1, 'Получена одна нотификация');
+
+// В логе сохранено событие
+// Так как обработчик notifications.count отработал первым,
+//  в логах сохранено правильное количество нотификаций
+assert.deepEqual(logger.logs, [
+    'Произошло новое событие new_notification',
+    'Добавлена новая нотификация. Количество - 1'
+]);
+
+// На время отключаем логгирование, а затем снова включаем
+emitter
+    .off('new_notification', logger)
+    .emit('new_notification')
+
+
+    .on('new_notification', logger, function () {
+        this.logs.push('Новое событие new_notification!');
+    })
+    .emit('new_notification');
+
+// Проверяем количество нотификаций
+assert.equal(notifications.counter, 3, 'Получено три нотификации');
+// Проверяем, что логи были отключены, а затем снова подключены
+assert.deepEqual(logger.logs, [
+    'Произошло новое событие new_notification',
+    'Добавлена новая нотификация. Количество - 1',
+    'Новое событие new_notification!'
+]);
+
+console.info('OK!');
+
+*/
