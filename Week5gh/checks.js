@@ -66,4 +66,6 @@ assert.deepEqual(logger.logs, [
     'Новое событие new_notification!'
 ]);
 
+console.log('3 test ok')
+
 console.info('OK!');
