@@ -23,7 +23,7 @@ var PubSub = function ()
         {
             handlers[event] = []; handlers[event].push(handler)
         }
-       // console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',console.log())
+       console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',)
     };
 
     this.publish = function (event) {

@@ -2,16 +2,23 @@ var PubSub =
 {
     emitters: [],
 
+    eventer : {},
+
     on: function (event, subscriber, handler) {
       //  console.log('| HANDLER IN:',handler,'  |');
       //  console.log(' * ARG: this.subscribe', arguments);
        // if (this.handlers[event] === undefined)
      //   {
-         //   this.emitters.push({event: event, subscriber: subscriber, handler:handler});
-     //   }
-       // console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',console.log())
+        //event ={}
+        //event[subscriber] = handler;
+        this.eventer = {event: event, subscriber: subscriber, handler: handler}
+        //console.log('Object.keys(eventer) =', Object.keys(this.eventer));
 
-        console.log(this.emitters, this.emitters.length);
+       // console.log(event)
+     //   }
+       //console.log('*** LOG: || hadlers:', handlers, 'arraycheck:',Array.isArray(handlers[event]), ' ||',console.log())
+
+        //console.log(this.emitters, this.emitters.length);
         return this;
     },
 
@@ -24,11 +31,13 @@ var PubSub =
     emit: function (event) {
     //  console.log(' * ARG: this.publish', arguments, '  event: ', event);
         //if (this.handlers[event] === undefined) return;
+       // console.log(this.eventer.handler)
+        this.eventer.handler.call(this.eventer.subscriber);
 
-        for (var i = 0; i < this.emitters.length; i++)
+       /* for (var i = 0; i < this.emitters.length; i++)
         {
-         //   this.emitters[event][i](arguments[i+1]);
-        }
+        // this.emitters[event][i](arguments[i+1]);
+        } */
         return this;
     }
 
@@ -50,16 +59,18 @@ var logger = {
     logs: []
 };
 
-console.log(notifications.counter);
+
 
 emitter
- //   .on('myEvent', function Arg(arg){ console.log("myEvent Работает + аргумент:" + arg) } )
-    .on('new_notification', notifications, notifications.count);
-    //.on('new_notification', logger, function () {this.logs.push('Произошло новое событие new_notification');})
+//    .on('myEvent', function Arg(arg){ console.log("myEvent Работает + аргумент:" + arg) } )
+    .on('new_notification', notifications, notifications.count)
+    .emit('new_notification')
+    .on('new_notification', logger, function () {this.logs.push('Произошло новое событие new_notification');})
+   .emit('new_notification');
 
-   // .emit('new_notification');
- console.log(notifications.counter);
 
+console.log('notifications.counter', notifications.counter);
+console.log('logger.logs',logger.logs)
 /*
 pubSub.subscribe('myNewEvent',
     function Arg2(arg2)

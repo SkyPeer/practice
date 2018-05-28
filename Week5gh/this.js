@@ -40,7 +40,7 @@ var o2 =
         a2: 154,
         f2: function () {
             console.log('a2 =', this.a2)}
-    }
+    };
 
 var o3 =
     {
@@ -51,8 +51,17 @@ var o3 =
     o2.f2(); // a2 = 154
     o3.o3f2();  // a2 = 254
     o2.f2.call(o3); // a2 = 254
+
+
 console.log('------------------------------------');
+// Вызов с конструктором
 
+function f3() {
+    this.x = 5;
+    console.log('this x =', this.x);
+    console.log(this === global); // false
 
-
+}
+var o4 = new f3();
+console.log('o4.x', o4.x); // true
 
