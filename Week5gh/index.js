@@ -1,30 +1,17 @@
 module.exports = {
 
+    eventers: [],
 
     /**
      * @param {String} event
      * @param {Object} subscriber
      * @param {Function} handler
      */
-    emitters: [],
-
     on: function (event, subscriber, handler) {
-        /*
-        console.log('event ->', event,' *** TYPE:', typeof(event));
-        console.log('subscriber ->', subscriber,' *** TYPE:', typeof(subscriber));
-        console.log('handler ->', handler,' *** TYPE:', typeof(handler));
-        */
 
-        this.emitters.push({event: event, subscriber: subscriber, handler:handler});
+        this.eventers.push({event: event, subscriber:subscriber, handler:handler})
 
-
-        //this.emitters.push({event: event, subscriber: subscriber}); - WORK!!!
-
-
-
-      // console.log(this.emitters);
         return this;
-
     },
 
     /**
@@ -32,21 +19,25 @@ module.exports = {
      * @param {Object} subscriber
      */
     off: function (event, subscriber) {
-      //  console.log('event:', event);
-      //  console.log('subscriber:',subscriber);
-        filteredArray = [];
 
-       // console.log(this.emitters);
+        var eventersFilteredArray = []
 
-        for (var i = 0; i < this.emitters.length; i++)
+        //console.log(event)
+        console.log(' off function object: ',Object.keys(subscriber))
+
+
+        for (var i = 0; i < this.eventers.length; i++)
         {
-
-          if (this.emitters[i].event == event && this.emitters[i].subscriber.hasOwnProperty('logs') == false)
-          {
-              filteredArray.push(this.emitters[i]);
-          }
+            var a = Object.keys(subscriber)
+            var b = Object.keys(this.eventers[i].subscriber)
+            console.log('a = ',a[0],' b = ',b[0])
+            if (a[0] != b[0])
+            {
+                eventersFilteredArray.push(this.eventers[i]);
+            }
         }
-        this.emitters = filteredArray.slice();
+        console.log(eventersFilteredArray)
+        this.eventers = eventersFilteredArray.slice();
 
         return this;
     },
@@ -55,41 +46,13 @@ module.exports = {
      * @param {String} event
      */
     emit: function (event) {
-
-    //console.log('EMIT:',this.emitters[0].subscriber.count());
-    //console.log('EMIT2:',this.emitters[0].subscriber);
-
-        for (var i=0; i<this.emitters.length; i++)
+        for (var i = 0; i < this.eventers.length; i++)
         {
-          //  console.log(Object.keys(this.emitters[i]));
-        }
-
-
-       // console.log('after ------------------------------')
-
-        for (var i=0; i<this.emitters.length; i++) {
-            if (this.emitters[i].event == event && Object.keys(this.emitters[i].subscriber)[0] == 'counter') {
-                this.emitters[i].subscriber.count()
-            }
-            if (this.emitters[i].event == event && Object.keys(this.emitters[i].subscriber)[0] == 'logs' )
+            if (this.eventers[i].event == event)
             {
-                tempObject = {logs: this.emitters[i].subscriber.logs, func: this.emitters[i].handler};
-                tempObject.func()
+                this.eventers[i].handler.call(this.eventers[i].subscriber)
             }
-
-
-
         }
-
-        //console.log(this.emitters[1]);
-        /*
-        tempObject = {logs: this.emitters[1].subscriber.logs, func: this.emitters[1].handler};
-        console.log(tempObject);
-       tempObject.func();
-        console.log(tempObject);
-        */
-
-        return this;
+    return this;
     }
-
 };

@@ -74,3 +74,13 @@ testObject = {a: 2};
 testObject.b = testArray;
 //console.log('testObject : ',testObject.x);
 console.log('testObject : ',testObject);
+
+var logger = {
+    logs: [1,2,3],
+    a: [232112]
+};
+
+var a = Object.keys(logger)
+
+console.log(a[0]);
+
