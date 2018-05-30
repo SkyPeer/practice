@@ -7,8 +7,25 @@ module.exports = {
      * @param {Object} subscriber
      * @param {Function} handler
      */
+
+    eventCheck: function (array, event) {
+
+        for (var i = 0; i < array.length; i++)
+        {
+               if (array[i].event == event)
+               {
+                   return true;
+                }
+                else
+                {
+                    return false;
+                }
+        }
+        return this;
+    },
+
     on: function (event, subscriber, handler) {
-       // console.log('event =', event == '');
+
         this.eventers.push({event: event, subscriber:subscriber, handler:handler});
 
         return this;
@@ -18,47 +35,41 @@ module.exports = {
      * @param {String} event
      * @param {Object} subscriber
      */
-    off: function f(event, subscriber) {
-
-        var eventersFilteredArray = [];
-
-        // clear event check
-        for (var i = 0; i < this.eventers.length; i++) {
-            var a = Object.keys(subscriber);
-            var b = Object.keys(this.eventers[i].subscriber);
-
-            if (a[0] == b[0] && this.eventers[i].event != '')
-            {
-                eventersFilteredArray.push(this.eventers[i])
-            }
-            else
-            {
-           //    console.log('filtered', this.eventers[i])
-            }
-        }
-        this.eventers = eventersFilteredArray.slice();
-
-
-        function eventCheck(event, array) {
-            for (var i = 0; i < array.length; i++) {
-
-                if (array[i].event == event) {return true;}
-                else{return false;}
-            }
-        }
-
-        for (var i = 0; i < this.eventers.length; i++)
+    off: function (event, subscriber) {
+        //console.log('try!!! off function.event = ',event);
+        if (this.eventCheck(this.eventers, event) == true)
         {
-            var a = Object.keys(subscriber);
-            var b = Object.keys(this.eventers[i].subscriber);
+            //console.log('off function.event = ',event);
+            var eventersFilteredArray = [];
+            var eventersArrayWhithoutClearEvents = [];
 
-            if (eventCheck(this.eventers[i].event, this.eventers) == true && a[0] !== b[0])
-            {
-                eventersFilteredArray.push(this.eventers[i]);
+            // clear event check
+            for (var i = 0; i < this.eventers.length; i++) {
+
+                if (this.eventers[i].subscriber === subscriber && this.eventers[i].event != '')
+                {
+                    eventersArrayWhithoutClearEvents.push(this.eventers[i])
+                }
+
+                if (this.eventers[i].subscriber === subscriber == false && this.eventers[i].event != '')
+                {
+                    eventersArrayWhithoutClearEvents.push(this.eventers[i])
+                }
+
             }
-        }
+            this.eventers = eventersArrayWhithoutClearEvents.slice();
 
-        this.eventers = eventersFilteredArray.slice();
+            for (var i = 0; i < this.eventers.length; i++)
+            {
+
+                if (this.eventCheck(this.eventers, this.eventers[i].event) == true && subscriber === this.eventers[i].subscriber == false)
+                {
+                    eventersFilteredArray.push(this.eventers[i]);
+                }
+            }
+            this.eventers = eventersFilteredArray.slice();
+
+        }
         return this;
     },
 
@@ -66,13 +77,18 @@ module.exports = {
      * @param {String} event
      */
     emit: function (event) {
-        for (var i = 0; i < this.eventers.length; i++) {
-            if (this.eventers[i].event == event)
-            {
-                this.eventers[i].handler.call(this.eventers[i].subscriber)
+
+        if (this.eventCheck(this.eventers, event) == true)
+        {
+            for (var i = 0; i < this.eventers.length; i++) {
+                if (this.eventers[i].event == event)
+                {
+                    this.eventers[i].handler.call(this.eventers[i].subscriber)
+                }
             }
+           // console.log('emit function log (this.eventers.length) =', this.eventers.length);
+
         }
-       // console.log(this.eventers);
-    return this;
+        return this;
     }
 };
