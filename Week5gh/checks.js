@@ -19,6 +19,10 @@ var logger = {
 
 // Подписываемся на событие new_notification и сразу оповещаем всех подписчиков
 emitter
+    .on(notifications, logger, function () {
+        this.logs.push('Произошло новое событие new_notification')})
+    .on('',notifications, logger, function () {
+        this.logs.push('Произошло новое событие new_notification')})
     .on('new_notification', notifications, notifications.count)
     .on('new_notification', logger, function () {
         this.logs.push('Произошло новое событие new_notification');

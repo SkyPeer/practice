@@ -8,7 +8,7 @@ module.exports = {
      * @param {Function} handler
      */
     on: function (event, subscriber, handler) {
-
+       // console.log('event =', event == '');
         this.eventers.push({event: event, subscriber:subscriber, handler:handler});
 
         return this;
@@ -21,25 +21,22 @@ module.exports = {
     off: function f(event, subscriber) {
 
         var eventersFilteredArray = [];
-        //var ii = this.eventers.length;
-        //console.log(event)
-    //    console.log(' off function object: ',Object.keys(subscriber))
-    //    console.log(' off function object: ',Object.keys(subscriber))
 
-        function clearEventCheck(array, subscriber) {
+        // clear event check
+        for (var i = 0; i < this.eventers.length; i++) {
+            var a = Object.keys(subscriber);
+            var b = Object.keys(this.eventers[i].subscriber);
 
-            console.log(clearEventCheck.arguments);
-
-            for (var i = 0; i < array.length; i++) {
-                var a = Object.keys(subscriber);
-                var b = Object.keys(array[i].subscriber);
-
-                if (array[i].event == '', a[0] == b[0])
-                {
-                    return true;
-                }
+            if (a[0] == b[0] && this.eventers[i].event != '')
+            {
+                eventersFilteredArray.push(this.eventers[i])
+            }
+            else
+            {
+           //    console.log('filtered', this.eventers[i])
             }
         }
+        this.eventers = eventersFilteredArray.slice();
 
 
         function eventCheck(event, array) {
@@ -54,18 +51,14 @@ module.exports = {
         {
             var a = Object.keys(subscriber);
             var b = Object.keys(this.eventers[i].subscriber);
-         //   console.log('a = ',a[0],' b = ',b[0])
 
-            //console.log(eventCheck(this.eventers[i].event, this.eventers))
-
-            if (eventCheck(this.eventers[i].event, this.eventers) == true && a[0] !== b[0] && clearEventCheck(this.eventers, subscriber) == false)
+            if (eventCheck(this.eventers[i].event, this.eventers) == true && a[0] !== b[0])
             {
                 eventersFilteredArray.push(this.eventers[i]);
             }
         }
-        console.log(eventersFilteredArray);
-        this.eventers = eventersFilteredArray.slice();
 
+        this.eventers = eventersFilteredArray.slice();
         return this;
     },
 
