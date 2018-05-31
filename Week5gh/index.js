@@ -1,32 +1,24 @@
 module.exports = {
 
-    eventers: [],
-
     /**
      * @param {String} event
      * @param {Object} subscriber
      * @param {Function} handler
      */
 
-    eventCheck: function (array, event) {
-
-        for (var i = 0; i < array.length; i++)
-        {
-               if (array[i].event == event)
-               {
-                   return true;
-                }
-                else
-                {
-                    return false;
-                }
-        }
-        return this;
-    },
+    eventers: {},
 
     on: function (event, subscriber, handler) {
 
-        this.eventers.push({event: event, subscriber:subscriber, handler:handler});
+        if (this.eventers.hasOwnProperty(event))
+        {
+            this.eventers[event].push({s: subscriber, h: handler})
+        }
+        else
+        {
+            this.eventers[event] = [];
+            this.eventers[event].push({s: subscriber, h: handler})
+        }
 
         return this;
     },
@@ -36,40 +28,33 @@ module.exports = {
      * @param {Object} subscriber
      */
     off: function (event, subscriber) {
-        //console.log('try!!! off function.event = ',event);
-        if (this.eventCheck(this.eventers, event) == true)
-        {
-            //console.log('off function.event = ',event);
-            var eventersFilteredArray = [];
-            var eventersArrayWhithoutClearEvents = [];
 
-            // clear event check
-            for (var i = 0; i < this.eventers.length; i++) {
+        var filteredArray = [];
 
-                if (this.eventers[i].subscriber === subscriber && this.eventers[i].event != '')
-                {
-                    eventersArrayWhithoutClearEvents.push(this.eventers[i])
-                }
+        if (this.eventers.hasOwnProperty(event)) {
 
-                if (this.eventers[i].subscriber === subscriber == false && this.eventers[i].event != '')
-                {
-                    eventersArrayWhithoutClearEvents.push(this.eventers[i])
-                }
-
-            }
-            this.eventers = eventersArrayWhithoutClearEvents.slice();
-
-            for (var i = 0; i < this.eventers.length; i++)
+            for (var i = 0; i < this.eventers[event].length; i++)
             {
-
-                if (this.eventCheck(this.eventers, this.eventers[i].event) == true && subscriber === this.eventers[i].subscriber == false)
+                if ( (this.eventers[event][i].s === subscriber) == false)
                 {
-                    eventersFilteredArray.push(this.eventers[i]);
+                    filteredArray.push(this.eventers[event][i])
                 }
             }
-            this.eventers = eventersFilteredArray.slice();
+
+           // this.eventers[event] = filteredArray.slice()
+            
+            if (filteredArray.length == 0)
+            {
+                delete this.eventers[event];
+            }
+            else
+            {
+                this.eventers[event] = filteredArray.slice()
+            }
+
 
         }
+
         return this;
     },
 
@@ -77,18 +62,14 @@ module.exports = {
      * @param {String} event
      */
     emit: function (event) {
-
-        if (this.eventCheck(this.eventers, event) == true)
-        {
-            for (var i = 0; i < this.eventers.length; i++) {
-                if (this.eventers[i].event == event)
-                {
-                    this.eventers[i].handler.call(this.eventers[i].subscriber)
-                }
+        if (this.eventers.hasOwnProperty(event)){
+            for (var i = 0; i < this.eventers[event].length; i++)
+            {
+                this.eventers[event][i].h.call(this.eventers[event][i].s)
             }
-           // console.log('emit function log (this.eventers.length) =', this.eventers.length);
-
         }
+
+      //  console.log(this.eventers);
         return this;
     }
 };
