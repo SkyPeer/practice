@@ -42,7 +42,7 @@ module.exports = {
             }
 
            // this.eventers[event] = filteredArray.slice()
-            
+
             if (filteredArray.length == 0)
             {
                 delete this.eventers[event];
