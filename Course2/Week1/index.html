@@ -8,37 +8,91 @@
 
     <style>
 
-        .codeclass {
-            display: block;
-            font-family: Verdana, Arial, Helvetica, serif;
-            padding-top: 15px;
-            padding-left: 25px;
-            border-right-width: 1px;
-            padding-right: 25px;
-            padding-bottom: 15px;
-            background: #c5c5c5;
-            border: 1px dotted ;
-            font-size: 100%;
-            color: #2b2b2b  }
-
-        body {
-        background-color: #d3d3d3;
-        color: #4e4e4e;
-        font-family: Verdana, Arial, Helvetica, serif;
-        font-size: 100%}
-        pre {
-            font-family: Verdana, Arial, Helvetica, serif;
-            font-size: 100%
+        table {
+            padding-top: 10px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            border: 1px dotted #ff8018;
+            border-radius: 5px;
+            color: #452F21;
+            width: 50%;
+        }
+        td {
+            border-top: 1px dotted #ff8018;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
+        .top {
+            background: #FFFFFF;
+            width: calc(100% - 300px);
+            margin: auto;
+            padding-top: 10px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 2px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        }
+
+        .bottom
+        {
+            background: #364349;
+            width: calc(100% - 300px);
+            margin: auto;
+            padding-top: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 15px;
+            color: #ff8018;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+
+        }
+        .codeclass {
+            display: block;
+            background: #d6d6d6;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            padding-top: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 15px;
+            border-radius: 5px;
+            border: 1px dotted;
+            border-color: #ff8018;
+            font-size: 100%;
+            color: #ff4800;
+            width: 50%;
+        }
+
+        pre {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 100%
+            }
+
+        main {
+            padding-top: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 15px;
+            width: calc(100% - 300px);
+            margin: auto;
+            background-color: #dedede;
+            color: #4e4e4e;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 90%;
+            }
+
+        body
+        {
+            background-color: #f2f2f2;
+        }
     </style>
 
 <body>
-
-<header style="background: #FFFFFF">
+<header class=top style="background: #FFFFFF">
     <h1><span style="color: #ff8018">Блог компании </span><span style="color: red;">Я</span>ндекс.</h1>
 </header>
 <main>
+
 <section>
 <header><h2><span style="color: red;">ЯНДЕКС</span>.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2></header>
 <article><pre>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
@@ -64,17 +118,19 @@
     <li>обновление DOM.</li>
 </ol>
 
+<pre>
 — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы
 — <q>Что же дальше?</q> - вопрошаете вы
 — <q>А давай построим график!</q> - отвечаем мы
 — <q>А что будем считать?</q> - уточняете вы
-
+</pre>
 Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
 Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
 В общем случае медиана отлично показывает, сколько грузится средний пользователь.
 
 В случае ускорения или замедления медиана, конечно, изменится. Но она не может
 рассказать, сколько пользователей ускорилось, а сколько замедлилось.
+
 <p><em>APDEX</em> – метрика, которая сразу говорит: хорошо или плохо. Метрика
 работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
 время показа страницы попало в него, то пользователь счастлив. Берем еще один
@@ -132,17 +188,33 @@ RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разны
 
 Для окончательного выбора библиотеки нам нужно сравнить:
 
-    <table></table>
-Библиотека      | IE 9          | Opera 12
-----------      | ----          | --------
-vcdiff          | 8             | 5
-google diff     | 1363          | 76
+    <table>
+        <tr>
+            <th>Библиотека</th>
+            <th>IE 9 </th>
+            <th>Opera 12</th>
+        </tr>
+        <tr>
+            <td>vcdiff</td>
+            <td>8</td>
+            <td>5</td>
+
+        </tr>
+        <tr>
+            <td>google diff </td>
+            <td>1363</td>
+            <td>76</td>
+        </tr>
+
+    </table>
+
+
 
 После того как мы определились с библиотекой для диффа, нужно определиться с тем,
 где и как хранить статику на клиенте.
 
 Формат файла с патчами для проекта выглядит так:
-<code>
+<pre><code class=codeclass>
 [
 {
 "k": "jane.css",
@@ -155,7 +227,7 @@ google diff     | 1363          | 76
 "s": 4554
 }
 ]
-</code>
+</code></pre>
 
 То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
 каждого объекта есть три свойства. k — названия ключа в localStorage для этого
@@ -183,11 +255,29 @@ md5 - 128-битный алгоритм хеширования. Предназн
 
 Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:
 
-<table></table>
-Релиз  | С патчем     | Без патча
-7.7.20  | 397          | 174 549
-7.7.21  | 383          | 53 995
-7.7.22  | 483          | 3 995
+<table>
+
+   <tr>
+       <th>Релиз</th>
+       <th>С патчем</th>
+       <th>Без патча</th>
+   </tr>
+    <tr>
+        <td>7.7.20</td>
+        <td>397 </td>
+        <td>174 549</td>
+    </tr>
+    <tr>
+        <td>7.7.21</td>
+        <td>383</td>
+        <td>53 995</td>
+    </tr>
+    <tr>
+        <td>7.7.22</td>
+        <td>483</td>
+        <td>3 995</td>
+    </tr>
+</table>
 
 Автор: @doochik
 С++ разработик
@@ -208,7 +298,7 @@ md5 - 128-битный алгоритм хеширования. Предназн
 Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
 подробностями о внутренней работе сервисов.</article>
 
-
+    <article>
 - Brister (brist89@yandex-team.ru) 24 ноября 2014 в 13:13
 
 (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
@@ -216,19 +306,21 @@ md5 - 128-битный алгоритм хеширования. Предназн
 хорошо или плохо работает почта.
 
 наверное все-таки от 0.5 до 1
-
+    </article>
+    <article>
 - alexeimois (test@yandex.ru) 22 ноября 2014 в 17:35
 
 Мы измеряем скорость загрузки с помощью <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>
-    </section>
+    </article>
+
+</section>
 </footer>
 </section>
+
 </main>
-
-<footer itemscope itemtype="http://schema.org/Organization">
-    <small>© Яндекс,</small>,<address><a href="mailto:help@yandex.ru">help@yandex.ru</a></address><address>Хохрякова, 10</address>
+<footer class =bottom itemscope itemtype="http://schema.org/Organization">
+    <strong>© Яндекс</strong>,<address><a href="mailto:help@yandex.ru">help@yandex.ru</a></address><address>Хохрякова, 10</address>
 </footer>
-
 
 </body>
 </html>
