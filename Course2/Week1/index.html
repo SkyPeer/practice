@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <meta name="author" content="Oleg Selivantsev">
 
-    <title>Yandex - Course 2 Week1 task</title>
+    <title>Yandex - Course 2 Week2 task</title>
 
     <style>
 
+        .math{
+            font-size: x-large;
+            font-style: italic
+        }
+
+        .commentTime
+        {
+            color: #656565;
+        }
         .author
         {
             color:  #ff8018;
@@ -23,12 +32,54 @@
             color: red;
         }
 
-
-        .comments
+        .creator
         {
+            color: #70caff;
+            background: #919191;
+        }
+
+        .comment
+        {
+            white-space: pre;
+            color: #9c2024;
+            display: block;
+            border-left-color: #ff8018;
+            background: #EEE;
+            border-left-style: solid;
+            border-left-width: 3px;
+            margin: 10px 0 10px 0;
+            padding: 10px 15px;
+            text-align: left;
+            white-space: pre-wrap;
+
 
         }
 
+        blockquote {
+            margin: auto;
+            color: #575757;
+            background-color: #bfbfbf;
+            padding: 20px 20px 20px 80px;
+            position: relative;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-weight: 300;
+            font-style: oblique;
+        }
+        blockquote:before {
+            content: "\201C";
+            font-family: serif;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: black;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        time
+        {
+            font-weight: bold;
+        }
 
         table {
             padding-top: 10px;
@@ -104,6 +155,25 @@
             text-align: justify
             }
 
+        a:link {
+            color: #ff6421;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: #b20006;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+
         h1 {  color: #484848;  }
         h2 {  color: #484848;  }
         h3 {  color: #484848;  }
@@ -155,8 +225,8 @@
 — <q>А давай построим график!</q> - отвечаем мы
 — <q>А что будем считать?</q> - уточняете вы
 </pre>
-Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
-Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
+Как вы знаете, <dfn>медиана – это серединное, а не среднее значение в выборке.
+Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.</dfn>
 В общем случае медиана отлично показывает, сколько грузится средний пользователь.
 
 В случае ускорения или замедления медиана, конечно, изменится. Но она не может
@@ -263,6 +333,19 @@ RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разны
 
 ******* алгоритм флетчера сюла **************
 
+<code>
+<pre>
+дано: <strong class="math">&epsilon;, &#119987;<sub><small>0</small></sub></strong>
+инициализировать <strong class="math">&#119867;<sub><small>0</small></sub></strong>
+<span class="math">&#119896; = 0</span>
+<strong>while <span style="font-size: x-large">||</span></strong><span class="math">&nabla;&fnof;<sub><small>&#119896;</small></sub></span> <span style="font-size: x-large"><strong>|| ><span class="math"> &epsilon;</span></strong></span>
+    найти направление <span class="math">&#120473;<sub><small>&#119896;</small></sub>= - &#119862;<sub><small>&#119896;</small></sub>&nabla;&fnof;<sub><small>&#119896;</small></sub></span>
+    вычислить <span class="math">&#119987;<sub><small>&#119896;+1</small></sub> = &#119987;<sub><small>&#119896;</small></sub> + &alpha;<sub><small>&#119896;</small></sub> &#120473;<sub><small>&#119896;</small></sub> ,&alpha;<sub><small>&#119896;</small></sub></span>  удовлетворяет условию Вольфе
+    обозначить <span class="math">&#119878;<sub><small>&#119896;</small></sub> = &#119987;<sub><small>&#119896;+1</small></sub> - &#119987;<sub><small>&#119896;</small></sub><small> и</small> &#119988;<sub><small>&#119896;</small></sub> = <span class="math">&nabla;&fnof;<sub><small>&#119896;+1</small></sub></span> - <span class="math">&nabla;&fnof;<sub><small>&#119896;</small></sub></span></span>
+    вычисчлить <span class="math">&#119862;<sub><small>&#119896;+1</small></sub></span>
+    <span class="math">&#119896; = &#119896;+1</span>
+<strong>end</strong>
+</pre></code>
 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
     CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
     целостности данных
@@ -302,55 +385,56 @@ RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разны
 </article>
 
 <footer>
-<section class="author">
-<pre>Автор: <strong class="name">@doochik</strong>
-С++ разработик
-<adress>Электронная почта:(<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</adress>
-Компания: <font class="company">Яндекс</font></pre>
-</section>
-<hr>
-    <h2>Комментарии (3):</h2>
-<section class="comments">
 
-<article>
-- Mogaika (mogaika@yandex-team.ru) <time>30 ноября 2014 в 17:05</time>
+<section class="author" itemscope itemtype="http://schema.org/Person">
+<pre>Автор: <strong class="name" itemprop="givenName">@doochik</strong>
+<span itemprop="jobTitle">С++ разработик</span>
+(<span itemprop="email"><a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a></span>)
+Компания: <span class="company" itemprop="worksFor">Яндекс</span></pre>
+</section>
+
+<hr>
+<section class="comments" itemprop=”comment” itemscope itemtype=”http://schema.org/Comment”>
+<h2>Комментарии (<span itemprop=”interactionCount”>3</span>):</h2>
+
+<article class="comment">
+- <span  itemprop=”creator” class="creator">Mogaika</span> (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) <span itemprop=”commentTime” class="commentTime">30 ноября 2014 в 17:05</span>
 А можете привести сравнение, на сколько быстрее грузится lite версия?
 </article>
 
-<article>
-- JIguse (mrawesome@yandex.ru) 29 ноября 2014 в 21:30
-
+<article class="comment">
+- <span  itemprop=”creator” class="creator">JIguse</span> (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) <span itemprop=”commentTime” class="commentTime">29 ноября 2014 в 21:30</span>
 Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
 подробностями о внутренней работе сервисов.
 </article>
 
-<article>
-- Brister (brist89@yandex-team.ru) 24 ноября 2014 в 13:13
+<article class="comment">
+- <span  itemprop=”creator” class="creator">Brister</span> (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) <span itemprop=”commentTime” class="commentTime">24 ноября 2014 в 13:13</span>
 
-(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+<blockquote>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-хорошо или плохо работает почта.
-
+хорошо или плохо работает почта.</blockquote>
 наверное все-таки от 0.5 до 1
 </article>
 
-<article>
-- alexeimois (test@yandex.ru) 22 ноября 2014 в 17:35
-
+<article class="comment">
+- <span  itemprop=”creator” class="creator">alexeimois</span> (<a href="test@yandex.ru">test@yandex.ru</a>) <span itemprop=”commentTime” class="commentTime">22 ноября 2014 в 17:35</span>
 Мы измеряем скорость загрузки с помощью <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>
 </article>
-
-
 </section>
+
 </footer>
+
 </section>
 </main>
 
 <footer class=bottom itemscope itemtype="http://schema.org/Organization">
-    <strong>© Яндекс</strong>,<address><a href="mailto:help@yandex.ru">help@yandex.ru</a></address><address>Хохрякова, 10</address>
+    © <strong class="company" itemprop="name">Яндекс</strong>,
+    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <span itemprop="email"><a href="mailto:help@yandex.ru">help@yandex.ru</a></span>
+        <span itemprop="streetAddress">Хохрякова, 10</span>
+    </span>
 </footer>
 
 </body>
 </html>
-
-
