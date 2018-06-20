@@ -1,6 +1,28 @@
 /*Ссылка на шрифты кроме основного 'https://fonts.googleapis.com/css?family=Farsan|Hind+Siliguri|Racing+Sans+One|Six+Caps|Space+Mono:700'*/
+
+
+@font-face
+{
+    font-family: OldEnglish;
+    src: url(olde.ttf);
+}
+@font-face {
+    font-family: SixCaps;
+    src: url(SixCaps.ttf)
+}
+
+html {
+    background: url(bg_nyc.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 body
 {
+    background-color: white;
+    box-shadow: 0 0 50px rgba(0,0,0,255);
     width: 1200px;
     margin: 0 auto;
 }
@@ -16,17 +38,16 @@ body
 /*––––––––––––––––––Шапка газеты––––––––––––––––––––*/
 .header
 {
-    margin: 35px 0 25px;
+    margin: 65px 0 25px;
 }
 
 .header__info
 {
     float: left;
-
     box-sizing: border-box;
     width: 200px;
     padding: 25px 10px;
-
+    text-align: center;
     border: 1px solid;
 }
 
@@ -50,8 +71,10 @@ body
 .header__title
 {
     overflow: visible;
-
     margin: 0;
+    font-family: OldEnglish, sans-serif;
+    font-size: 90px;
+    text-align: center;
 }
 
 
@@ -65,11 +88,11 @@ body
 }
 
 .sub-header__copyright
-{
-    display: inline-block;
-
-    margin: 0 30px;
-}
+    {
+        display: inline-block;
+        font-size: 60%;
+        margin: 0 30px;
+    }
 
 .sub-header__price
 {
@@ -88,6 +111,9 @@ body
 {
     margin-top: 0;
     margin-bottom: 10px;
+    font-family: SixCaps, sans-serif;
+    font-size: 320%;
+    font-weight: bold;
 }
 
 .article__help
@@ -106,7 +132,9 @@ body
 .article__author
 {
     display: block;
-
+    font-weight: bold;
+    text-align: center;
+    font-size: 80%;
     margin-top: 10px;
 }
 
@@ -131,6 +159,10 @@ body
 .article__subtitle
 {
     margin: 10px 0;
+    font-family: "Times New Roman",serif;
+    text-align: center;
+    font-size: 117%;
+    font-weight: bold;
 }
 
 /*––––––––––––––––––Блок главной фотографии–––––––––*/
