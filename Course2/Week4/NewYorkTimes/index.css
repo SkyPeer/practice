@@ -122,9 +122,17 @@ body {
 }
 
 .article__content{
+
     text-align: justify;
-    font-size: 80%;
+    font-size: 0.8em;
     text-indent: 2ch;
+
+
+}
+
+.article.article_columns_two p{
+    column-count: 2;
+    column-gap: 15px;
 }
 
 /*––––––––––––––––––Блок статьи–––––––––––––––––––––*/
