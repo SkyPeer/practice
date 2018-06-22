@@ -22,7 +22,7 @@
 }
 
 html {
-    background: url(bg_nyc.jpg) no-repeat center center fixed;
+    background: url(http://arroway.cloud/sfo_ctown.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -223,6 +223,8 @@ p {
     text-align: center;
     font-size: 80%;
     font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .article__image
@@ -257,7 +259,7 @@ p {
 .main-photo__wrapper
 {
     margin: 0;
-    background: url(bg_nyc.jpg) no-repeat center center fixed;
+    background: url(http://arroway.cloud/sfo_ctown.jpg) no-repeat center center fixed;
    /* -webkit-filter: blur(1px); */
 
     -webkit-background-size: cover;
