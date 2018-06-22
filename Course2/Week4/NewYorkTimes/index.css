@@ -21,29 +21,45 @@
     src: url(Farsan-Regular.ttf)
 }
 
-
-
-
 html {
     background: url(bg_nyc.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 body {
-
+    background-color: white;
     box-shadow: 0 0 50px rgba(0,0,0,255);
     width: 1200px;
     margin: 0 auto;
 }
 
-body > .content
+/* body .content .center-column .main-photo .main-photo__wrapper
 {
-    background-color: rgb(255, 255, 255);
-}
+    background-color: rgba(255, 255, 255, 0);
+} */
 
+/*
+body :nth-child(n):not(.content):not(.center-column):not(.main-photo):not(.main-photo__wrapper)
+
+{
+    background-color: rgba(255, 255, 255, 255);
+} */
+
+/*
+.main-photo__wrapper
+{
+    background: url(bg_nyc.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+*/
 .clear-fix:before
 {
     display: block;
@@ -60,7 +76,7 @@ body > .content
 /*––––––––––––––––––Шапка газеты––––––––––––––––––––*/
 .header
 {
-    margin: 55px 0 25px;
+    margin: 85px 0 25px;
 }
 
 .header__info
@@ -252,13 +268,22 @@ body > .content
 .main-photo__wrapper
 {
     margin: 0;
+    background: url(bg_nyc.jpg) no-repeat center center fixed;
+   /* -webkit-filter: blur(1px); */
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .main-photo__img
 {
-    background-color: rgba(0,0,0,0);
+
     width: 100%;
     opacity: 0.5;
+
+
 
 }
 
