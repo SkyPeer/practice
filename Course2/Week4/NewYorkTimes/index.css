@@ -37,29 +37,18 @@ body {
     margin: 0 auto;
 }
 
-/* body .content .center-column .main-photo .main-photo__wrapper
-{
-    background-color: rgba(255, 255, 255, 0);
-} */
-
-/*
-body :nth-child(n):not(.content):not(.center-column):not(.main-photo):not(.main-photo__wrapper)
-
-{
-    background-color: rgba(255, 255, 255, 255);
-} */
-
-/*
-.main-photo__wrapper
-{
-    background: url(bg_nyc.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
+p {
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
-*/
+.left-column p:nth-child(2n){
+    color: #7a7a7a;
+}
+
+.right-column p:nth-child(2n+1){
+    color: #7a7a7a;
+}
+
 .clear-fix:before
 {
     display: block;
@@ -275,6 +264,7 @@ body :nth-child(n):not(.content):not(.center-column):not(.main-photo):not(.main-
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 475px;
 }
 
 .main-photo__img
