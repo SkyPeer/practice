@@ -1,123 +1,71 @@
 /*Ссылка на шрифты кроме основного 'https://fonts.googleapis.com/css?family=Farsan|Hind+Siliguri|Racing+Sans+One|Six+Caps|Space+Mono:700'*/
-
-@font-face {
-    font-family: OldEnglish;
-    src: url(olde.ttf);
-}
-@font-face {
-    font-family: SixCaps;
-    src: url(SixCaps.ttf);
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-    font-family: RacingSansOne;
-    src: url(RacingSansOne-Regular.ttf);
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-
-}
-@font-face {
-    font-family: SpaceMono;
-    src: url(SpaceMono-Regular.ttf);
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-    font-family: Farsan;
-    src: url(Farsan-Regular.ttf);
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+@font-face{
+    font-family: Old English;
+    src: url("\Old English Text MT.ttf")   format("truetype");
 }
 
-html {
-    background: url(http://arroway.cloud/sfo_ctown.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-}
-
-body {
-    background-color: white;
-    box-shadow: 0 0 50px rgba(0,0,0,255);
+body
+{
     width: 1200px;
     margin: 0 auto;
 }
-
-p {
-    margin-bottom: 2px;
-    margin-top: 2px;
-}
-.left-column p:nth-child(2n){
-    color: #7a7a7a;
+p{
+    margin: 0 auto;
 }
 
-.right-column .article__content p:nth-of-type(2n) {
-    color: #7a7a7a;
-}
-
-.clear-fix:before
-{
-    display: block;
-    clear: both;
-    content: '';
-    height: 30px;
-}
 .clear-fix:after
 {
     display: block;
     clear: both;
-    content: ''; }
+
+    content: '';
+}
 
 /*––––––––––––––––––Шапка газеты––––––––––––––––––––*/
 .header
 {
-    margin: 85px 0 25px;
+    margin: 35px 0 25px;
+    text-align: center;
 }
 
 .header__info
 {
     float: left;
-    margin-top: 11px;
-    margin-left: 10px;
-    box-sizing: border-box;
-    width: 190px;
+
+    box-sizing: border-box;    
+    width: 200px;
     padding: 25px 10px;
-    border: 1px solid;
-    text-align: center;
+
+    border: 1px solid; 
+
 }
 
 .header__weather
 {
-    margin-right: 10px;
     float: right;
-    width: 190px;
+
+    width: 200px;
 }
 
 .header__weather-title
 {
     margin: 0;
-    font-family: SpaceMono, "Arial", "Tahoma", monospace;
-    font-size: 117%;
-    font-weight: bold;
-    text-align: center;
+    font: bold 117% Space Mono, monospace;
 }
 
 .header__weather-text
 {
-    line-height: 110%;
+    margin: 0;
     text-align: justify;
     font-size: 80%;
-    margin: 0;
+    line-height: 110%;
 }
 
 .header__title
 {
-
     overflow: visible;
+    font: normal 500% Old English, monospace;
     margin: 0;
-    font-family: OldEnglish, "Times New Roman", serif;
-    font-size: 90px;
-   text-align: center;
-
 }
 
 
@@ -125,27 +73,23 @@ p {
 .sub-header
 {
     padding: 5px 0;
+
     border-top: 1px solid;
     border-bottom: 2px solid;
 }
 
 .sub-header__copyright
-    {
-        display: inline-block;
-        font-size: 60%;
-        margin: 0 30px;
-    }
+{
+    display: inline-block;
+    font-size: 60%;
+    margin: 0 30px;
+}
 
 .sub-header__price
 {
     float: right;
-    margin-right: 10px;
 }
 
-.sub-header__number
-{
-    margin-left: 10px;
-}
 
 /*––––––––––––––––––Основной контент––––––––––––––––*/
 .content
@@ -153,46 +97,15 @@ p {
     display: flex;
 }
 
-.article__content{
-
-    text-align: justify;
-    font-size: 0.8em;
-    text-indent: 2ch;
-
-}
-
-.article_columns_two {
-    column-count: 2;
-    column-gap: 15px;
-}
-
 /*––––––––––––––––––Блок статьи–––––––––––––––––––––*/
 .article__title
 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: SixCaps, "Arial", sans-serif;
-    font-size: 320%;
+
+    font: 320% Six Caps, sans-serif;
     font-weight: bold;
-    column-span: all;
 }
-
-.article__title_font_racing
-{
-    font-family: RacingSansOne, "Arial", sans-serif;
-    font-weight: bold;
-    font-size: 200%;
-
-}
-
-.article__title_font_farsan
-{
-    font-family: Farsan, "Times New Roman", cursive;
-    font-size: 2.3em;
-
-
-}
-
 
 .article__help
 {
@@ -203,33 +116,55 @@ p {
 
 .article__add-text
 {
-    text-align: justify;
-    text-indent: 2ch;
-    font-size: 80%;
-    font-style: italic;
     margin-top: 10px;
     margin-bottom: 4px;
-
+    font-style: italic;
 }
 
 .article__author
 {
     display: block;
-    font-weight: bold;
+
+    margin-top: 10px;
+
+    font-size: 0.8em;
+    font-weight: 600;
     text-align: center;
-    font-size: 80%;
-    /*margin-top: 10px; */
     column-span: all;
+}
+
+.article__content
+{
+    text-indent: 1em;
+    font-size: .8em;
+    text-align: justify;    
 }
 
 .article__continue
 {
-    display: block;
-    text-align: center;
-    font-size: 80%;
+    display: block;    
+    font-size: 0.8rem;
     font-style: italic;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    text-align: center;
+    column-span:all;
+}
+
+.article_columns_two{
+    column-count: 2;
+    column-gap: 15px;
+}
+
+.article__title_font_racing{
+    font: oblique 190% Racing Sans One, serif;
+    font-weight: 700;
+    text-align: justify;  
+    column-span: all;          
+}
+.article__title_font_farsan{
+    font: italic 210% Farsan, sans-serif;
+    font-weight: 700;   
+    text-align: justify; 
+    column-span:all;
 }
 
 .article__image
@@ -237,69 +172,52 @@ p {
     margin: 0;
     text-indent: 0;
 }
+.article__image-caption{
+    font-size: 0.9rem;
+    text-decoration: underline;    
+}
 
-.article__image.article__image_align_right
+.article__image_align_right
 {
     float: right;
 
     margin: 10px 0 5px 10px;
 }
 
-.article__image-caption {
-  font-size: 0.8rem;
-    text-decoration: underline;
-    text-align: center;
-}
-
 .article__subtitle
 {
     margin: 10px 0;
-    font-family: "Times New Roman",serif;
-    text-align: center;
-    font-size: 1.17em;
+    font: 117% Times New Roman, serif;
     font-weight: bold;
+    text-align: center;
 }
 
 /*––––––––––––––––––Блок главной фотографии–––––––––*/
 .main-photo__wrapper
 {
     margin: 0;
-    background: url(http://arroway.cloud/sfo_ctown.jpg) no-repeat center center fixed;
-   /* -webkit-filter: blur(1px); */
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 475px;
 }
 
 .main-photo__img
 {
-
     width: 100%;
-    opacity: 0.5;
-
-
-
 }
 
 .main-photo__title
 {
     margin: 0;
+    font-size: 1.2em;    
     font-weight: bold;
 }
 
 .main-photo__desc
 {
     margin-bottom: 20px;
-    font-size: 80%;
+    font-size:80%;
 }
-
 .main-photo__caption{
-    /* font-variant: all-small-caps; */
+    font-size:.8rem;
     text-transform: uppercase;
-    font-size: 0.7rem;
     text-align: right;
 }
 
@@ -307,8 +225,6 @@ p {
 .line
 {
     border-top: 1px solid #000;
-    /*column-span: all; */
-
 }
 
 .line.line_type_bold
@@ -340,7 +256,6 @@ p {
     width: 49%;
 
     vertical-align: top;
-
 }
 
 .multicolumn__right
@@ -364,6 +279,7 @@ p {
 .multicolumn .article__title
 {
     margin: 10px 0 0 0;
+
 }
 
 .center-column
@@ -395,5 +311,13 @@ p {
 
     flex-shrink: 0;
 }
+
+.right-column .article__title{
+    font-size: 300%;
+}
+.right-column .article__subtitle{
+    font-size: 110%;
+}
+
 
 /*––––––––––––––––––––––––––––––––––––––––––––––––––*/
