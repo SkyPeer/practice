@@ -1,0 +1,342 @@
+/*Ссылка на шрифты кроме основного 'https://fonts.googleapis.com/css?family=Farsan|Hind+Siliguri|Racing+Sans+One|Six+Caps|Space+Mono:700'*/
+@font-face {
+    font-family: 'Farsan';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Farsan Regular'), local('Farsan-Regular'), url(https://fonts.gstatic.com/s/farsan/v3/VEMwRoJ0vY_zsyzK3aWo.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Racing Sans One'), local('RacingSansOne-Regular'), url(https://fonts.gstatic.com/s/racingsansone/v5/sykr-yRtm7EvTrXNxkv5jfKKyDCAKHDh.woff) format('woff');
+}
+@font-face {
+    font-family: 'Six Caps';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Six Caps'), local('SixCaps'), url(https://fonts.gstatic.com/s/sixcaps/v8/6ae_4KGrU7VR7bNmaYcV_3Q.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Space Mono Bold'), local('SpaceMono-Bold'), url(https://fonts.gstatic.com/s/spacemono/v2/i7dMIFZifjKcF5UAWdDRaPpZUFWaHg.woff2) format('woff2');
+}
+@font-face {
+    font-family: OldEnglish;
+    src: url(olde.ttf);
+}
+body
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clear-fix:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
+/*––––––––––––––––––Шапка газеты––––––––––––––––––––*/
+.header
+{
+    margin: 35px 0 25px;
+}
+
+.header__info
+{
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    width: 200px;
+    padding: 25px 10px;
+
+    border: 1px solid;
+}
+
+.header__weather
+{
+    float: right;
+
+    width: 200px;
+}
+
+.header__weather-title
+{
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    font-size: 117%;
+    text-align: center;
+}
+
+.header__weather-text
+{
+    text-align: justify;
+    font-size: 80%;
+    line-height: 110%;
+    margin: 0;
+}
+
+.header__title
+{
+
+    overflow: visible;
+    margin: 0;
+    font-family: OldEnglish, "Times New Roman", fantasy;
+    font-size: 90px;
+    text-align: center;
+
+}
+
+/*––––––––––––––––––Подшапка газеты–––––––––––––––––*/
+.sub-header
+{
+    padding: 5px 0;
+
+    border-top: 1px solid;
+    border-bottom: 2px solid;
+}
+
+.sub-header__copyright
+{
+    display: inline-block;
+    font-size: 60%;
+    margin: 0 30px;
+}
+
+.sub-header__price
+{
+    float: right;
+}
+
+
+/*––––––––––––––––––Основной контент––––––––––––––––*/
+.content
+{
+    display: flex;
+}
+
+/*––––––––––––––––––Блок статьи–––––––––––––––––––––*/
+.article__title
+{
+    font-family: "Six Caps", sans-serif;
+    font-weight: bold;
+    font-size: 320%;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+}
+.article__title_article__title_font_racing
+{
+    font-family: "Racing Sans One", "Arial", cursive;
+    font-size: 200%;
+    font-weight: bold;
+    column-span: all;
+    text-align: justify;
+}
+.article__title_article__title_font_farsan
+{
+    font-family: "Farsan"; "Times New Roman", cursive;
+    font-weight: bold;
+    font-size: 230%;
+    column-span: all;
+    text-align: justify;
+}
+
+.article__help
+{
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
+}
+
+
+.article__add-text
+{
+    text-align: justify;
+    text-indent: 4%;
+    font-size: 80%;
+    font-style: oblique;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.article__author
+{
+    display: block;
+    font-size: 80%;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    column-span: all;
+}
+.article__content {
+    text-align: justify;
+    text-indent: 6%;
+    font-size: 80%;
+}
+
+.article_columns_two {
+    column-count: 2;
+    column-gap: 15px;
+}
+.article__continue
+{
+    font-size: 80%;
+    font-style: oblique;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.article__image
+{
+    margin: 0;
+    text-indent: 0;
+}
+
+.article__image.article__image_align_right
+{
+    float: right;
+
+    margin: 10px 0 5px 10px;
+}
+
+.article__subtitle
+{
+    font-size: 117%;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/*––––––––––––––––––Блок главной фотографии–––––––––*/
+.main-photo__wrapper
+{
+    margin: 0;
+}
+
+.main-photo__img
+{
+    width: 100%;
+}
+
+.main-photo__title
+{
+    margin: 0;
+    font-weight: bold;
+}
+
+.main-photo__desc
+{
+    font-size: 80%;
+    margin-bottom: 20px;
+}
+.main-photo__caption {
+    font-size:0.7rem;
+    text-align: right;
+    font-variant: small-caps;
+}
+/*––––––––––––––––––Блок 2 фотографии–––––––––*/
+.article__image-caption {
+    font-size:0.8rem;
+    text-decoration: underline;
+}
+
+/*––––––––––––––––––Линия разделения––––––––––––––––*/
+.line
+{
+    border-top: 1px solid #000;
+}
+
+.line.line_type_bold
+{
+    margin-bottom: 3px;
+
+    border-width: 2px;
+}
+
+.line.line_type_short
+{
+    width: 70px;
+    margin: 0 auto;
+    column-span: all;
+}
+
+/*––––––––––––––––––Центральные колонки газеты––––––––––––––––––*/
+.multicolumn
+{
+    margin-top: 10px;
+}
+
+.multicolumn__right,
+.multicolumn__left
+{
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 49%;
+
+    vertical-align: top;
+
+}
+
+.multicolumn__right
+{
+    padding-left: 10px;
+}
+
+.multicolumn__left
+{
+    padding-right: 10px;
+
+    border-right: 1px solid #000;
+}
+
+.multicolumn .line_type_short
+{
+    width: 50%;
+    margin: 10px auto;
+}
+
+.multicolumn .article__title
+{
+    margin: 10px 0 0 0;
+}
+
+.center-column
+{
+    margin-top: 20px;
+    padding: 0 10px;
+
+    flex-grow: 2;
+}
+
+/*––––––––––––––––––Второстепенные колонки газеты––––––––––––––––––*/
+.left-column
+{
+    border-right: 1px solid #000;
+}
+
+.right-column
+{
+    border-left: 1px solid #000;
+}
+
+.right-column,
+.left-column
+{
+    box-sizing: border-box;
+    width: 200px;
+    margin-top: 20px;
+    padding: 0 10px;
+
+    flex-shrink: 0;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––*/
