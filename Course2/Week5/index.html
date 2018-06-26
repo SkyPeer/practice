@@ -3,37 +3,72 @@
 <head>
     <style>
 
-        div
+/*work1 */
+        .animation {
+            width: 150px;
+            height: 150px;
+            background-color: #f00;
+            /* animation: myframes 3s linear; */
+          animation-name: myframes;
+            animation-duration: 3s;
+            transition-property: background-color;
+            transition-duration: 500ms;
+            transition-timing-function: linear;
+
+        }
+
+        .animation:hover
         {
-            width: 500px;
-            height: 500px;
+            /*transition: <property> <duration> <timing-function> <delay>; */
+            animation-play-state: paused;
+            background-color: #ff9d24;
         }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            animation-name: example;
-            animation-duration: 4s;
+        @keyframes myframes {
+            from {
+                margin-top: 0;
+                margin-left: 0
+            }
+            30% {
+                transform: translateX(100px)
+            }
+            70% {
+                transform: translateX(100px) translateY(150px)
+            }
+            to {
+                transform: scale(2) rotate(145deg);
+
+            }
+
+
         }
 
-        @keyframes example {
 
-            0%   {background-color: red;}
-            25%  {background-color: yellow;}
-            50%  {background-color: blue;}
-            60%  { transform: translate(100% , 40%) skew(10deg,10deg)}
-            100% {background-color: green;}
-        }
-    </style>
+/* https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions*/
+/*.animation {
+    width: 150px;
+    height: 150px;
+    background-color: #f00;
+    transition: transform 2s;
+
+}
+
+.animation:hover{
+
+   transform: translateX(100px) translateY(150px) scale(2) rotate(145deg)
+}
+
+
+
+
+
+
+
+</style>
 </head>
 <body>
 
-<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
-
-<div>
-<div class="box"></div>
-</div>
+<div class="animation"></div>
 
 
 </body>
