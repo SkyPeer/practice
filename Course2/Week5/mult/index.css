@@ -72,16 +72,19 @@ TO DO
     
     width: 100px;
     height: 36px;
-    animation-duration: 3s;
+    animation-duration: 10s;
     animation-name: ShipFrames;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite
+
     /* animation-timing-function: linear; */
 }
 
 @keyframes ShipFrames {
-    0% {
-        margin-right: 0;
+    from {
+        margin-right: -110px;
     }
-    100%{
+    to{
         transform: translateX(-500px);
     }
 }
@@ -118,25 +121,53 @@ TO DO
     
     border-radius: 50%;
     background: #fff;
+
 }
 
 .smoke-1 {
     top: -25px;
     right: 44px;
+    animation-name: smoke;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* animation-delay: 1s; */
 }
 
 .smoke-2 {
     top: -25px;
     right: 42px;
+    animation-name: smoke;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
 }
 
 .smoke-3 {
     top: -25px;
     right: 49px;
+    animation-name: smoke;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
 }
 
+@keyframes smoke {
+    from {
+        transform: translateX(0px) translateY(0px);
+        opacity: 1;
+
+    }
+
+    to {
+        transform: translateX(10px) translateY(-7px) scale(1.9);
+        opacity: 0;
+
+    }
+}
+
+
 .sun {
-    position: absolute;
+  position: absolute;
     top: 30px;
     right: 50%;
     
@@ -146,11 +177,21 @@ TO DO
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
-    transition-property: transform;
-    transition-duration: 15s;
+    /*transition-property: transform;
+    transition-duration: 15s; */
 
-
+    animation-name: sunSpin;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
+
+@keyframes sunSpin {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+
 
 .sun-wrapper {
     position: absolute;
@@ -160,7 +201,16 @@ TO DO
     
     transform-origin: bottom center;
 
+    animation-name: sunWrapperSpin;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
+@keyframes sunWrapperSpin {
+    from {transform: rotate(-60deg)}
+    to {transform: rotate(300deg)}
+}
+
 
 .sun div {
     position: absolute;
@@ -245,19 +295,47 @@ TO DO
 
 .cloud-1 {
     top: 10px;
+    animation-name: cloud;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
 }
 
 .cloud-2 {
     top: 50px;
+   /*  animation-name: cloud; */
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .cloud-3 {
     top: 100px;
+    /* animation-name: cloud; */
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .cloud-4 {
     top: 170px;
+     animation-name: cloud;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
+
+
+@keyframes cloud {
+    from{
+        margin-left: 0; transform: scale(1,1);
+    }
+    to{
+        transform: translatex(700px) scale(1,1);
+    }
+}
+
 
 .sea {
     position: absolute;
