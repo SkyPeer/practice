@@ -1,5 +1,6 @@
-.canvas {
+    .canvas {
     position: relative;
+    
     width: 500px;
     height: 380px;
     margin: 80px 0 0 0;
@@ -7,7 +8,6 @@
     transition: .3s ease;
     
     perspective: 800px;
-
 }
 
 .box_front {
@@ -21,32 +21,26 @@
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
-    animation: skyFrames 33s ease-in infinite;
-
+    animation: skyColorChange 100s linear 0s infinite;
 }
 
-@keyframes skyFrames {
-    0%, 50%, 100%  {
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    }
-
-    25% {
+@keyframes skyColorChange {
+    0%, 100% {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
     }
-
-    75%{
-    background: darkslateblue;
-    box-shadow: 0 -400px 300px -300px transparent inset;
+    25% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
     }
-
+    75% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
 
 }
 
-
-/*
-TO DO
+/*TODO
 Цвета неба задаются следующими свойствами:
     День:
         background: skyblue;
@@ -96,20 +90,20 @@ TO DO
     
     width: 100px;
     height: 36px;
-
-    animation: shipFrames 20s linear infinite;
-
-
+    animation: shipMotion 60s linear 0s infinite;
 }
 
-@keyframes shipFrames {
+@keyframes shipMotion
+{
     from {
-        margin-right: -110px;
+        transform: translateX(100%);
     }
-    to{
+
+    to {
         transform: translateX(-500px);
     }
 }
+
 
 .ship_smokestack {
     position: absolute;
@@ -143,46 +137,47 @@ TO DO
     
     border-radius: 50%;
     background: #fff;
-
 }
 
 .smoke-1 {
     top: -25px;
     right: 44px;
-    animation: smoke 2s infinite;
 
+    animation: smoking 5s linear 0s infinite;
 }
 
 .smoke-2 {
     top: -25px;
     right: 42px;
-    animation: smoke 1s infinite 1s
+
+    animation: smoking 5s linear 2s infinite;
 
 }
 
 .smoke-3 {
     top: -25px;
     right: 49px;
-    animation: smoke 3s infinite 1s
+
+    animation: smoking 5s linear 4s infinite;
+
 }
 
-@keyframes smoke {
-    from {
-        transform: translateX(0px) translateY(0px);
+@keyframes smoking {
+    0% {opacity: 0;
+        transform: translateY(50%);
+    }
+    10% {
         opacity: 1;
-
+        transform: translateY(0%);
     }
-
-    to {
-        transform: translateX(10px) translateY(-7px) scale(1.9);
+    100% {
+        transform: translateY(-300%) scale(2);
         opacity: 0;
-
     }
 }
-
 
 .sun {
-  position: absolute;
+    position: absolute;
     top: 30px;
     right: 50%;
     
@@ -192,24 +187,26 @@ TO DO
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
-    animation: sunSpin 10s linear infinite;
-}
-@keyframes sunSpin {
-    from {transform: rotate(0deg)} to {transform: rotate(360deg)}
+
+    animation: sunMotion 10s linear 0s infinite;
 }
 
-
+@keyframes sunMotion {
+    to {
+        transform: rotate(1turn);
+    }
+}
 
 .sun-wrapper {
     position: absolute;
+    
     width: 100%;
     height: 100%;
-    transform-origin: 50% 100%;
-    animation: sunWrapperSpin 33s linear infinite;
-}
-@keyframes sunWrapperSpin { from {transform: rotate(-80deg)} to {transform: rotate(280deg)}
-}
+    
+    transform-origin: bottom center;
 
+    animation: sunMotion 100s linear 0s infinite;
+}
 
 .sun div {
     position: absolute;
@@ -222,39 +219,44 @@ TO DO
     
     border: solid #ffcf11;
     border-width: 10px 0 10px 0;
-
 }
 
 
 .sun div:nth-child(2) {
     transform: rotate(18deg);
 }
+
 .sun div:nth-child(3) {
     transform: rotate(36deg);
 }
+
 .sun div:nth-child(4) {
     transform: rotate(54deg);
 }
+
 .sun div:nth-child(5) {
     transform: rotate(72deg);
 }
+
 .sun div:nth-child(6) {
     transform: rotate(90deg);
 }
+
 .sun div:nth-child(7) {
     transform: rotate(-18deg);
 }
+
 .sun div:nth-child(8) {
     transform: rotate(-36deg);
 }
+
 .sun div:nth-child(9) {
     transform: rotate(-54deg);
 }
+
 .sun div:nth-child(10) {
     transform: rotate(-72deg);
 }
-
-
 
 .cloud {
     position: absolute;
@@ -294,30 +296,69 @@ TO DO
 
 .cloud-1 {
     top: 10px;
-    animation: cloud-1 23s linear infinite;
+    transform: scale(0.3);
+    animation: cloud1Motion 50s linear 0s infinite normal none;
 
-}  @keyframes cloud-1 { from {  margin-left: 0; transform: rotatey(180deg) scale(0.2)  } to {  transform: translate(700px) rotatey(180deg) scale(0.2) } }
+}
+
+@keyframes cloud1Motion {
+    from {
+        transform: translateX(-60px) scale(0.3);
+    }
+    
+    to {
+        transform: translateX(620px) scale(0.3);
+    }
+}
 
 .cloud-2 {
     top: 50px;
-    animation: cloud-2 15s linear infinite;
+    transform: scale(0.5);
+    animation: cloud2Motion 40s linear 10s infinite normal none;
 
-}  @keyframes cloud-2 { from {  margin-left: 50px; transform: scale(0.4)  } to {  transform: translate(700px) scale(0.4) } }
+}
+
+@keyframes cloud2Motion {
+    from {
+        transform: translateX(-180px) scale(-0.5, 0.5);
+    }
+    
+    to {
+        transform: translateX(860px) scale(-0.5, 0.5);
+    }
+}
 
 .cloud-3 {
     top: 100px;
-    animation: cloud-3 12s linear infinite;
+    transform: scale(0.65);
+    animation: cloud3Motion 30s linear 20s infinite normal none;
+}
 
-}  @keyframes cloud-3 { from {  margin-left: 0; transform: rotatey(180deg) scale(0.6)   } to {  transform: translate(700px) rotatey(180deg) scale(0.6) } }
-
+@keyframes cloud3Motion {
+    from {
+        transform: translateX(-180px) scale(0.65);
+    }
+    
+    to {
+        transform: translateX(860px) scale(0.65);
+    }
+}
 
 .cloud-4 {
     top: 170px;
-    animation: cloud-4 8s linear infinite;
-
-}  @keyframes cloud-4 { from{  margin-left: 0; }  to{  transform: translate(700px) }
+    transform: scale(0.8);
+    animation: cloud4Motion 20s linear 30s infinite normal none;
 }
 
+@keyframes cloud4Motion {
+    from {
+        transform: translateX(-180px) scale(-0.8, 0.8);
+    }
+    
+    to {
+        transform: translateX(860px) scale(-0.8, 0.8);
+    }
+}
 
 .sea {
     position: absolute;
