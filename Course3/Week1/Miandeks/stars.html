@@ -1,0 +1,74 @@
+<html>
+<head>
+<style> .rating-wrapper {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.rating-input {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.rating-star:hover,
+.rating-star:hover~.rating-star {
+    background-position: 0 0;
+}
+
+.rating-wrapper:hover .rating-star:hover,
+.rating-wrapper:hover .rating-star:hover~.rating-star,
+.rating-input:checked~.rating-star {
+    background-position: 0 0;
+}
+
+.rating-star,
+.rating-wrapper:hover .rating-star {
+    float: right;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('http://css-stars.com/wp-content/uploads/2013/12/stars.png') 0 -16px;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    .responsive-ad {
+        display: none;
+        text-align: center;
+    }
+    .responsive-ad-device {
+        display: block;
+    }
+}
+
+@media screen and (min-device-width: 960px) {
+    .responsive-ad-device {
+        display: none;
+    }
+    .responsive-ad {
+        display: block;
+        text-align: center;
+    }
+}</style>
+
+
+</head>
+<body>
+
+
+<div class="rating-wrapper">
+    <input class="rating-input" id="rating-input-1-5" type="radio" name="rating-input-1" />
+    <label class="rating-star" for="rating-input-1-5"></label>
+    <input class="rating-input" id="rating-input-1-4" type="radio" name="rating-input-1" />
+    <label class="rating-star" for="rating-input-1-4"></label>
+    <input class="rating-input" id="rating-input-1-3" type="radio" name="rating-input-1" />
+    <label class="rating-star" for="rating-input-1-3"></label>
+    <input class="rating-input" id="rating-input-1-2" type="radio" name="rating-input-1" />
+    <label class="rating-star" for="rating-input-1-2"></label>
+    <input class="rating-input" id="rating-input-1-1" type="radio" name="rating-input-1" />
+    <label class="rating-star" for="rating-input-1-1"></label>
+</div>
+Выполнить кодСкрыть результаты
+
+</body>
+</html>
