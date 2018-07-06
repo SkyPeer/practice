@@ -7,6 +7,9 @@
         background-color: #381516;
     }
 
+    ol{
+        float: left;
+    }
 
     li {
         display: block;
@@ -17,12 +20,14 @@
         cursor: pointer;
         background: url("stars.png") no-repeat;
     }
+
+/*
     li.current {
         display: none;
     }
+*/
 
-
-    ul.show-current{
+/*    ul.show-current{
         position: relative;
     }
     ul.show-current li {
@@ -37,7 +42,7 @@
         background-position: 0 -60px;
         background-repeat: repeat-x;
     }
-    ul.show-current li.current:hover,
+   ul.show-current li.current:hover,
     ul.show-current li.current:hover ~ li {
         background-position: 0 -60px;
     }
@@ -48,7 +53,7 @@
         width: 0;
         background: inherit;
         background-position: 0 -40px;
-    }
+    }  */
 
     /* нечетные элементы */
     li:nth-child(odd) {
@@ -73,6 +78,8 @@
     }
 
     /* нечетные при наведении и все предыдущие четные*/
+
+
     li:nth-child(odd):hover ~ li:nth-child(even) {
         background-position: 0 -20px;
     }
@@ -84,7 +91,7 @@
 </head>
 <body>
 
-<ol class="rating-half show-current">
+<ol class="rating show-current">
     <li>10</li>
     <li>9</li>
     <li>8</li>
@@ -95,7 +102,7 @@
     <li>3</li>
     <li>2</li>
     <li>1</li>
-    <li class="current"><span></span></li>
+
 </ol>
 
 </body>
