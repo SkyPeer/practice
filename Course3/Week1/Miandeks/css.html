@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+    body {font-size: larger}
+
+    ul li:nth-child(2n) {color:red}
+    ul li:nth-child(odd) {color: green}
+
+   ul li:nth-child(2n) span:hover{background: red; font-weight: bold; color:black}
+   li:nth-child(2n):hover ~ li span   {background: red; font-weight: bold; color:black}
+
+    ul li:nth-child(odd) span:hover {background: green; font-weight: bold; color:black}
+    li:nth-child(odd):hover ~ li span {background: green; font-weight: bold; color:black}
+
+
+
+    </style>
+
+    <title>css selector test</title>
+</head>
+<body>
+
+
+
+<b>selectors</b>
+
+<ul>
+    <li>
+        <span>Object 1</span>
+    </li>
+    <li>
+        <span>Object 2</span>
+    </li>
+    <li>
+        <span>Object 3</span>
+    </li>
+    <li>
+        <span>Object 4</span>
+    </li>
+    <li>
+        <span>Object 5</span>
+    </li>
+    <li>
+        <span>Object 6</span>
+    </li>
+    <li>
+        <span>Object 7</span>
+    </li>
+    <li>
+        <span>Object 8</span>
+    </li>
+
+</ul>
+
+
+</body>
+</html>

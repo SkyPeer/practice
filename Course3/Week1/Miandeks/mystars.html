@@ -10,25 +10,100 @@
 
   /*.rating-input {margin: 0; width: 10px} */
 
-    .rating-input {
-        position: absolute; 
-        left: 0;
-        top: -50px;
+
+
+
+
+
+
+/*
+    li:hover ~ li .star-label, li .star-label:hover { background: url('mystar.png') 0 0;}
+
+
+    li .star-input:checked ~ li.star-label { background: url('mystar.png') 0 0;}
+
+    .star-input:checked~.star-label {
+        background-position: 0 0;
+    }
+*/
+
+
+
+
+
+
+
+   /* .star-label:hover { background: url('mystar.png') 0 0;}
+
+    .star-label:hover ~ .star-label { background: url('mystar.png') 0 0;}
+*/
+
+    .rating{
+        list-style: none;
     }
 
 
+    .star-input {
+        position: absolute;
+        left: 0;
+        top: -50px; /* top: -50px;*/
+
+    }
 
 
+    /*
+    .rating:hover .star-label:hover, .rating:hover .star-label:hover~.star-label
+    {
+        background: url('mystar.png') 0 0;
+    }
 
-    .rating-star {
+
+    .star-input:checked~.star-label { background: url('mystar.png') 0 0;}
+
+    .star-label,
+    .rating:hover .star-label {
         float: right;
         display: block;
         width: 20px;
         height: 20px;
-        background: url('mystar_black.png') 0 0;
+        background:  url('mystar_black.png') 0 0;
+    } */
+
+
+
+    .star-label {
+        float: right;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background:  url('mystar_black.png') 0 0;
     }
-    .rating-star:hover {  background: url('mystar.png') 0 0;  }
-    .rating-star:hover ~ .rating-star {  background: url('mystar.png') 0 0;  }
+
+    /*ul li label:hover , ul li:hover ~ li label {background: url('mystar.png') 0 0;}
+    ul li input:checked ~  label {background: url('mystar.png') 0 0; content: "checked"}
+    ul li input:not(:checked)  ~ label:not(:empty) {background: url('mystar.png') 0 0;} */
+
+    li > label:hover ~ li > label{background: url('mystar.png') 0 0; }
+    input:checked + label {background: url('mystar.png') 0 0; }
+
+
+
+    /*
+    .rating-wrapper:hover .rating-star:hover,
+    .rating-wrapper:hover .rating-star:hover~.rating-star {
+        background-position: 0 0;
+    }
+    .rating-input:checked~.rating-star {
+        background-position: 0 0;
+    }
+    */
+
+/*
+    ul li .star-input:checked ~ .star-label,  ul li .star-input:checked ~ li .star-label {background: url('mystar.png') 0 0; content: 'checked'}
+*/
+
+
+    /*    ul li .star-label:hover */
 
 
 </style>
@@ -38,24 +113,77 @@
 </head>
 <body>
 
-<div class="rating-wrapper">
 
-    <input class="rating-input" id="rating-input-1-5" type="radio" name="rating-input-1" />
-    <label class="rating-star" for="rating-input-1-5"></label>
 
-    <input class="rating-input" id="rating-input-1-4" type="radio" name="rating-input-1" />
-    <label class="rating-star" for="rating-input-1-4"></label>
+<ul class="rating">
 
-    <input class="rating-input" id="rating-input-1-3" type="radio" name="rating-input-1" />
-    <label class="rating-star" for="rating-input-1-3"></label>
+    <li>
+    <input class="star-input" id="star-input-10" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-10"></label>
+    </li>
 
-    <input class="rating-input" id="rating-input-1-2" type="radio" name="rating-input-1" />
-    <label class="rating-star" for="rating-input-1-2"></label>
+    <li>
+    <input class="star-input" id="star-input-9" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-9"></label>
+    </li>
 
-    <input class="rating-input" id="rating-input-1-1" type="radio" name="rating-input-1" />
-    <label class="rating-star" for="rating-input-1-1"></label>
+    <li>
+    <input class="star-input" id="star-input-8" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-8"></label>
+    </li>
 
-</div>
+    <li>
+    <input class="star-input" id="star-input-7" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-7"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-6" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-6"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-5" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-5"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-4" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-4"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-3" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-3"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-2" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-2"></label>
+    </li>
+
+    <li>
+    <input class="star-input" id="star-input-1" type="radio" name="star-input" />
+    <label class="star-label" for="star-input-1"></label>
+    </li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
 
 </body>
 </html>
+
