@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style>
+    body {font-size: larger}
+/*
+    ul li:nth-child(2n) {color:red}
+    ul li:nth-child(odd) {color: green}
+
+   ul li:nth-child(2n) span:hover{background: red; font-weight: bold; color:black}
+   li:nth-child(2n):hover ~ li span   {background: red; font-weight: bold; color:black}
+
+    ul li:nth-child(odd) span:hover {background: green; font-weight: bold; color:black}
+    li:nth-child(odd):hover ~ li span {background: green; font-weight: bold; color:black}
+*/
+
+
+        .level1 {color: green;}
+        .level2 {color: red;}
+
+         ul:hover + li:hover +.level1:hover ~ li {color:red; background-color: green; cursor: pointer}
+
+        .level2:hover {color:green; background-color: red; cursor: pointer}
+
+    </style>
+
+    <title>css selector test</title>
+</head>
+<body>
+
+
+
+<b>selectors</b>
+
+<ul>
+    <li>
+        <span class="level1">Object 1-1</span>
+        <span class="level2">Object 1-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 2-1</span>
+        <span class="level2">Object 2-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 3-1</span>
+        <span class="level2">Object 3-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 4-1</span>
+        <span class="level2">Object 4-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 5-1</span>
+        <span class="level2">Object 5-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 6-1</span>
+        <span class="level2">Object 6-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 7-1</span>
+        <span class="level2">Object 7-2</span>
+    </li>
+    <li>
+        <span class="level1">Object 8-1</span>
+        <span class="level2">Object 8-2</span>
+    </li>
+
+</ul>
+
+
+</body>
+</html>
