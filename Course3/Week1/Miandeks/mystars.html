@@ -14,8 +14,7 @@
     .star-input {
         position: absolute;
         left: 0;
-        top: -50px; /* top: -50px;*/
-
+        top: -50px;
     }
 
     .star-label:nth-of-type(2n+1) {
@@ -33,25 +32,15 @@
         background: url('mystar_black.png') 0 0;
     }
 
-
-
-    .rating:hover .star-label:nth-of-type(2n):hover
-    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
-
-    .rating:hover .star-label:nth-of-type(2n+1):hover
-    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
-
-    .rating:hover .star-label:hover~.star-label:nth-of-type(2n)
-    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
-
-    .rating:hover .star-label:hover~.star-label:nth-of-type(2n+1)
-    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
-
+    .rating:hover .star-label:nth-of-type(2n):hover,
+    .rating:hover .star-label:hover~.star-label:nth-of-type(2n),
     .star-input:checked~.star-label:nth-of-type(2n)
-    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
+    {  background: url('mystar.png') 0 0 no-repeat; cursor: pointer;  }
 
+    .rating:hover .star-label:nth-of-type(2n+1):hover,
+    .rating:hover .star-label:hover~.star-label:nth-of-type(2n+1),
     .star-input:checked~.star-label:nth-of-type(2n+1)
-    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
+    {  background: url('mystar.png') -10px 0 no-repeat; cursor: pointer;  }
 
 
 </style>
