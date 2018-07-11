@@ -4,16 +4,12 @@
 
     body
     {
-        background-color: #381516;
+        background-color: #FFF
     }
-
-
-
 
     .rating{
         list-style: none;
     }
-
 
     .star-input {
         position: absolute;
@@ -22,24 +18,40 @@
 
     }
 
-
-    .star-label {
+    .star-label:nth-of-type(2n+1) {
         float: right;
         display: block;
-        width: 20px;
+        width: 10px;
         height: 20px;
-        background:  url('mystar_black.png') 0 0;
+        background:  url('mystar_black.png') 10px 0;
+    }
+    .star-label:nth-of-type(2n) {
+        float: right;
+        display: block;
+        width: 10px;
+        height: 20px;
+        background: url('mystar_black.png') 0 0;
     }
 
-    ul li label:hover, ul li:hover ~ li label {background: url('mystar.png') 0 0;}
-
-  input:checked ~ ul li label{background: url('mystar.png') 0 0;}
 
 
-    /*
-    ul li input:checked ~  label {background: url('mystar.png') 0 0; content: "checked"}
-    ul li input:not(:checked)  ~ label:not(:empty) {background: url('mystar.png') 0 0;}
-*/
+    .rating:hover .star-label:nth-of-type(2n):hover
+    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
+
+    .rating:hover .star-label:nth-of-type(2n+1):hover
+    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
+
+    .rating:hover .star-label:hover~.star-label:nth-of-type(2n)
+    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
+
+    .rating:hover .star-label:hover~.star-label:nth-of-type(2n+1)
+    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
+
+    .star-input:checked~.star-label:nth-of-type(2n)
+    {  background:  url('mystar-half-left.png') 0 0 no-repeat; cursor: pointer;  }
+
+    .star-input:checked~.star-label:nth-of-type(2n+1)
+    {  background:  url('mystar-half-right.png') 0 0 no-repeat; cursor: pointer;  }
 
 
 </style>
@@ -51,75 +63,40 @@
 
 
 
-<ul class="rating">
+<div class="rating">
 
-    <li>
-    <input class="star-input" id="star-input-10" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-10"></label>
-    </li>
+    <input class="star-input" id="10" type="radio" name="star-input" />
+    <label class="star-label" for="10"></label>
 
-    <li>
-    <input class="star-input" id="star-input-9" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-9"></label>
-    </li>
+    <input class="star-input" id="9" type="radio" name="star-input" />
+    <label class="star-label" for="9"></label>
 
-    <li>
-    <input class="star-input" id="star-input-8" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-8"></label>
-    </li>
+    <input class="star-input" id="8" type="radio" name="star-input" />
+    <label class="star-label" for="8"></label>
 
-    <li>
-    <input class="star-input" id="star-input-7" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-7"></label>
-    </li>
+    <input class="star-input" id="7" type="radio" name="star-input" />
+    <label class="star-label" for="7"></label>
 
-    <li>
-    <input class="star-input" id="star-input-6" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-6"></label>
-    </li>
+    <input class="star-input" id="6" type="radio" name="star-input" />
+    <label class="star-label" for="6"></label>
 
-    <li>
-    <input class="star-input" id="star-input-5" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-5"></label>
-    </li>
+    <input class="star-input" id="5" type="radio" name="star-input" />
+    <label class="star-label" for="5"></label>
 
-    <li>
-    <input class="star-input" id="star-input-4" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-4"></label>
-    </li>
+    <input class="star-input" id="4" type="radio" name="star-input" />
+    <label class="star-label" for="4"></label>
 
-    <li>
-    <input class="star-input" id="star-input-3" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-3"></label>
-    </li>
+    <input class="star-input" id="3" type="radio" name="star-input" />
+    <label class="star-label" for="3"></label>
 
-    <li>
-    <input class="star-input" id="star-input-2" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-2"></label>
-    </li>
+    <input class="star-input" id="2" type="radio" name="star-input" />
+    <label class="star-label" for="2"></label>
 
-    <li>
-    <input class="star-input" id="star-input-1" type="radio" name="star-input" />
-    <label class="star-label" for="star-input-1"></label>
-    </li>
-
-</ul>
+    <input class="star-input" id="1" type="radio" name="star-input" />
+    <label class="star-label" for="1"></label>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-</ol>
-
+</div>
 </body>
 </html>
 

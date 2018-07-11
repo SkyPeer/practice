@@ -49,16 +49,6 @@
     top: -50px;
 }
 
-.rating-wrapper:hover .rating-star:hover,
-.rating-wrapper:hover .rating-star:hover~.rating-star {
-    background-position: 0 0;
-}
-
-.rating-input:checked~.rating-star {
-    background-position: 0 0;
-}
-
-
 .rating-star,
 .rating-wrapper:hover .rating-star {
     float: right;
@@ -68,6 +58,12 @@
     background: url('stars_1.png') 0 -16px; /*серые*/
 }
 
+.rating-wrapper:hover .rating-star:hover,
+.rating-wrapper:hover .rating-star:hover~.rating-star,
+.rating-input:checked~.rating-star
+{
+    background-position: 0 0;
+}
 
 </style>
 
