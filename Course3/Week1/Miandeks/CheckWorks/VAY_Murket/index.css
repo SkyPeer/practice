@@ -1,0 +1,153 @@
+/* реализовать эффекты при наведении на имя котика, фото, категорию, и плитку 
+в целом: ссылка красится в красный цвет, картинка становится прозрачности 0.7. 
+Происходит тот же самый эффект и при наведении на картинку. 
+
+выравнивание по нижней линии фото котика  . 
+*/
+
+body {
+    font-family: sans-serif;
+}
+p {
+    margin: 10px;
+}
+.imbord, .descbord, .infbord {
+
+    width: 400px;
+    height: 300px;
+    position: relative;
+    /* border: 2px dashed red; */
+    /* margin: 5px; */
+}
+.imbord {
+
+    margin: 0 0 15px;
+}
+
+.infbord {
+    height: 140px;
+}
+
+img {
+    max-width: 400px;
+    max-height:300px;
+
+}
+article {
+    margin : 10px auto;
+    /* border: 2px dotted blue; */
+} 
+
+#check1:checked ~ article { /* плиткой */
+    display: inline-block;
+    vertical-align:bottom;
+} 
+
+#check1:not(:checked) ~ article { /* списком */
+    display: block;
+    width: 1200px;
+} 
+
+#check1:not(:checked) ~ article div { /* списком */
+    display: inline-block;
+    vertical-align: top;
+} 
+#check1:checked ~ article div img { /* плиткой */
+    display: block; 
+    margin: auto;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /* top: 0px;   отсутствие дает возможность прижаться ко дну */
+
+} 
+
+#check1:not(:checked) ~ article div img { /* списком */
+    display: block;
+    margin: auto;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    /* bottom: 0px;    отсутствие дает возможность прижаться к топу*/
+    top: 0px;
+
+} 
+
+article:hover img{
+    opacity: 0.7;
+}
+
+article:hover .name{
+    color: red;
+}
+
+.name {
+    display: block;
+
+    font-size: 22px;     color: rgb(10, 10, 188); text-decoration: underline;
+    width: 100%;
+    white-space: nowrap;       /* Отменяем перенос текста */
+    overflow: hidden;          /* Обрезаем содержимое */
+    text-overflow: ellipsis; /* Многоточие */
+    /* padding: 5px;              Поля */
+}
+.name:hover {
+    background: #f0f0f0; /* Цвет фона */
+    position: relative;
+    white-space: normal;
+    /* overflow: visible; */
+    opacity: 1;
+    z-index: 8;
+
+}
+.categ {color: rgb(55, 55, 111); font-size: 12px; text-decoration: underline;}
+.price {  color: rgb(160, 0, 20); clear: both; font-size: 22px;font-weight: bold;}
+.price span { color: rgb(55, 55, 111); font-size: 70%; text-decoration: line-through;}
+.descr {  color: rgb(55, 55, 111); }
+
+
+.rbut {
+    float: left;
+    margin-bottom: 10px;
+}
+.rbut > input {
+    display: none;
+}
+.rbut > label {
+    float: right;;
+    /* border: 1px solid red; */
+    font-size: 200%;
+    opacity: 0.3;
+}
+
+.rbut > input:checked ~ label {
+    color: gold;
+    opacity: 0.8;
+}
+.rbut > .f2 {
+    width: 0.80ch; overflow: hidden;  white-space: nowrap; 
+}
+.rbut > .f1 {
+    width: 0.80ch; overflow: hidden;  white-space: nowrap; 
+    transform: scaleX(-1)
+}
+.rbut > label:active {
+    position:relative;
+    top: 2px;
+    left:2px;
+}
+.rbut > input:checked ~ label:hover,
+.rbut > input:checked ~ label:hover ~ label,
+.rbut > label:hover ~ input:checked ~ label 
+{
+    color: #ea0;
+}
+
+.rbut > label:hover,
+.rbut > label:hover ~ label {
+    color: gold;
+}
+
+

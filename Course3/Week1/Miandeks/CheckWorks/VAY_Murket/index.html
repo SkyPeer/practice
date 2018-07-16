@@ -1,0 +1,631 @@
+<!-- 
+Дополнительное задание (+54 к мурчанию)
+
+реализовать эффекты при наведении на имя котика, фото, категорию, и плитку в целом: 
+ссылка красится в красный цвет, картинка становится прозрачности 0.7. 
+Происходит тот же самый эффект и при наведении на картинку.
+
+А еще будет ощутимо фантастически, если вы сможете научить шкалу доброты работать так: 
+при наведении курсора на шкалу пользователь выбирает количество звезд, 
+которые он хочет поставить (обратите внимание, что есть оценка в ползвезды), 
+а по клику шкала запоминает его оценку.
+
+Review criteria
+
+Работа корректно воспроизводится как минимум в одном из браузеров на основе Chromium.
+Вёрстка разметки реализована с помощью inline-block или float элементов.
+Как реализован элемент оценки (звездочки) на странице.
+Соответствие страницы представленному макету.
+С помощью чего обрезается текст в имени котика. 
+Что происходит при наведении на имя котика.
+Разметка.
+-->
+
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Мяндех.Мурркет</title>
+        <link rel="stylesheet" type="text/css" href="index.css" >
+    </head>
+
+    <body>
+
+        <b>Изменить расположение на экране:</b><br>
+        <input type="radio" name="scrn" id="check1" checked>
+        <label for="check1">плитками</label>
+        <input type="radio" name="scrn" id="check2">
+        <label for="check2">списком</label><br>
+        <hr>
+
+        <article>
+            <div class=imbord>
+                <img src="cat_0.jpg" alt="cat0">
+            </div>
+
+            <div class=infbord>
+                <p class=name> Пират со шхуны разбившейся на Каймановых островах</p>
+                <p class=categ>   Категория : Котенок дворовый             </p>
+                <div class="rbut">
+                    <input type="radio" id="test50" name="test" value="5"/>
+                    <label class = "f1" for="test50" title="5">&starf;</label>
+
+                    <input type="radio" id="test45" name="test" value="4"  checked/>
+                    <label class = "f2" for="test45" title="4.5">&starf;</label>
+
+                    <input type="radio" id="test40" name="test" value="3"/>
+                    <label class = "f1" for="test40" title="4">&starf;</label>
+
+                    <input type="radio" id="test35" name="test" value="2"/>
+                    <label class = "f2" for="test35" title="3.5">&starf;</label>
+
+                    <input type="radio" id="test30" name="test" value="5"/>
+                    <label class = "f1" for="test30" title="3">&starf;</label>
+
+                    <input type="radio" id="test25" name="test" value="4" />
+                    <label class = "f2" for="test25" title="2.5">&starf;</label>
+
+                    <input type="radio" id="test20" name="test" value="3" />
+                    <label class = "f1" for="test20" title="2">&starf;</label>
+
+                    <input type="radio" id="test15" name="test" value="2"  />
+                    <label class = "f2" for="test15" title="1.5">&starf;</label>
+
+                    <input type="radio" id="test10" name="test" value="3" />
+                    <label class = "f1" for="test10" title="1">&starf;</label>
+
+                    <input type="radio" id="test05" name="test" value="2"  />
+                    <label class = "f2" for="test05" title="0.5">&starf;</label>
+
+                </div>
+    
+                <p class=price>2 502 p. <span>4 900 р.</span></p>
+            </div>
+
+            <div class=descbord>
+                    <p class=descr>У нас дома живет котик. Как только он появился, мы назвали его 
+                        Маркизом за его красоту и гордый нрав. Но он никак не хотел отзываться на это имя. 
+                        А вот имя Пират ему понравилось. Оно ему очень идет, ведь он сибирской породы и 
+                        шерсть у него длинная, пушистая и мягкая, как будто настоящий пух.
+                    </p>
+            </div>
+        </article>
+
+        <article>
+            <div class=imbord>
+                <img src="cat_2.jpg" alt="cat1">
+            </div>
+
+            <div class=infbord>
+                <p class=name> Тимоша. 
+                    </p>
+                <p class=categ>   
+                    Категория : Котенок дворовый             
+                </p>
+                <div class="rbut">
+                    <input type="radio" id="test150" name="test1" value="5"/>
+                    <label class = "f1" for="test150" title="5">&starf;</label>
+
+                    <input type="radio" id="test145" name="test1" value="4"/>
+                    <label class = "f2" for="test145" title="4.5">&starf;</label>
+
+                    <input type="radio" id="test140" name="test1" value="3"/>
+                    <label class = "f1" for="test140" title="4">&starf;</label>
+
+                    <input type="radio" id="test135" name="test1" value="2" checked/>
+                    <label class = "f2" for="test135" title="3.5">&starf;</label>
+
+                    <input type="radio" id="test130" name="test1" value="5"/>
+                    <label class = "f1" for="test130" title="3">&starf;</label>
+
+                    <input type="radio" id="test125" name="test1" value="4"/>
+                    <label class = "f2" for="test125" title="2.5">&starf;</label>
+
+                    <input type="radio" id="test120" name="test1" value="3"/>
+                    <label class = "f1" for="test120" title="2">&starf;</label>
+
+                    <input type="radio" id="test115" name="test1" value="2"/>
+                    <label class = "f2" for="test115" title="1.5">&starf;</label>
+
+                    <input type="radio" id="test110" name="test1" value="3"/>
+                    <label class = "f1" for="test110" title="1">&starf;</label>
+
+                    <input type="radio" id="test105" name="test1" value="2"/>
+                    <label class = "f2" for="test105" title="0.5">&starf;</label>
+
+                </div>
+                <p class=price>
+                    $100 <span>$300</span>
+                </p>
+            </div>
+
+            <div class=descbord>
+                    <p class=descr>У нас дома есть замечательное существо — кот Тимоша. 
+                        Мы подобрали его на улице маленьким котенком. А сейчас это большой рыжий кот, очень добрый, 
+                        ласковый и любознательный. За ним интересно наблюдать. В процессе наблюдений я поняла, 
+                        что знаю очень мало о кошках, их жизнедеятельности, поведении, и мне захотелось узнать как можно 
+                        больше фактов из жизни этих удивительных животных, живущих рядом с человеком уже несколько тысячелетий.
+                    </p>
+            </div>
+        </article>
+
+        <article>
+            <div class=imbord>
+                <img src="cat_1.jpg" alt="cat2">
+            </div>
+
+            <div class=infbord>
+                <p class=name> Машка. 
+                    </p>
+                <p class=categ>   категория : котенок дворовый             </p>
+                <div class="rbut">
+                    <input type="radio" id="test250" name="test2" value="5"/>
+                    <label class = "f1" for="test250" title="5">&starf;</label>
+
+                    <input type="radio" id="test245" name="test2" value="4" checked/>
+                    <label class = "f2" for="test245" title="4.5">&starf;</label>
+
+                    <input type="radio" id="test240" name="test2" value="3"/>
+                    <label class = "f1" for="test240" title="4">&starf;</label>
+
+                    <input type="radio" id="test235" name="test2" value="2"/>
+                    <label class = "f2" for="test235" title="3.5">&starf;</label>
+
+                    <input type="radio" id="test230" name="test2" value="5"/>
+                    <label class = "f1" for="test230" title="3">&starf;</label>
+
+                    <input type="radio" id="test225" name="test2" value="4"/>
+                    <label class = "f2" for="test225" title="2.5">&starf;</label>
+
+                    <input type="radio" id="test220" name="test2" value="3"/>
+                    <label class = "f1" for="test220" title="2">&starf;</label>
+
+                    <input type="radio" id="test215" name="test2" value="2"/>
+                    <label class = "f2" for="test215" title="1.5">&starf;</label>
+
+                    <input type="radio" id="test210" name="test2" value="3"/>
+                    <label class = "f1" for="test210" title="1">&starf;</label>
+
+                    <input type="radio" id="test205" name="test2" value="2"/>
+                    <label class = "f2" for="test205" title="0.5">&starf;</label>
+                </div>
+                <p class=price>
+                    12 000 p. <span>12 500 р.</span>
+                </p>
+                </div>
+
+            <div class=descbord>
+                    <p class=descr>У меня есть домашний питомец. Это кошка по имени Машка. Она появилась у нас когда я ходил еще в детский садик. Сейчас Маше 7 лет, но несмотря на свой возраст, она как и раньше очень любит побегать и поиграть.
+
+                            Маша у нас черного цвета, с небольшим белым пятнышком на груди. Если бы его не было, то наша кошка была бы похожа на маленькую пуму. Глаза у нее желто-зеленые.
+                            
+                            Наша кошка очень ласковая, любит когда ее гладят и никогда никого сильно не кусает. Поэтому такого питомца все хотели бы иметь.
+                            
+                            Машка любит спать на кресле. Но после нее на него лучше в светлой одежде не садиться, потому что шерсть к ней пристанет. И приходится кресло постоянно протирать.
+                            
+                    </p>
+            </div>
+        </article>
+
+        <article>
+            <div class=imbord>
+                <img src="cat_3.jpg" alt="cat3">
+            </div>
+
+            <div class=infbord>
+                <p class=name>Пушок.
+                     </p>
+                <p class=categ>   категория : котенок дворовый             </p>
+                <div class="rbut">
+                        <input type="radio" id="test350" name="test3" value="5"/>
+                        <label class = "f1" for="test350" title="5">&starf;</label>
+    
+                        <input type="radio" id="test345" name="test3" value="4"/>
+                        <label class = "f2" for="test345" title="4.5">&starf;</label>
+    
+                        <input type="radio" id="test340" name="test3" value="3"/>
+                        <label class = "f1" for="test340" title="4">&starf;</label>
+    
+                        <input type="radio" id="test335" name="test3" value="2"/>
+                        <label class = "f2" for="test335" title="3.5">&starf;</label>
+    
+                        <input type="radio" id="test330" name="test3" value="5"/>
+                        <label class = "f1" for="test330" title="3">&starf;</label>
+    
+                        <input type="radio" id="test325" name="test3" value="4"/>
+                        <label class = "f2" for="test325" title="2.5">&starf;</label>
+    
+                        <input type="radio" id="test320" name="test3" value="3" checked/>
+                        <label class = "f1" for="test320" title="2">&starf;</label>
+    
+                        <input type="radio" id="test315" name="test3" value="2"/>
+                        <label class = "f2" for="test315" title="1.5">&starf;</label>
+    
+                        <input type="radio" id="test310" name="test3" value="3"/>
+                        <label class = "f1" for="test310" title="1">&starf;</label>
+    
+                        <input type="radio" id="test305" name="test3" value="2"/>
+                        <label class = "f2" for="test305" title="0.5">&starf;</label>
+                </div>
+                <p class=price>
+                    7 599p. <span>9 999р.</span>
+                </p>
+                </div>
+
+            <div class=descbord>
+                <p class=descr>Пушок подрос и стал большим и красивым котом. Он очень крупный и тяжелый, и когда он много поест, 
+                    то ему тяжело ходить. Наш  Пушок серенький, с белыми пятнышками на лапках, шее и чуть-чуть на хвосте. 
+                    У кота большие и выразительные глаза. Когда я что-то говорю Пушку или иногда ругаю, он смотрит на меня так 
+                    внимательно, и мне кажется, что он все-все понимает, только разговаривать не умеет. 
+                    Бывает, что у Пушка глаза отливают зеленым цветом, мне так это нравится.  
+                    У кота очень пушистый хвост, на котором часто собирается разный мусор. 
+                </p>
+            </div>
+        </article>
+
+        <article>
+                <div class=imbord>
+                    <img src="cat_4.jpg" alt="cat3">
+                </div>
+    
+                <div class=infbord>
+                    <p class=name>Сержик.
+                         </p>
+                    <p class=categ>   категория : котенок дворовый             </p>
+                    <div class="rbut">
+                            <input type="radio" id="test450" name="test4" value="5"/>
+                            <label class = "f1" for="test450" title="5">&starf;</label>
+        
+                            <input type="radio" id="test445" name="test4" value="4"/>
+                            <label class = "f2" for="test445" title="4.5">&starf;</label>
+        
+                            <input type="radio" id="test440" name="test4" value="3"/>
+                            <label class = "f1" for="test440" title="4">&starf;</label>
+        
+                            <input type="radio" id="test435" name="test4" value="2"/>
+                            <label class = "f2" for="test435" title="3.5">&starf;</label>
+        
+                            <input type="radio" id="test430" name="test4" value="5"/>
+                            <label class = "f1" for="test430" title="3">&starf;</label>
+        
+                            <input type="radio" id="test425" name="test4" value="4"checked/>
+                            <label class = "f2" for="test425" title="2.5">&starf;</label>
+        
+                            <input type="radio" id="test420" name="test4" value="3"/>
+                            <label class = "f1" for="test420" title="2">&starf;</label>
+        
+                            <input type="radio" id="test415" name="test4" value="2"/>
+                            <label class = "f2" for="test415" title="1.5">&starf;</label>
+        
+                            <input type="radio" id="test410" name="test4" value="3"/>
+                            <label class = "f1" for="test410" title="1">&starf;</label>
+        
+                            <input type="radio" id="test405" name="test4" value="2"/>
+                            <label class = "f2" for="test405" title="0.5">&starf;</label>
+                    </div>
+                    <p class=price>
+                        3 599p. 
+                    </p>
+                    </div>
+    
+                <div class=descbord>
+                    <p class=descr>У меня дома есть котенок. Его зовут Сержик. Он дымчатого цвета. 
+                        У него такие веселые ушки! То они весело стоят, то висят как у слона. 
+                        У него мягкие лапки, а хвостик всегда стоит. Он очень нежно мурлычет. 
+                        Сержик любит играть с мышками. Он очень любит лакомства. Он ластится ко мне, когда покушает.
+
+                            Однажды Сержик пошел гулять, и с ним произошло настоящее приключение. 
+                            Он залез на дерево и собирался поймать воробья, да упал. От испуга он снова забрался на дерево. 
+                            Затем он долго сидел на дереве, так как боялся, что снова упадет. 
+                            На воробьев он больше не смотрел. Вечером Сержик захотел есть и вернулся домой.
+                            
+                            Мой котенок очень любит спать. Он находит мягкое место и ложится там, только нос торчит. 
+                            По-моему, мой Сержик самый лучший котенок в мире. 
+                    </p>
+                </div>
+            </article>
+
+<!--  -->
+
+
+
+<article>
+        <div class=imbord>
+            <img src="cat_5.jpg" alt="cat0">
+        </div>
+
+        <div class=infbord>
+            <p class=name> Пушок. 
+                </p>
+            <p class=categ>   Категория : Котенок дворовый             </p>
+            <div class="rbut">
+                <input type="radio" id="test550" name="test5" value="5"  checked/>
+                <label class = "f1" for="test550" title="5">&starf;</label>
+
+                <input type="radio" id="test545" name="test5" value="4"/>
+                <label class = "f2" for="test545" title="4.5">&starf;</label>
+
+                <input type="radio" id="test540" name="test5" value="3"/>
+                <label class = "f1" for="test540" title="4">&starf;</label>
+
+                <input type="radio" id="test535" name="test5" value="2"/>
+                <label class = "f2" for="test535" title="3.5">&starf;</label>
+
+                <input type="radio" id="test530" name="test5" value="5"/>
+                <label class = "f1" for="test530" title="3">&starf;</label>
+
+                <input type="radio" id="test525" name="test5" value="4" />
+                <label class = "f2" for="test525" title="2.5">&starf;</label>
+
+                <input type="radio" id="test520" name="test5" value="3" />
+                <label class = "f1" for="test520" title="2">&starf;</label>
+
+                <input type="radio" id="test515" name="test5" value="2"  />
+                <label class = "f2" for="test515" title="1.5">&starf;</label>
+
+                <input type="radio" id="test510" name="test5" value="3" />
+                <label class = "f1" for="test510" title="1">&starf;</label>
+
+                <input type="radio" id="test505" name="test5" value="2"  />
+                <label class = "f2" for="test505" title="0.5">&starf;</label>
+
+            </div>
+
+            <p class=price>2 502 p. <span>4 900 р.</span></p>
+        </div>
+
+        <div class=descbord>
+                <p class=descr>У нас дома живет котик. Как только он появился, мы назвали его 
+                    Маркизом за его красоту и гордый нрав. Но он никак не хотел отзываться на это имя. 
+                    А вот имя Пушок ему понравилось. Оно ему очень идет, ведь он сибирской породы и 
+                    шерсть у него длинная, пушистая и мягкая, как будто настоящий пух.
+                </p>
+        </div>
+    </article>
+
+    <article>
+        <div class=imbord>
+            <img src="cat_6.jpg" alt="cat1">
+        </div>
+
+        <div class=infbord>
+            <p class=name> Тимоша. 
+                </p>
+            <p class=categ>   
+                Категория : Котенок дворовый             
+            </p>
+            <div class="rbut">
+                <input type="radio" id="test650" name="test6" value="5"/>
+                <label class = "f1" for="test650" title="5">&starf;</label>
+
+                <input type="radio" id="test645" name="test6" value="4"/>
+                <label class = "f2" for="test645" title="4.5">&starf;</label>
+
+                <input type="radio" id="test640" name="test6" value="3"/>
+                <label class = "f1" for="test640" title="4">&starf;</label>
+
+                <input type="radio" id="test635" name="test6" value="2" checked/>
+                <label class = "f2" for="test635" title="3.5">&starf;</label>
+
+                <input type="radio" id="test630" name="test6" value="5"/>
+                <label class = "f1" for="test630" title="3">&starf;</label>
+
+                <input type="radio" id="test625" name="test6" value="4"/>
+                <label class = "f2" for="test625" title="2.5">&starf;</label>
+
+                <input type="radio" id="test620" name="test6" value="3"/>
+                <label class = "f1" for="test620" title="2">&starf;</label>
+
+                <input type="radio" id="test615" name="test6" value="2"/>
+                <label class = "f2" for="test615" title="1.5">&starf;</label>
+
+                <input type="radio" id="test610" name="test6" value="3"/>
+                <label class = "f1" for="test610" title="1">&starf;</label>
+
+                <input type="radio" id="test605" name="test6" value="2"/>
+                <label class = "f2" for="test605" title="0.5">&starf;</label>
+
+            </div>
+            <p class=price>
+                $100 <span>$300</span>
+            </p>
+        </div>
+
+        <div class=descbord>
+                <p class=descr>У нас дома есть замечательное существо — кот Тимоша. 
+                    Мы подобрали его на улице маленьким котенком. А сейчас это большой рыжий кот, очень добрый, 
+                    ласковый и любознательный. За ним интересно наблюдать. В процессе наблюдений я поняла, 
+                    что знаю очень мало о кошках, их жизнедеятельности, поведении, и мне захотелось узнать как можно 
+                    больше фактов из жизни этих удивительных животных, живущих рядом с человеком уже несколько тысячелетий.
+                </p>
+        </div>
+    </article>
+
+    <article>
+        <div class=imbord>
+            <img src="cat_7.jpg" alt="cat2">
+        </div>
+
+        <div class=infbord>
+            <p class=name> Клара. 
+                </p>
+            <p class=categ>   категория : котенок дворовый             </p>
+            <div class="rbut">
+                <input type="radio" id="test750" name="test7" value="5"/>
+                <label class = "f1" for="test750" title="5">&starf;</label>
+
+                <input type="radio" id="test745" name="test7" value="4" checked/>
+                <label class = "f2" for="test745" title="4.5">&starf;</label>
+
+                <input type="radio" id="test740" name="test7" value="3"/>
+                <label class = "f1" for="test740" title="4">&starf;</label>
+
+                <input type="radio" id="test735" name="test7" value="2"/>
+                <label class = "f2" for="test735" title="3.5">&starf;</label>
+
+                <input type="radio" id="test730" name="test7" value="5"/>
+                <label class = "f1" for="test730" title="3">&starf;</label>
+
+                <input type="radio" id="test725" name="test7" value="4"/>
+                <label class = "f2" for="test725" title="2.5">&starf;</label>
+
+                <input type="radio" id="test720" name="test7" value="3"/>
+                <label class = "f1" for="test720" title="2">&starf;</label>
+
+                <input type="radio" id="test715" name="test7" value="2"/>
+                <label class = "f2" for="test715" title="1.5">&starf;</label>
+
+                <input type="radio" id="test710" name="test7" value="3"/>
+                <label class = "f1" for="test710" title="1">&starf;</label>
+
+                <input type="radio" id="test705" name="test7" value="2"/>
+                <label class = "f2" for="test705" title="0.5">&starf;</label>
+            </div>
+            <p class=price>
+                12 000 p. <span>12 500 р.</span>
+            </p>
+            </div>
+
+        <div class=descbord>
+                <p class=descr>У меня есть домашний питомец. Это кошка по имени Клара. 
+                    Она появилась у нас когда я ходил еще в детский садик. 
+                    Сейчас Маше 7 лет, но несмотря на свой возраст, она как и раньше очень любит побегать и поиграть.
+
+                        Клара у нас палевого цвета, с небольшим белым пятнышком на груди. 
+                        Если бы его не было, то наша кошка была бы похожа на маленькую пуму. Глаза у нее желто-зеленые.
+                        
+                        Наша кошка очень ласковая, любит когда ее гладят и никогда никого сильно не кусает. 
+                        Поэтому такого питомца все хотели бы иметь.
+                        
+                        Клара любит спать на кресле. Но после нее на него лучше в светлой одежде не садиться, 
+                        потому что шерсть к ней пристанет. И приходится кресло постоянно протирать.
+                        
+                </p>
+        </div>
+    </article>
+
+    <article>
+        <div class=imbord>
+            <img src="cat_8.jpg" alt="cat3">
+        </div>
+
+        <div class=infbord>
+            <p class=name>Пушок.
+                 </p>
+            <p class=categ>   категория : котенок дворовый             </p>
+            <div class="rbut">
+                    <input type="radio" id="test850" name="test8" value="5"/>
+                    <label class = "f1" for="test850" title="5">&starf;</label>
+
+                    <input type="radio" id="test845" name="test8" value="4"/>
+                    <label class = "f2" for="test845" title="4.5">&starf;</label>
+
+                    <input type="radio" id="test840" name="test8" value="3"/>
+                    <label class = "f1" for="test840" title="4">&starf;</label>
+
+                    <input type="radio" id="test835" name="test8" value="2"/>
+                    <label class = "f2" for="test835" title="3.5">&starf;</label>
+
+                    <input type="radio" id="test830" name="test8" value="5"/>
+                    <label class = "f1" for="test830" title="3">&starf;</label>
+
+                    <input type="radio" id="test825" name="test8" value="4"/>
+                    <label class = "f2" for="test825" title="2.5">&starf;</label>
+
+                    <input type="radio" id="test820" name="test8" value="3" checked/>
+                    <label class = "f1" for="test820" title="2">&starf;</label>
+
+                    <input type="radio" id="test815" name="test8" value="2"/>
+                    <label class = "f2" for="test815" title="1.5">&starf;</label>
+
+                    <input type="radio" id="test810" name="test8" value="3"/>
+                    <label class = "f1" for="test810" title="1">&starf;</label>
+
+                    <input type="radio" id="test805" name="test8" value="2"/>
+                    <label class = "f2" for="test805" title="0.5">&starf;</label>
+            </div>
+            <p class=price>
+                7 599p. <span>9 999р.</span>
+            </p>
+            </div>
+
+        <div class=descbord>
+            <p class=descr>Пушок подрос и стал большим и красивым котом. Он очень крупный и тяжелый, и когда он много поест, 
+                то ему тяжело ходить. Наш  Пушок серенький, с белыми пятнышками на лапках, шее и чуть-чуть на хвосте. 
+                У кота большие и выразительные глаза. Когда я что-то говорю Пушку или иногда ругаю, он смотрит на меня так 
+                внимательно, и мне кажется, что он все-все понимает, только разговаривать не умеет. 
+                Бывает, что у Пушка глаза отливают зеленым цветом, мне так это нравится.  
+                У кота очень пушистый хвост, на котором часто собирается разный мусор. 
+            </p>
+        </div>
+    </article>
+
+    <article>
+            <div class=imbord>
+                <img src="cat_9.jpg" alt="cat3">
+            </div>
+
+            <div class=infbord>
+                <p class=name>Сяма.
+                     </p>
+                <p class=categ>   категория : котенок дворовый             </p>
+                <div class="rbut">
+                        <input type="radio" id="test950" name="test9" value="5"/>
+                        <label class = "f1" for="test950" title="5">&starf;</label>
+    
+                        <input type="radio" id="test945" name="test9" value="4"/>
+                        <label class = "f2" for="test945" title="4.5">&starf;</label>
+    
+                        <input type="radio" id="test940" name="test9" value="3"/>
+                        <label class = "f1" for="test940" title="4">&starf;</label>
+    
+                        <input type="radio" id="test935" name="test9" value="2"/>
+                        <label class = "f2" for="test935" title="3.5">&starf;</label>
+    
+                        <input type="radio" id="test930" name="test9" value="5"/>
+                        <label class = "f1" for="test930" title="3">&starf;</label>
+    
+                        <input type="radio" id="test925" name="test9" value="4"/>
+                        <label class = "f2" for="test925" title="2.5">&starf;</label>
+    
+                        <input type="radio" id="test920" name="test9" value="3" checked/>
+                        <label class = "f1" for="test920" title="2">&starf;</label>
+    
+                        <input type="radio" id="test915" name="test9" value="2"/>
+                        <label class = "f2" for="test915" title="1.5">&starf;</label>
+    
+                        <input type="radio" id="test910" name="test9" value="3"/>
+                        <label class = "f1" for="test910" title="1">&starf;</label>
+    
+                        <input type="radio" id="test905" name="test9" value="2"/>
+                        <label class = "f2" for="test905" title="0.5">&starf;</label>
+                </div>
+                <p class=price>
+                    3 599p. 
+                </p>
+                </div>
+
+            <div class=descbord>
+                <p class=descr>У меня дома есть котенок. Его зовут Сяма. Он бело - дымчатого цвета. 
+                    У него такие веселые ушки! То они весело стоят, то висят как у слона. 
+                    У него мягкие лапки, а хвостик всегда стоит. Он очень нежно мурлычет. 
+                    Сержик любит играть с мышками. Он очень любит лакомства. Он ластится ко мне, когда покушает.
+
+                        Однажды Сержик пошел гулять, и с ним произошло настоящее приключение. 
+                        Он залез на дерево и собирался поймать воробья, да упал. От испуга он снова забрался на дерево. 
+                        Затем он долго сидел на дереве, так как боялся, что снова упадет. 
+                        На воробьев он больше не смотрел. Вечером Сержик захотел есть и вернулся домой.
+                        
+                        Мой котенок очень любит спать. Он находит мягкое место и ложится там, только нос торчит. 
+                        По-моему, мой Сяма самый лучший котенок в мире. 
+                </p>
+            </div>
+        </article>
+
+
+
+
+
+
+
+    </body>
+</html>
