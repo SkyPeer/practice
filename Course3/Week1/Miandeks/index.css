@@ -1,0 +1,157 @@
+@font-face {
+    font-family: UbuntuRegular;
+    src: url(./fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+    font-family: UbuntuBold;
+    src: url(./fonts/Ubuntu-Bold.ttf);
+}
+
+body {
+    margin: 25px;
+    background: #EECFBA;
+    background: -webkit-linear-gradient(to right,#EECFBA, #C5DDE8);
+    background: linear-gradient(to right, #EECFBA, #C5DDE8);
+    color: #545454;
+    font-family: UbuntuRegular,Arial,sans-serif;
+}
+
+.main
+{
+    width: 100%;
+}
+
+header h1
+{
+    color: white;
+    font-family: UbuntuBold,Arial,sans-serif;
+    width: 500px;
+}
+
+.mainBoxes
+{
+    width: 90%;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#checkbox2:checked ~ .mainBoxes {width: 1100px; }
+#checkbox2:checked ~ .mainBoxes .box {width: 1100px; height: 355px; margin-right: 0px}
+#checkbox2:checked ~ .mainBoxes .box .catBox .catPhoto_img {position: inherit}
+#checkbox2:checked ~ .mainBoxes .box .catBoxControls { margin-left: 50px; }
+
+.box{
+    display: inline-block;
+    /* border: 2px;
+    border-color: #ffffff;
+    border-style: dotted; */
+    margin: 10px 40px 10px 0;
+    /*padding-right: 30px; */
+    width: 300px;
+    height: 550px;
+    float:left;
+    text-align: justify;
+}
+
+.catBox
+{
+    display: inline-block;
+    float:left;
+    position: relative;
+    box-sizing: content-box;
+    width: 301px;
+    height: 352px;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.catPhoto_img
+{
+    display: block;
+    opacity: 1;
+    transition: 0.5s;
+    position: absolute;
+    max-height: 352px;
+    max-width: 301px;
+    margin: 0 auto;
+    bottom:0;
+}
+
+.catBoxControls
+{
+    display: inline-block;
+    float:left;
+    width: 301px;
+}
+
+.catName
+{
+    color: blue;
+    transition: 0.3s;
+    font-size: large;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.catCategory
+{
+    font-size: small;
+    color: #545454;
+    margin: 4px 0
+}
+.catCategory a
+{  color: #545454; }
+
+.catBox_right
+{
+    float:right;
+    display: inline-block;
+    max-width: 370px;
+}
+
+.cost.current{ font-weight: bold; font-size: large; color:red }
+.cost.old { font-size: small; text-decoration: line-through }
+.rating{ width: 100px; }
+
+.star-input {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.star-label:nth-of-type(2n+1) {
+    float: right;
+    display: block;
+    width: 10px;
+    height: 20px;
+    background:  url('./images/mystar_black.png') 10px 0;
+}
+
+.star-label:nth-of-type(2n) {
+    float: right;
+    display: block;
+    width: 10px;
+    height: 20px;
+    background: url('./images/mystar_black.png') 0 0;
+}
+
+.rating:hover .star-label:nth-of-type(2n):hover,
+.rating:hover .star-label:hover~.star-label:nth-of-type(2n),
+.star-input:checked~.star-label:nth-of-type(2n)
+{  background: url('./images/mystar.png') 0 0 no-repeat; cursor: pointer;  }
+
+.rating:hover .star-label:nth-of-type(2n+1):hover,
+.rating:hover .star-label:hover~.star-label:nth-of-type(2n+1),
+.star-input:checked~.star-label:nth-of-type(2n+1)
+{  background: url('./images/mystar.png') -10px 0 no-repeat; cursor: pointer; }
+
+
+.box:hover .catBox .catPhoto_img {  opacity: 0.7;  transition: 1s;  }
+.box:hover .catBoxControls .catName a{color: red; transition: 1s;}
+
+.catName:hover{color: red; transition: 0.5s;}
+.catCategory a:hover{color: red; transition: 0.5s}
+
