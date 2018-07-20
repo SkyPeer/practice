@@ -1,0 +1,97 @@
+<html>
+<head>
+    <style>
+
+
+        * {
+            /*list-style: none; */
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: .25s ease-in;
+            transition: .25s ease-in;
+        }
+
+        html {
+           /* -webkit-box-shadow: inset 0 0 300px 0 rgba(0,0,0,.35);
+            box-shadow: inset 0 0 300px 0 rgba(0,0,0,.35);
+            height: 100%;; */
+        }
+
+        body {
+            margin: 5%;
+        }
+
+        img {
+            width: 25%;
+           /* overflow: auto; */
+            /*height: auto; */
+           /* float: left; */
+            border:10px solid transparent;
+
+        }
+
+       /*.wrap:hover img:not(:hover) {
+            filter: grayscale(1);
+            opacity: .75;
+        } */
+
+        span{ background-color: yellow}
+
+        section{
+            border: 2px dotted;
+            border-color: brown;
+            width: auto;
+
+        }
+
+
+       #checkbox2:checked ~ section {background-color: red}
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="wrap">
+
+    <input id="checkbox1" name="wrapstyle" type="radio" value="1" checked> 1
+    <input id="checkbox2" name="wrapstyle" type="radio" value="2"> 2
+    <section>
+        <p><img src="cat_01.png"/></p>
+        <p>ABRADABRASDAsda</p>
+        <span>not active</span>
+
+    </section>
+    <br/>
+    <section>
+        <p><img src="cat_01.png"/></p>
+        <p>ABRADABRASDAsda</p>
+        <span>not active</span>
+    </section>
+
+    <br/>
+
+    <section>
+        <p><img src="cat_01.png"/></p>
+        <p>ABRADABRASDAsda</p>
+        <span>not active</span>
+    </section>
+
+    <br/>
+
+    <section>
+        <p><img src="cat_01.png"/></p>
+        <p>ABRADABRASDAsda</p>
+        <span>not active</span>
+    </section>
+
+</div>
+
+
+
+</body>
+</html>
