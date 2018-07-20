@@ -1,0 +1,267 @@
+@font-face
+{
+    font-family: Font;
+    src: url('font/fontawesome-webfont.woff2') format('woff2'),
+        url('font/fontawesome-webfont.woff') format('woff'),
+        url('font/fontawesome-webfont.ttf') format('ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+body
+{
+    font-family: Font, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+
+}
+html
+{
+    box-sizing: border-box;
+    font-size: 10px;
+    min-height: 100vh;
+}
+*,
+*::after,
+*::before
+{
+    box-sizing: inherit;
+}
+html,
+body
+{
+    padding: 0;
+    margin: 0;
+
+}
+.list-size{
+	width: 1150px;
+    margin: 1rem auto;
+}
+@media(min-width: 1500px)
+{
+    .list-size
+    {
+        width: 1525px;
+    }
+    #show-table:checked ~ .items > .items-item >.product-box > .product-info
+    {
+        width: 500px;
+    }
+}
+
+
+h1{
+	text-align:center;
+	background: #009fe2;
+	height:45px;
+	color: white;
+	letter-spacing: 2px;
+}
+.radio-box{
+	background: #009fe2;
+	width:50px;
+	height: 50px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+.radio-box.second{
+	background: orange;
+
+}
+.switch
+{
+    display: none;
+}
+.to-list,
+.to-table
+{
+    font-family: Font, sans-serif;
+    font-size: 2rem;
+    color: #009fe2;
+    cursor: pointer;
+  
+}
+.to-list:hover,
+.to-table:hover
+{
+    color: orange;
+}
+.to-list::before
+{
+    content: '\f0ce';
+}
+
+.to-table::before
+{
+    content: '\f0ca';
+}
+#show-list:checked ~ label[for='show-list'],
+#show-table:checked ~ label[for='show-table']
+{
+    color: grey;
+}
+#show-table:checked ~ .items{
+	display: table;
+	table-layout: fixed;
+	padding: 0;
+}
+#show-table:checked ~.items > .items-item{
+	display: table-row;
+}
+#show-table:checked ~ .items > .items-item >.product-img,
+#show-table:checked ~ .items > .items-item >.product-box,
+#show-table:checked ~ .items > .items-item >.descripton{
+	display: table-cell;
+}
+#show-table:checked ~ .items > .items-item >.product-box{
+	width: 300px;
+}
+#show-table:checked ~ .items > .items-item >.product-box{
+	padding: 15px 15px;
+	overflow: hidden;
+}
+
+#show-table:checked ~ .items > .items-item >.product-img{
+	width: 400px;
+	vertical-align: top;
+	padding: 15px 0;
+	overflow: hidden;
+	text-align: center;
+	
+}
+#show-table:checked ~ .items > .items-item > .product-box
+    {
+        width: 500px;
+    }
+#show-table:checked ~ .items > .items-item >.product-img img:hover
+{
+    opacity: 0.7;
+}
+#show-list:checked ~ .items > .items-item >.product-img img:hover
+{
+    opacity: 0.7;
+}
+.items-item{
+	display: inline-block;
+    vertical-align: top;
+    font-size: 1.2rem;
+    width: 350px;
+    margin-left: 25px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+.items
+{
+    padding-right: 25px;
+    padding-bottom: 25px;
+    font-size: 0;
+}
+#show-list:checked ~ .items > .items-item >.product-img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	height:400px;
+	position: relative;
+	overflow: hidden;
+} 
+#show-list:checked ~ .items > .items-item >.product-img img {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.product-info{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 2rem;
+	margin: 5px 0;
+	white-space: nowrap;
+	width: 350px;
+}
+
+.price-new{
+	color: red;
+	font-size: 2.5rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+.price-old{
+	text-decoration: line-through;
+	margin-left: 10px;
+	font-size: 1.5rem;
+	letter-spacing: 3px;
+}
+.product-info a:hover,
+.category a:hover{
+	color: red;
+	font-size: 115%;
+}
+.description-text{
+	font-size: 1.5rem;
+}
+.item-rating
+{
+    margin: 10px 0;
+    display: inline-block;
+    
+}
+.item-rating input
+{
+    display: none;
+}
+.item-rating label
+{
+    float: right;
+    font-family: Font, sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+.item-rating .rating::before
+{
+    content: '\f005';
+    text-shadow: 0 0 2px #000;
+}
+.item-rating .rating-2::before
+{
+    content: '\f089';
+    position: absolute;
+    z-index: 1;
+}
+.item-rating label:hover,
+.item-rating label:hover ~ label
+{
+    color: yellow !important;
+}
+.item-rating label:active::before,
+.item-rating label:active ~ label::before
+{
+    color: #009fe2;
+}
+
+
+.item-rating input:checked ~ label
+{
+    color: yellow;
+}
+.delivery-hugs{
+	font-size: 1.2rem;
+	font-style: italic;
+
+}
+.descripton-info{
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.delivery-icon::before{
+	content: '\f0d1';
+	font-size: 2rem;
+	margin: 5px	5px;
+	color: red;
+}
+.descripton{
+	text-align: justify;
+}

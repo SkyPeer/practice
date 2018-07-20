@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cat {
+    width: 300px;
+    display: inline-block;
+    margin:10px 40px 0 20px;
+}
+
+.cat:hover img {
+    opacity: 0.7;
+}
+
+.cat:hover :nth-child(2) :first-child {
+    color: #b30047;
+}
+
+.cat img {
+    width: 288px;
+    padding: 0 6px;
+}
+
+.cat a {
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.cat div a:nth-child(2) {
+    color: grey;
+    font-size: 0.7em;
+}
+
+
+.rating {
+    display: block;
+    border: none;
+    float: left;
+    padding: 0;
+}
+
+.rating > input { display: none; }
+.rating > label:before { 
+    margin: 5px 0;
+    font-size: 1.5em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > .half:before { 
+    content: "\f089";
+    position: absolute;
+}
+
+.rating > label { 
+    color: #ddd; 
+    float: right; 
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label { 
+    color: #FFD700;  
+}
+
+.price {
+    display: inline-block;
+    width: 100%;
+}
+
+.price-old {
+    text-decoration: line-through;
+    font-size: 0.9em;
+}
+
+.price-new {
+    color: darkred;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+.description-title {
+    font-weight: bold;
+}
+
+.description {
+    overflow: hidden;
+    font-size: 0.8em;
+    height: 300px;
+    
+}
+.switch {
+    display: block;
+}
+.switch:checked + ul li {
+    display: block;
+    width: 98%;
+    margin-bottom: 50px;
+}
+.switch:checked + ul li > div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
+}
+.switch:checked + ul li > div:nth-child(3) {
+    width: 20%;
+    height: 200px;
+}
+.switch:checked + ul li > div:nth-child(2) {
+    width: 30%;   
+}
