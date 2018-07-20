@@ -2,12 +2,10 @@
     font-family: UbuntuRegular;
     src: url(./fonts/Ubuntu-Regular.ttf);
 }
-
 @font-face {
     font-family: UbuntuBold;
     src: url(./fonts/Ubuntu-Bold.ttf);
 }
-
 body {
     margin: 25px;
     background: #EECFBA;
