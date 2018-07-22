@@ -151,6 +151,7 @@ header h1
 .box:hover .catBox .catPhoto_img {  opacity: 0.7;  transition: 1s;  }
 .box:hover .catBoxControls .catName a{color: red; transition: 1s;}
 
+
 .catName:hover{color: red; transition: 0.5s;}
 .catCategory a:hover{color: red; transition: 0.5s}
 
