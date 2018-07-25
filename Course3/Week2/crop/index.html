@@ -1,0 +1,117 @@
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: UbuntuRegular;
+            src: url(./fonts/Ubuntu-Regular.ttf);
+        }
+        @font-face {
+            font-family: UbuntuBold;
+            src: url(./fonts/Ubuntu-Bold.ttf);
+        }
+
+        body
+        {
+            font-family: UbuntuRegular,Arial,sans-serif;
+            margin-left: 100px;
+            margin-top: 25px;
+            z-index: 1;
+        }
+
+
+        header {
+            font-size: x-large;
+            font-weight: bold;
+            font-family: UbuntuBold,Arial,sans-serif;
+            margin-bottom: 50px;
+        }
+
+        header .first_word {
+            color: red;
+        }
+
+        .wrapper{
+            border: 2px;
+            border-style: solid;
+            border-color: brown;
+            width: 400px;
+            overflow: hidden;
+            height: 100px;
+           z-index: 100;
+            position: absolute;
+            background-color: white;
+
+        }
+        .box{
+            transition: all 1s ease-in-out;
+            display: inline-block;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1px;
+            border-color: red;
+            border-style: dotted;
+            margin: 10px;
+        }
+        /*
+       .slidegroup1{
+            position: relative;
+        } */
+        /*.slidegroup2 {
+            position: absolute;
+        } */
+
+      /*  .box.slide6 {position: relative} */
+
+        .box:hover {background-color: red}
+
+/*
+        .button1 {color: red  }
+
+
+       .button1:hover {  background-color: red;  color: white;  cursor: pointer;  }
+
+        .button1:hover ~ .wrapper .box { transform: translate(-40px,0);}
+        /*.button1:hover ~ .wrapper .box.slide7 {} */
+
+        #radiobuton2:checked ~ .wrapper > .slidegroup1 {
+             transform: translateX(-240px); position: absolute; /*left: -100px; */
+        }
+        /*#radiobuton2:checked ~ .wrapper > .slidegroup1_last {transform: translateX(0); position: relative}
+
+        /* #radiobuton2:checked ~ .wrapper > .slidegroup1 */
+
+
+    </style>
+<title>Бабуленькин урожай</title>
+
+</head>
+<body>
+<header><span class="first_word">Бабуленькин</span> урожай</header>
+<span class="button1">BUTTON1</span>
+<span class="button2">BUTTON2</span>
+
+<input type="radio" id="radiobuton1" name="slidercontrol" checked><label for="radiobuton1">checkbox</label>
+<input type="radio" id="radiobuton2" name="slidercontrol"><label for="radiobuton2">checkbox</label>
+
+
+<div class="wrapper">
+    <div class="box slidegroup1 slide1">1</div>
+    <div class="box slidegroup1 slide2">2</div>
+    <div class="box slidegroup1 slide3">3</div>
+    <div class="box slidegroup1_last slide4">4</div>
+    <div class="box slidegroup2 slide5">5</div>
+    <div class="box slidegroup2 slide6">6</div>
+    <div class="box slidegroup2 slide7">7</div>
+    <div class="box slidegroup2_last slide8">8</div>
+    <div class="box slidegroup3 slide9">9</div>
+    <div class="box slidegroup3 slide10">10</div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
