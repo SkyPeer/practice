@@ -34,17 +34,17 @@
             border: 2px;
             border-style: solid;
             border-color: brown;
-            width: 300px;
+            width: 400px;
             overflow: hidden;
-            white-space: nowrap;
             height: 70px;
-             z-index: 100;
+           z-index: 100;
             position: absolute;
             background-color: white;
 
         }
         .box{
-            left: -900px;
+            /* transition: all 1s ease-in-out; */
+            left: 0;
             display: inline-block;
             position: relative;
             width: 50px;
@@ -55,72 +55,72 @@
             margin: 10px;
 
         }
+        /*
+       .slidegroup1{
+            position: relative;
+        } */
+      /*  .slidegroup2 {
+           opacity: 0;
+        }
+      /*  .box.slide6 {position: relative} */
 
         .box:hover {background-color: red}
 
-/*
-        #radiobutton1:checked ~ .wrapper > .box {
-            /*transform: translateX(0px); /*left: -100px; */
-         /*   animation-name: radiobutton1_animation;
+
+        #radiobuton2:checked ~ .wrapper > .slidegroup1 {
+           /* transform: translateX(-240px); position: absolute; /*left: -100px; */
+            animation-name: slidergroup1anim;
             animation-iteration-count: 1;
             animation-duration: 0.4s;
             animation-timing-function: linear;
-            animation-direction: alternate-reverse;
-            /*animation-fill-mode: both; */
-        /*
-       /* @keyframes radiobutton1_animation {
+            animation-fill-mode: both;
+        }
+
+        @keyframes slidergroup1anim {
+            from {
+                position: relative;
+            }
 
             to{
-                left:0;
+                position: absolute;
+                left:-100px
             }
         }
-*/
-        #radiobutton1:checked ~ .wrapper > .slidegroup1
-        {
-            left:0
-        }
 
 
-        #radiobutton2:checked ~ .wrapper > .slidegroup2
-        {
-            left: -227px;
-        }
 
-        #radiobutton3:checked ~ .wrapper > .slidegroup3
-        {
-            left: -454px;
-        }
 
-        
-
-        /*WORKED!!!!*/
-        /*
-
-        #radiobutton2:checked ~ .wrapper > .box {
-
-            animation-name: radiobutton2_animation;
+        #radiobuton2:checked ~ .wrapper > .slidegroup1_last {
+            animation-name: slidergroup1_last_anim;
             animation-iteration-count: 1;
-            animation-duration: 0.4s;
+            animation-duration: 2s;
             animation-timing-function: linear;
             animation-fill-mode: both;
         }
-        @keyframes radiobutton2_animation {
-            to{  left:-227px  }
+
+        @keyframes slidergroup1_last_anim {
+            from {
+                /*position: fixed; */
+                left: 100px;
+            }
+
+            to{
+                left: 0;
+            }
         }
 
-        #radiobutton3:checked ~.wrapper > .box{
-            animation-name: radiobutton3_animation;
+
+        #radiobuton2:checked ~ .wrapper > .slidegroup2 {
+            animation-name: slidergroup1_last_anim;
             animation-iteration-count: 1;
-            animation-duration: 0.4s;
+            animation-duration: 2s;
             animation-timing-function: linear;
             animation-fill-mode: both;
         }
-        @keyframes radiobutton3_animation
-        {
-            to{  left:-454px  }
-        }
 
-        */
+        /* #radiobuton2:checked ~ .wrapper > .slidegroup1 */
+
+
 
 
 
@@ -131,22 +131,23 @@
 <body>
 <header><span class="first_word">Бабуленькин</span> урожай</header>
 
-<input type="radio" id="radiobutton1" name="slidercontrol" checked><label for="radiobutton1">checkbox1</label>
-<input type="radio" id="radiobutton2" name="slidercontrol"><label for="radiobutton2">checkbox2</label>
-<input type="radio" id="radiobutton3" name="slidercontrol"><label for="radiobutton3">checkbox3</label>
+<input type="radio" id="radiobuton1" name="slidercontrol" checked><label for="radiobuton1">checkbox</label>
+<input type="radio" id="radiobuton2" name="slidercontrol"><label for="radiobuton2">checkbox</label>
+
 
 <div class="wrapper">
     <div class="box slidegroup1 slide1">1</div>
     <div class="box slidegroup1 slide2">2</div>
     <div class="box slidegroup1 slide3">3</div>
-    <div class="box slidegroup1 slidegroup2 slide4">4</div>
+    <div class="box slidegroup1_last slide4">4</div>
     <div class="box slidegroup2 slide5">5</div>
     <div class="box slidegroup2 slide6">6</div>
-    <div class="box slidegroup2 slidegroup3 slide7">7</div>
-    <div class="box slidegroup3 slide8">8</div>
+    <div class="box slidegroup2 slide7">7</div>
+    <div class="box slidegroup2_last slide8">8</div>
     <div class="box slidegroup3 slide9">9</div>
     <div class="box slidegroup3 slide10">10</div>
-
+    <div class="box slidegroup3 slide11">11</div>
+    <div class="box slidegroup3 slide12">12</div>
 
 
 </div>
