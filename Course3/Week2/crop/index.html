@@ -36,14 +36,14 @@
             border-color: brown;
             width: 400px;
             overflow: hidden;
-            height: 100px;
+            height: 170px;
            z-index: 100;
             position: absolute;
             background-color: white;
 
         }
         .box{
-            transition: all 1s ease-in-out;
+            /* transition: all 1s ease-in-out; */
             display: inline-block;
             position: relative;
             width: 50px;
@@ -57,29 +57,39 @@
        .slidegroup1{
             position: relative;
         } */
-        /*.slidegroup2 {
-            position: absolute;
-        } */
-
+        .slidegroup2 {
+           opacity: 0;
+        }
       /*  .box.slide6 {position: relative} */
 
         .box:hover {background-color: red}
 
-/*
-        .button1 {color: red  }
-
-
-       .button1:hover {  background-color: red;  color: white;  cursor: pointer;  }
-
-        .button1:hover ~ .wrapper .box { transform: translate(-40px,0);}
-        /*.button1:hover ~ .wrapper .box.slide7 {} */
 
         #radiobuton2:checked ~ .wrapper > .slidegroup1 {
-             transform: translateX(-240px); position: absolute; /*left: -100px; */
+           /* transform: translateX(-240px); position: absolute; /*left: -100px; */
+            animation: slidergroup1anim 2s normal;
         }
-        /*#radiobuton2:checked ~ .wrapper > .slidegroup1_last {transform: translateX(0); position: relative}
 
+        @keyframes slidergroup1anim {
+            from {
+                position: relative;
+            }
+
+            to{
+                position: absolute;
+                /* transform: translateX(-240px) */
+                left: -100px;
+            }
+        }
+/*
+        #radiobuton2:checked ~ .wrapper > .slidegroup1_last { transform: translateX(0)}
+
+        #radiobuton2:checked ~ .wrapper > .slidegroup2 {opacity: 1}
+*/
         /* #radiobuton2:checked ~ .wrapper > .slidegroup1 */
+
+
+
 
 
     </style>
@@ -88,8 +98,6 @@
 </head>
 <body>
 <header><span class="first_word">Бабуленькин</span> урожай</header>
-<span class="button1">BUTTON1</span>
-<span class="button2">BUTTON2</span>
 
 <input type="radio" id="radiobuton1" name="slidercontrol" checked><label for="radiobuton1">checkbox</label>
 <input type="radio" id="radiobuton2" name="slidercontrol"><label for="radiobuton2">checkbox</label>
@@ -106,7 +114,8 @@
     <div class="box slidegroup2_last slide8">8</div>
     <div class="box slidegroup3 slide9">9</div>
     <div class="box slidegroup3 slide10">10</div>
-
+    <div class="box slidegroup3 slide11">11</div>
+    <div class="box slidegroup3 slide12">12</div>
 
 
 </div>
