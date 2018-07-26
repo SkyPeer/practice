@@ -13,11 +13,10 @@
         body
         {
             font-family: UbuntuRegular,Arial,sans-serif;
-            margin-left: 100px;
+            /* margin-left: 100px;
             margin-top: 25px;
-            z-index: 1;
+            z-index: 1; */
         }
-
 
         header {
             font-size: x-large;
@@ -30,25 +29,34 @@
             color: red;
         }
 
+        .slider{
+            position: absolute;
+            width:auto;
+            height: auto;
+          /*  right:50%;
+            bottom:70%; */
+            /*transform: translateX(50%) translateY(50%); */
+       }
+
+
         .wrapper{
             border: 2px;
             border-style: solid;
             border-color: brown;
-            width: 300px;
+            width: 900px;
+            height: 1000px;
             overflow: hidden;
             white-space: nowrap;
-            height: 70px;
-             z-index: 100;
             position: absolute;
             background-color: white;
 
         }
         .box{
-            right: -900px;
+            right:0;
             display: inline-block;
             position: relative;
-            width: 50px;
-            height: 50px;
+            width: 200px;
+            height: 200px;
             border: 1px;
             border-color: red;
             border-style: dotted;
@@ -58,61 +66,61 @@
 
         .box:hover {background-color: red}
 
-/*
-        #radiobutton1:checked ~ .wrapper > .box {
-            /*transform: translateX(0px); /*left: -100px; */
-         /*   animation-name: radiobutton1_animation;
-            animation-iteration-count: 1;
-            animation-duration: 0.4s;
-            animation-timing-function: linear;
-            animation-direction: alternate-reverse;
-            /*animation-fill-mode: both; */
-        /*
-       /* @keyframes radiobutton1_animation {
-
-            to{
-                left:0;
-            }
-        }
-*/
 
 
-        /* worked */
-        /*
-        #radiobutton1:checked ~ .wrapper > .slidegroup1
-        {
-            right:0
-        }
+        #radiobutton2_1 {position: fixed;top:-1000px;left: -1000px;}
+        #radiobutton2_1_label {position: fixed;top:-1000px;left: -1000px;}
 
 
-        #radiobutton2:checked ~ .wrapper > .slidegroup2
-        {
-            right: 227px;
-        }
-
-        #radiobutton3:checked ~ .wrapper > .slidegroup3
-        {
-            right: 454px;
-        }
-*/
-
-
-        /*WORKED!!!!*/
-        /*
-
-        #radiobutton2:checked ~ .wrapper > .box {
-
-            animation-name: radiobutton2_animation;
+        #radiobutton1:checked ~ .wrapper > .slide1 {
+            animation-name: radiobutton1_animation;
             animation-iteration-count: 1;
             animation-duration: 0.4s;
             animation-timing-function: linear;
             animation-fill-mode: both;
         }
-        @keyframes radiobutton2_animation {
-            to{  left:-227px  }
+        @keyframes radiobutton1_animation {
+            from {margin-left: -868px}
+            to{  margin-left:10px }
+        }
+        #radiobutton1:checked ~ #radiobutton2_1 {position: static}
+        #radiobutton1:checked ~ #radiobutton2_1_label {position: static}
+        #radiobutton1:checked ~ #radiobutton2_2 {position: fixed;top:-1000px;left: -1000px;}
+        #radiobutton1:checked ~ #radiobutton2_2_label {position: fixed;top:-1000px;left: -1000px;}
+
+
+
+        #radiobutton2_1:checked {position: static}
+        #radiobutton2_1:checked ~ #radiobutton2_1_label{position: static}
+        #radiobutton2_1:checked ~ .wrapper > .slide1 {
+
+            animation-name: radiobutton2_1_animation;
+            animation-iteration-count: 1;
+            animation-duration: 0.4s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+        @keyframes radiobutton2_1_animation {
+            to{  margin-left: -840px }
         }
 
-        #radiobutton3:checked ~.wrapper > .box{
+        #radiobutton2_1:checked ~ #radiobutton2_2 {position: fixed;top:-1000px;left: -1000px;}
+        #radiobutton2_1:checked ~ #radiobutton2_2_label {position: fixed;top:-1000px;left: -1000px;}
+
+        #radiobutton2_2:checked ~ .wrapper > .slide1 {
+
+            animation-name: radiobutton2_2_animation;
+            animation-iteration-count: 1;
+            animation-duration: 0.4s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+        @keyframes radiobutton2_2_animation {
+            from{ margin-left:-1776px;}
+            to{  margin-left: -868px }
+        }
+
+        #radiobutton3:checked ~.wrapper > .slide1{
             animation-name: radiobutton3_animation;
             animation-iteration-count: 1;
             animation-duration: 0.4s;
@@ -121,10 +129,17 @@
         }
         @keyframes radiobutton3_animation
         {
-            to{  left:-454px  }
+           from
+           {margin-left: -868px;
+           }
+            to
+            {
+                margin-left:-1776px;
+            }
         }
 
-        */
+
+
 
 
 
@@ -133,10 +148,11 @@
 
 </head>
 <body>
-<header><span class="first_word">Бабуленькин</span> урожай</header>
 
+<div class="slider"><header><span class="first_word">Бабуленькин</span> урожай</header>
 <input type="radio" id="radiobutton1" name="slidercontrol" checked><label for="radiobutton1">checkbox1</label>
-<input type="radio" id="radiobutton2" name="slidercontrol"><label for="radiobutton2">checkbox2</label>
+<input type="radio" id="radiobutton2_1" name="slidercontrol"><label id="radiobutton2_1_label" for="radiobutton2_1">checkbox2</label>
+<input type="radio" id="radiobutton2_2" name="slidercontrol"><label id="radiobutton2_2_label" for="radiobutton2_2">checkbox2</label>
 <input type="radio" id="radiobutton3" name="slidercontrol"><label for="radiobutton3">checkbox3</label>
 
 <div class="wrapper">
@@ -150,7 +166,7 @@
     <div class="box slidegroup3 slide8">8</div>
     <div class="box slidegroup3 slide9">9</div>
     <div class="box slidegroup3 slide10">10</div>
-
+</div>
 
 
 </div>

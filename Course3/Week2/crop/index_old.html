@@ -1,0 +1,161 @@
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: UbuntuRegular;
+            src: url(./fonts/Ubuntu-Regular.ttf);
+        }
+        @font-face {
+            font-family: UbuntuBold;
+            src: url(./fonts/Ubuntu-Bold.ttf);
+        }
+
+        body
+        {
+            font-family: UbuntuRegular,Arial,sans-serif;
+            margin-left: 100px;
+            margin-top: 25px;
+            z-index: 1;
+        }
+
+
+        header {
+            font-size: x-large;
+            font-weight: bold;
+            font-family: UbuntuBold,Arial,sans-serif;
+            margin-bottom: 50px;
+        }
+
+        header .first_word {
+            color: red;
+        }
+
+        .wrapper{
+            border: 2px;
+            border-style: solid;
+            border-color: brown;
+            width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            height: 70px;
+             z-index: 100;
+            position: absolute;
+            background-color: white;
+
+        }
+        .box{
+            right: -900px;
+            display: inline-block;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1px;
+            border-color: red;
+            border-style: dotted;
+            margin: 10px;
+
+        }
+
+        .box:hover {background-color: red}
+
+/*
+        #radiobutton1:checked ~ .wrapper > .box {
+            /*transform: translateX(0px); /*left: -100px; */
+         /*   animation-name: radiobutton1_animation;
+            animation-iteration-count: 1;
+            animation-duration: 0.4s;
+            animation-timing-function: linear;
+            animation-direction: alternate-reverse;
+            /*animation-fill-mode: both; */
+        /*
+       /* @keyframes radiobutton1_animation {
+
+            to{
+                left:0;
+            }
+        }
+*/
+
+
+        /* worked */
+        /*
+        #radiobutton1:checked ~ .wrapper > .slidegroup1
+        {
+            right:0
+        }
+
+
+        #radiobutton2:checked ~ .wrapper > .slidegroup2
+        {
+            right: 227px;
+        }
+
+        #radiobutton3:checked ~ .wrapper > .slidegroup3
+        {
+            right: 454px;
+        }
+*/
+
+
+        /*WORKED!!!!*/
+        /*
+
+        #radiobutton2:checked ~ .wrapper > .box {
+
+            animation-name: radiobutton2_animation;
+            animation-iteration-count: 1;
+            animation-duration: 0.4s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+        @keyframes radiobutton2_animation {
+            to{  left:-227px  }
+        }
+
+        #radiobutton3:checked ~.wrapper > .box{
+            animation-name: radiobutton3_animation;
+            animation-iteration-count: 1;
+            animation-duration: 0.4s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+        @keyframes radiobutton3_animation
+        {
+            to{  left:-454px  }
+        }
+
+        */
+
+
+
+    </style>
+<title>Бабуленькин урожай</title>
+
+</head>
+<body>
+<header><span class="first_word">Бабуленькин</span> урожай</header>
+
+<input type="radio" id="radiobutton1" name="slidercontrol" checked><label for="radiobutton1">checkbox1</label>
+<input type="radio" id="radiobutton2" name="slidercontrol"><label for="radiobutton2">checkbox2</label>
+<input type="radio" id="radiobutton3" name="slidercontrol"><label for="radiobutton3">checkbox3</label>
+
+<div class="wrapper">
+    <div class="box slidegroup1 slide1">1</div>
+    <div class="box slidegroup1 slide2">2</div>
+    <div class="box slidegroup1 slide3">3</div>
+    <div class="box slidegroup1 slidegroup2 slide4">4</div>
+    <div class="box slidegroup2 slide5">5</div>
+    <div class="box slidegroup2 slide6">6</div>
+    <div class="box slidegroup2 slidegroup3 slide7">7</div>
+    <div class="box slidegroup3 slide8">8</div>
+    <div class="box slidegroup3 slide9">9</div>
+    <div class="box slidegroup3 slide10">10</div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
