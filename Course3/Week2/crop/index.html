@@ -30,11 +30,15 @@
         }
 
         .slider{
-            position: absolute;
-            width:auto;
+            border: 3px;
+            border-style: solid;
+            border-color: blueviolet;
+            position: relative;
+            width:904px;
             height: auto;
-          /*  right:50%;
-            bottom:70%; */
+           left:50%;
+            transform: translateX(-50%)
+            /*bottom:70%; */
             /*transform: translateX(50%) translateY(50%); */
        }
 
@@ -47,7 +51,7 @@
             height: 1000px;
             overflow: hidden;
             white-space: nowrap;
-            position: absolute;
+            position: relative;
             background-color: white;
 
         }
@@ -61,11 +65,17 @@
             border-color: red;
             border-style: dotted;
             margin: 10px;
+            padding: 10px;
 
         }
 
-        .box:hover {background-color: red}
+        .box:hover {background-color: red; height: 400px}
 
+
+        .box img {
+           width: 190px;
+            height: 190px;
+        }
 
 
         #radiobutton2_1 {position: fixed;top:-1000px;left: -1000px;}
@@ -80,7 +90,7 @@
             animation-fill-mode: both;
         }
         @keyframes radiobutton1_animation {
-            from {margin-left: -868px}
+          from {margin-left: -868px}
             to{  margin-left:10px }
         }
         #radiobutton1:checked ~ #radiobutton2_1 {position: static}
@@ -156,16 +166,16 @@
 <input type="radio" id="radiobutton3" name="slidercontrol"><label for="radiobutton3">checkbox3</label>
 
 <div class="wrapper">
-    <div class="box slidegroup1 slide1">1</div>
-    <div class="box slidegroup1 slide2">2</div>
-    <div class="box slidegroup1 slide3">3</div>
-    <div class="box slidegroup1 slidegroup2 slide4">4</div>
-    <div class="box slidegroup2 slide5">5</div>
-    <div class="box slidegroup2 slide6">6</div>
-    <div class="box slidegroup2 slidegroup3 slide7">7</div>
-    <div class="box slidegroup3 slide8">8</div>
-    <div class="box slidegroup3 slide9">9</div>
-    <div class="box slidegroup3 slide10">10</div>
+    <div class="box slidegroup1 slide1"><img src="./images/apples.png"></div>
+    <div class="box slidegroup1 slide2"><img src="./images/apples.png"></div>
+    <div class="box slidegroup1 slide3"><img src="./images/apples.png"></div>
+    <div class="box slidegroup1 slide4"><img src="./images/apples.png"></div>
+    <div class="box slidegroup2 slide5"><img src="./images/apples.png"></div>
+    <div class="box slidegroup2 slide6"><img src="./images/apples.png"></div>
+    <div class="box slidegroup2 slide7"><img src="./images/apples.png"></div>
+    <div class="box slidegroup3 slide8"><img src="./images/apples.png"></div>
+    <div class="box slidegroup3 slide9"><img src="./images/apples.png"></div>
+    <div class="box slidegroup3 slide10"><img src="./images/apples.png"></div>
 </div>
 
 
