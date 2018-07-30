@@ -1,0 +1,42 @@
+<html>
+<head>
+    <style>
+        #box {
+            position: relative;
+            width: 820px;
+            background: white;
+            padding: 2em 1.5em;
+        }
+
+        #box:before,
+        #box:after {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            bottom: 15px;
+            left: 10px;
+            width: 50%;
+            top: 80%;
+            max-width:300px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+            transform: rotate(-3deg);
+        }
+
+        #box:after {
+            transform: rotate(3deg);
+            right: 10px;
+            left: auto;
+        }
+    </style>
+
+    <title>
+        shadow box
+    </title>
+</head>
+<body>
+<div id="box">
+    <h3>Эффект 2</h3>
+</div>
+</body>
+</html>
