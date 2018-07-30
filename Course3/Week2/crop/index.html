@@ -30,9 +30,9 @@
         }
 
         .slider{
-          border: 2px;
+       /*   border: 2px;
             border-style: solid;
-            border-color: blueviolet;
+            border-color: blueviolet; */
             position: absolute;
             width:auto;
             height: auto;
@@ -47,15 +47,15 @@
 
 
         .wrapper{
-            border: 2px;
+            /*border: 2px;
             border-style: solid;
-            border-color: brown;
+            border-color: brown; */
             padding-top: 20px;
             padding-left: 20px;
             padding-right: 20px;
             position: relative;
             width: 820px;
-            height: 400px;
+            height: 300px;
             overflow: hidden;
             white-space: nowrap;
             background-color: white;
@@ -152,15 +152,42 @@
         }
 
 
+        .slidercontrol{
+            /*transform: translateX(-50%); */
+         position: absolute;
+            width: auto;
+            left:50%;
+            transform:translateX(-50%)
+        }
+
+        label {
+            cursor: pointer;
+            display: inline-block;
+            height: 8px;
+            margin: 25px 12px 0 16px;
+            position: relative;
+            width: 8px;
+            border-radius: 50%;
+            transition: background ease-in-out .5s;
+        }
+
+        label:after {
+            border: 2px solid #940d00;
+            content: " ";
+            display: block;
+            height: 12px;
+            left: -4px;
+            position: absolute;
+            top: -4px;
+            width: 12px;
+            border-radius: 50%;
+        }
+
+        label:hover{background: #940d00;}
 
 
+        .slidercontrol #radiobutton2_1_label {position: fixed;}
 
-
-
-
-
-        #radiobutton2_1 {position: fixed;top:-1000px;left: -1000px;}
-        #radiobutton2_1_label {position: fixed;top:-1000px;left: -1000px;}
         #radiobutton1:checked ~ .wrapper > .slide1 {
             animation-name: radiobutton1_animation;
             animation-iteration-count: 1;
@@ -169,18 +196,17 @@
             animation-fill-mode: both;
         }
         @keyframes radiobutton1_animation {
-          from {margin-left: -868px}
+          from {margin-left: -600px}
             to{  margin-left:0 }
         }
-        #radiobutton1:checked ~ #radiobutton2_1 {position: static}
-        #radiobutton1:checked ~ #radiobutton2_1_label {position: static}
-        #radiobutton1:checked ~ #radiobutton2_2 {position: fixed;top:-1000px;left: -1000px;}
-        #radiobutton1:checked ~ #radiobutton2_2:after {position: fixed;top:-1000px;left: -1000px;}
+        #radiobutton1:checked ~ .slidercontrol #radiobutton1_label {background: #940d00;}
+        #radiobutton1:checked ~ .slidercontrol #radiobutton2_1_label {position: relative}
+        #radiobutton1:checked ~ .slidercontrol #radiobutton2_2_label {position: fixed;}
 
-        #radiobutton2_1:checked {position: static}
-        #radiobutton2_1:checked ~ #radiobutton2_1_label{position: static}
+
+
+
         #radiobutton2_1:checked ~ .wrapper > .slide1 {
-
             animation-name: radiobutton2_1_animation;
             animation-iteration-count: 1;
             animation-duration: 0.9s;
@@ -188,11 +214,12 @@
             animation-fill-mode: both;
         }
         @keyframes radiobutton2_1_animation {
-            to{  margin-left: -500px }
+            to{  margin-left: -600px }
         }
+        #radiobutton2_1:checked ~ .slidercontrol #radiobutton2_1_label {position: relative}
+        #radiobutton2_1:checked ~ .slidercontrol #radiobutton2_2_label {position: fixed}
+        #radiobutton2_1:checked ~ .slidercontrol #radiobutton2_1_label {background: #940d00;}
 
-        #radiobutton2_1:checked ~ #radiobutton2_2 {position: fixed;top:-1000px;left: -1000px;}
-        #radiobutton2_1:checked ~ #radiobutton2_2:after {position: fixed;top:-1000px;left: -1000px;}
 
         #radiobutton2_2:checked ~ .wrapper > .slide1 {
 
@@ -203,9 +230,14 @@
             animation-fill-mode: both;
         }
         @keyframes radiobutton2_2_animation {
-            from{ margin-left:-1454px;}
-            to{  margin-left: -727px }
+            from{ margin-left:-1220px;}
+            to{  margin-left: -600px }
         }
+
+        #radiobutton2_2:checked ~ .slidercontrol #radiobutton2_2_label {position: relative}
+        #radiobutton2_2:checked ~ .slidercontrol #radiobutton2_1_label {position: fixed}
+        #radiobutton2_2:checked ~ .slidercontrol #radiobutton2_2_label {background: #940d00;}
+
 
         #radiobutton3:checked ~.wrapper > .slide1{
             animation-name: radiobutton3_animation;
@@ -216,16 +248,18 @@
         }
         @keyframes radiobutton3_animation
         {
-           from
-           {margin-left: -727px;
-           }
+           /* from
+           {margin-left: -600px;
+           } */
             to
             {
-                margin-left:-1464px;
+                margin-left:-1220px;
             }
         }
+        #radiobutton3:checked ~ .slidercontrol #radiobutton3_label {background: #940d00;}
 
 
+        input {visibility: hidden}
 
 
 
@@ -302,6 +336,7 @@
     </div>
 
     <div class="box slidegroup2 slide5">
+        <div class="contentbox">
             <div class="boximg">
         <img src="./images/mex-peper.jpg" title="apples">
     </div>
@@ -311,9 +346,11 @@
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
+        </div>
     </div>
 
     <div class="box slidegroup2 slide6">
+        <div class="contentbox">
             <div class="boximg">
         <img src="./images/orange.jpg" title="apples">
     </div>
@@ -322,10 +359,11 @@
 
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
+        </div></div>
     </div>
 
     <div class="box slidegroup2 slide7">
+        <div class="contentbox">
             <div class="boximg">
         <img src="./images/peper.jpg" title="apples">
     </div>
@@ -335,9 +373,11 @@
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
+        </div>
     </div>
 
     <div class="box slidegroup3 slide8">
+        <div class="contentbox">
             <div class="boximg">
         <img src="./images/potato.jpg" title="apples">
     </div>
@@ -347,9 +387,11 @@
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
+        </div>
     </div>
 
     <div class="box slidegroup3 slide9">
+        <div class="contentbox">
             <div class="boximg">
         <img src="./images/tomatoes.jpg" title="apples">
              </div>
@@ -359,25 +401,35 @@
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
+        </div>
     </div>
 
-    <div class="box slidegroup3 slide10"><div class="boximg">
+<div class="box slidegroup3 slide10">
+    <div class="contentbox">
+    <div class="boximg">
+
         <img src="./images/scarecrow.jpg" title="apples">
     </div>
-
         <div class="desription">
             <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
     </div>
+</div>
+</div>
+
+<div class="slidercontrol">
+    <label id="radiobutton1_label" for="radiobutton1"></label>
+    <label id="radiobutton2_1_label" for="radiobutton2_1"></label>
+    <label id="radiobutton2_2_label" for="radiobutton2_2"></label>
+    <label id="radiobutton3_label" for="radiobutton3"></label>
+
+</div>
 
 </div>
 
 
-</div>
-<label for="radiobutton1">checkbox1</label>
-<label id="radiobutton2_1_label" for="radiobutton2_1">checkbox12</label>
-<label id="radiobutton2_2_label" for="radiobutton2_2">checkbox22</label>
-<label for="radiobutton3">checkbox3</label>
+
+
 </body>
 </html>
