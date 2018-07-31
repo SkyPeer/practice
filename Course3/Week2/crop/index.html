@@ -22,6 +22,8 @@
             font-size: x-large;
             font-weight: bold;
             font-family: UbuntuBold,Arial,sans-serif;
+            margin-top: 20px;
+            margin-left: 20px;
             /*margin-bottom: 50px; */
         }
 
@@ -48,7 +50,7 @@
          /*  border: 2px;
             border-style: solid;
             border-color: brown; */
-            padding-top: 20px;
+            padding-top: 16px;
             padding-left: 20px;
             padding-right: 20px;
             padding-bottom: 0;
@@ -145,16 +147,16 @@
              font-size: small;
              text-align: justify;
              visibility: hidden;
-             padding: 10px;
+             padding: 0 10px 10px;
         }
 
 
         .slidercontrol{
             /*transform: translateX(-50%); */
-         position: absolute;
+            position: absolute;
             width: auto;
             left:50%;
-            transform:translateX(-50%)
+            transform:translate(-50%, -100%)
         }
 
         label {
@@ -258,7 +260,7 @@
 
         input {visibility: hidden}
 
-        #dark {
+        .dark {
             background: rgba(102, 102, 102, 0.8);
             width: 100%;
             height: 100%;
@@ -267,10 +269,11 @@
             left: 0;
             display: none;
             z-index: 100;
+            transition: .8s all;
         }
 
 
-        #window {
+        .window {
             width: 80%;
             height: 80%;
             text-align: center;
@@ -286,9 +289,33 @@
             margin: auto;
             background: rgba(255, 255, 255, 0.11);
             z-index: 200;
+            transition: .8s all;
         }
 
-        #dark:target {display: block;}
+        .dark:target {display: block;
+            transition: .8s all;}
+
+
+        .close {
+            position: absolute;
+            right: 32px;
+            top: 32px;
+            width: 32px;
+            height: 32px;
+            opacity: 0.3;
+        }
+
+        .window > .close:hover {opacity: 1;}
+        .window > .close:before,
+        .window > .close:after {position: absolute;left: 15px;content: ' ';height: 33px;width: 2px;background-color: #FFF;}
+        .window > .close:before {transform: rotate(45deg);}
+        .window > .close:after {transform: rotate(-45deg);}
+
+        .window img
+        {
+            max-width: 100%;
+            max-height: 100%;
+        }
 
     </style>
 <title>Бабуленькин урожай</title>
@@ -296,23 +323,29 @@
 </head>
 <body>
 
-<div id="dark">
-    <div id="window">
-
-        Hello!
-        <a href="#">закрыть</a>
-
+<div id="apples" class="dark" >
+    <div class="window">
+        <a href="#" class="close"></a>
+        <img src="./images/apples.png">
     </div>
-
 </div>
 
-<div class="slider "><header><span class="first_word">Бабуленькин</span> урожай</header>
+<div id="tomatos" class="dark" >
+    <div class="window">
+        <a href="#" class="close"></a>
+        <img src="./images/tomatoes.jpg">
+    </div>
+</div>
+
+
+
+
+<div class="slider ">
+    <header><span class="first_word">Бабуленькин</span> урожай</header>
 <input type="radio" class="radio" id="radiobutton1" name="slidercontrol" checked>
 <input type="radio" class="radio" id="radiobutton2_1" name="slidercontrol">
 <input type="radio" class="radio" id="radiobutton2_2" name="slidercontrol">
 <input type="radio" class="radio" id="radiobutton3" name="slidercontrol">
-
-
 
 
 
@@ -322,7 +355,7 @@
 
 <div class="contentbox">
         <div class="boximg">
-            <a href="#dark"><img src="./images/apples.png" title="apples"></a>
+            <a href="#apples"><img src="./images/apples.png" title="apples"></a>
         </div>
         <div class="desription">
 
@@ -433,13 +466,12 @@
     <div class="box slidegroup3 slide9">
         <div class="contentbox">
             <div class="boximg">
-        <img src="./images/tomatoes.jpg" title="apples">
+        <a href="#tomatos"><img src="./images/tomatoes.jpg" title="apples"></a>
              </div>
 
         <div class="desription">
-
-            <b>Apples</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <b>Томаты</b>
+            <p>Однолетнее или многолетнее травянистое растение, вид рода Паслён семейства Паслёновые. Возделывается как овощная культур.</p>
         </div>
         </div>
     </div>
@@ -448,10 +480,11 @@
     <div class="contentbox">
     <div class="boximg">
 
-        <img src="./images/scarecrow.jpg" title="apples">
+        <img src="./images/scarecrow.jpg" title="muchachas">
     </div>
         <div class="desription">
-            <b>МУЧАЧАС</b>, Верный хранитель Вашего огорода, отпугиватьель москитов, термитов, злейший враг
+            <b>МУЧАЧАС</b>
+            <p>Верный хранитель Вашего огорода, отпугиватьель москитов, термитов, злейший враг</p>
         </div>
     </div>
 </div>
@@ -462,7 +495,6 @@
     <label id="radiobutton2_1_label" for="radiobutton2_1"></label>
     <label id="radiobutton2_2_label" for="radiobutton2_2"></label>
     <label id="radiobutton3_label" for="radiobutton3"></label>
-
 </div>
 
 </div>
