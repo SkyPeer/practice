@@ -40,17 +40,14 @@
            overflow: hidden;
        }
 
-
        .list {
             width:100%;
             height: 100%;
             border: red 2px dotted;
             position: relative;
-
             font-weight: bolder;
             font-size: larger;
             padding-left:0;
-
         }
 
         .list li {
@@ -59,51 +56,14 @@
             position: static;
             margin: 0;
             width: 25%;
-
-            /*border: chartreuse 2px dotted;*/
             background-color: #940d00;
         }
-        .list li:before{margin:0}
-        .list li:after {margin: 0}
-
-
 
         .list li:nth-child(n+5) {
             position: absolute;
             left:-1000px; top:-1000px}
 
-
-/*      .
-        .button1:hover .list ~ li:nth-child(n+4) {visibility: hidden}
-*/
-        /*.list li:nth-child(n+5) {color: red} */
-      /*  .list li:nth-child(n+5) {position: absolute; visibility: hidden; top:-1000px; transition: .8s all} */
-/*
-        .button1:hover ~ .list li {position: absolute; top:-1000px; visibility: hidden; transition: .8s all}
-        .button1:hover ~ .list li:nth-child(n+5) {position: static; visibility: visible; transition: .8s all; }
-        .button1:hover ~ .list li:nth-child(n+9) {position: absolute; visibility: hidden; top:-1000px; transition: .8s all}
-  */
-       /*.list li:nth-child(n+5){position: absolute; top:-1000px; opacity: 0} */
-
-       /*
-       #checkbox1:checked ~ .list li:nth-child(1),
-       #checkbox1:checked ~ .list li:nth-child(2),
-       #checkbox1:checked ~ .list li:nth-child(3)
-
-       {
-           opacity: 0;
-           position: absolute; top:-1000px;
-           transition: 3s all;
-
-       }
-       */
-       /* #checkbox1:checked ~ .list li{
-           opacity: 0;
-           transition: 1s opacity;
-           position: absolute; top:-1000px;
-       } */
-
-       #checkbox1:checked ~ .list li:nth-child(1),
+      /* #checkbox1:checked ~ .list li:nth-child(1),
        #checkbox1:checked ~ .list li:nth-child(2),
        #checkbox1:checked ~ .list li:nth-child(3)
        {position: absolute; left:-1000px; top:-1000px}
@@ -111,17 +71,6 @@
        #checkbox1:checked ~ .list li:nth-child(4)
        {transform: translateX(300%)}
 
-
-/*
-       #checkbox1:checked ~ .list li:nth-child(4)
-       {
-           position: static;
-           opacity: 1;
-           /*transition-delay: 5s;
-           transform: translateX(-200%);
-           transition: 1s all;
-        }
-*/
 
         #checkbox1:checked ~ .list li:nth-child(4),
         #checkbox1:checked ~ .list li:nth-child(5),
@@ -145,26 +94,31 @@
 
             to {position:static; transform: translateX(0);}
         }
+        */
 
 
+        #checkbox1:checked ~ .list li:nth-child(1),
+        #checkbox1:checked ~ .list li:nth-child(2),
+        #checkbox1:checked ~ .list li:nth-child(3),
+        #checkbox1:checked ~ .list li:nth-child(4)
+        {animation-name: test1;animation-duration: 0.3s;animation-fill-mode: both;
+       }
+       @keyframes test1 {
+           0% {opacity: 1; position: static}
+           99% {opacity: 0; position:static}
+           100% {position: absolute; left:-1000px; top:-1000px}
 
-
-
-
-
-
-
-
-       /*
+       }
        #checkbox1:checked ~ .list li:nth-child(4),
        #checkbox1:checked ~ .list li:nth-child(5),
        #checkbox1:checked ~ .list li:nth-child(6),
        #checkbox1:checked ~ .list li:nth-child(7)
-       {
-           position:static; opacity: 1;
-           transition: .8s all
+       {animation-name: test2;animation-delay: 0.2s; animation-duration: 0.3s;animation-fill-mode: both; ;
        }
-*?
+       @keyframes test2 {
+           0% {opacity: 0}
+           100% {opacity: 1; position: static}
+       }
 
     </style>
 </head>
