@@ -12,11 +12,11 @@
             display: inline-block;
             z-index: 10;
         }
-        .block article{visibility: hidden; padding: 10px; transition: .8s all}
+        .block article{opacity: 0; padding: 10px; transition: .3s all}
 
         .block:hover { box-shadow: 0 0 55px rgba(0, 0, 0, 0.58); background-color: #FFFFFF; z-index: 20; transition: .8s all /*transform: translateX(35px) */}
         .block:hover > img {opacity: 1; transition: .8s all}
-        .block:hover > article {visibility: visible; transition: .8s all}
+        .block:hover > article {opacity: 1; transition: .8s all}
 
         img {
             position: relative;
@@ -113,7 +113,7 @@
        #checkbox1:checked ~ .list li:nth-child(5),
        #checkbox1:checked ~ .list li:nth-child(6),
        #checkbox1:checked ~ .list li:nth-child(7)
-       {animation-name: test2;animation-delay: 0.2s; animation-duration: 0.3s;animation-fill-mode: both; ;
+       {animation-name: test2;animation-delay: 0.3s; animation-duration: 0.3s;animation-fill-mode: both; ;
        }
        @keyframes test2 {
            0% {opacity: 0}
@@ -147,10 +147,10 @@
 <div class="wrapper">
     <input type="checkbox" class="checkbox" id="checkbox1" /><label for="checkbox1">button</label>
     <ul class="list">
-    <li class="g1">1</li>
-    <li class="g1">2</li>
-    <li class="g1">3</li>
-    <li class="g1">4</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
     <li>5</li>
     <li>6</li>
     <li>7</li>
