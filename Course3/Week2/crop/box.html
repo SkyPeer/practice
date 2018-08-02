@@ -1,0 +1,211 @@
+<html>
+<head>
+    <style>
+       /* body {margin: 70px;} */
+
+        .block
+        {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* border: blue 2px dotted; */
+            display: inline-block;
+            z-index: 10;
+        }
+        .block article{visibility: hidden; padding: 10px; transition: .8s all}
+
+        .block:hover { box-shadow: 0 0 55px rgba(0, 0, 0, 0.58); background-color: #FFFFFF; z-index: 20; transition: .8s all /*transform: translateX(35px) */}
+        .block:hover > img {opacity: 1; transition: .8s all}
+        .block:hover > article {visibility: visible; transition: .8s all}
+
+        img {
+            position: relative;
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto;
+            left:50%;
+            transform: translateX(-50%);
+            opacity: 0.5;
+            z-index: 10;
+        }
+/* ============================================================================================ */
+
+
+       .wrapper{
+           border: blue 2px dotted;
+           width: 70%;
+           position: absolute;
+           left: 50%; transform: translateX(-50%);
+           white-space: nowrap;
+           overflow: hidden;
+       }
+
+
+       .list {
+            width:100%;
+            height: 100%;
+            border: red 2px dotted;
+            position: relative;
+
+            font-weight: bolder;
+            font-size: larger;
+            padding-left:0;
+
+        }
+
+        .list li {
+            float: left;
+            display: inline-block;
+            position: static;
+            margin: 0;
+            width: 25%;
+
+            /*border: chartreuse 2px dotted;*/
+            background-color: #940d00;
+        }
+        .list li:before{margin:0}
+        .list li:after {margin: 0}
+
+
+
+        .list li:nth-child(n+5) {
+            position: absolute;
+            left:-1000px; top:-1000px}
+
+
+/*      .
+        .button1:hover .list ~ li:nth-child(n+4) {visibility: hidden}
+*/
+        /*.list li:nth-child(n+5) {color: red} */
+      /*  .list li:nth-child(n+5) {position: absolute; visibility: hidden; top:-1000px; transition: .8s all} */
+/*
+        .button1:hover ~ .list li {position: absolute; top:-1000px; visibility: hidden; transition: .8s all}
+        .button1:hover ~ .list li:nth-child(n+5) {position: static; visibility: visible; transition: .8s all; }
+        .button1:hover ~ .list li:nth-child(n+9) {position: absolute; visibility: hidden; top:-1000px; transition: .8s all}
+  */
+       /*.list li:nth-child(n+5){position: absolute; top:-1000px; opacity: 0} */
+
+       /*
+       #checkbox1:checked ~ .list li:nth-child(1),
+       #checkbox1:checked ~ .list li:nth-child(2),
+       #checkbox1:checked ~ .list li:nth-child(3)
+
+       {
+           opacity: 0;
+           position: absolute; top:-1000px;
+           transition: 3s all;
+
+       }
+       */
+       /* #checkbox1:checked ~ .list li{
+           opacity: 0;
+           transition: 1s opacity;
+           position: absolute; top:-1000px;
+       } */
+
+       #checkbox1:checked ~ .list li:nth-child(1),
+       #checkbox1:checked ~ .list li:nth-child(2),
+       #checkbox1:checked ~ .list li:nth-child(3)
+       {position: absolute; left:-1000px; top:-1000px}
+
+       #checkbox1:checked ~ .list li:nth-child(4)
+       {transform: translateX(300%)}
+
+
+/*
+       #checkbox1:checked ~ .list li:nth-child(4)
+       {
+           position: static;
+           opacity: 1;
+           /*transition-delay: 5s;
+           transform: translateX(-200%);
+           transition: 1s all;
+        }
+*/
+
+        #checkbox1:checked ~ .list li:nth-child(4),
+        #checkbox1:checked ~ .list li:nth-child(5),
+        #checkbox1:checked ~ .list li:nth-child(6),
+        #checkbox1:checked ~ .list li:nth-child(7)
+        {
+            position: static;
+            transform: translateX(300%);
+        }
+
+       #checkbox1:checked ~ .list li:nth-child(4),
+       #checkbox1:checked ~ .list li:nth-child(5),
+       #checkbox1:checked ~ .list li:nth-child(6),
+       #checkbox1:checked ~ .list li:nth-child(7)
+       {
+            animation-name: test1;
+            animation-duration: 2s;
+           animation-fill-mode: both;
+       }
+        @keyframes test1 {
+
+            to {position:static; transform: translateX(0);}
+        }
+
+
+
+
+
+
+
+
+
+
+       /*
+       #checkbox1:checked ~ .list li:nth-child(4),
+       #checkbox1:checked ~ .list li:nth-child(5),
+       #checkbox1:checked ~ .list li:nth-child(6),
+       #checkbox1:checked ~ .list li:nth-child(7)
+       {
+           position:static; opacity: 1;
+           transition: .8s all
+       }
+*?
+
+    </style>
+</head>
+<body>
+<div class="block">
+    <img src="./images/apples.png">
+
+    <article>No comments text text text No comments
+    text text text No comments text text text</article>
+</div>
+<div class="block">
+    <img src="./images/apples.png">
+
+    <article>No comments text text text No comments
+        text text text No comments text text text</article>
+</div>
+<div class="block">
+    <img src="./images/apples.png">
+
+    <article>No comments text text text No comments
+        text text text No comments text text text</article>
+</div>
+<br>
+
+
+<div class="wrapper">
+    <input type="checkbox" class="checkbox" id="checkbox1" /><label for="checkbox1">button</label>
+    <ul class="list">
+    <li class="g1">1</li>
+    <li class="g1">2</li>
+    <li class="g1">3</li>
+    <li class="g1">4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+</ul>
+</div>
+</body>
+</html>
