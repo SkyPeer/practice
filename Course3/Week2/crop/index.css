@@ -14,6 +14,27 @@ body
     margin: 0;
 }
 
+header {
+    margin: 25px auto;
+    position: relative;
+    transform: translateX(-20px);
+    font-size: x-large;
+    font-weight: bold;
+    font-family: UbuntuBold,Arial,sans-serif;
+    width: 70%;
+    color: #515151
+}
+
+header .header
+{
+    position: relative;
+    width: 100%;
+}
+
+header .first_word {
+    color: red;
+}
+
 .controls{
     width: 100%;
     position: absolute;
@@ -47,16 +68,21 @@ ul {
     /*z-index: 15; */
 }
 
-.cotrol1{
+.slidercontrol_bottom{
     /*position: static; */
  /*   background-color: blue; */
-    padding: 10px;
-    border: red 3px dotted;
+
+    /* border: red 3px dotted; */
     width:70%;
-    margin: 0 auto;
-    padding-left:20px;
-    padding-right:20px;
+    margin: 20px auto;
+    /*padding-left:20px; */
+    /* padding-right:20px; */
     min-width: 650px;
+}
+
+.slidercontrol_buttons {
+    margin: 0 auto;
+    width: 200px;
 }
 
 li {
@@ -120,26 +146,6 @@ li:hover {
 li:hover img {opacity: 1; transition: .8s all;}
 li:hover article {opacity: 1; transition: .8s all}
 
-
-
-header {
-    font-size: x-large;
-    font-weight: bold;
-    font-family: UbuntuBold,Arial,sans-serif;
-    /*margin-top: 20px;
-    margin-left: 20px; */
-    width: 70%;
-    /*margin: auto; */
-    color: #515151
-
-}
-
-header .first_word {
-    color: red;
-    
-}
-
-
 li:nth-child(n+5) {
     position: absolute;
     left:-1000px; top:-1000px}
@@ -149,7 +155,7 @@ label {
     cursor: pointer;
     display: inline-block;
     height: 8px;
-    margin: 25px 12px 0 16px;
+    margin: 0 12px 0 16px;
     position: relative;
     width: 8px;
     border-radius: 50%;
@@ -170,74 +176,11 @@ label:after {
 
 label:hover{background: #940d00;}
 
-.slidercontrol #radiobutton2_1_label {position: fixed;}
-
-#radiobutton1:checked ~ .wrapper > .slide1 {
-    animation-name: radiobutton1_animation;
-    animation-iteration-count: 1;
-    animation-duration: 0.9s;
-    animation-timing-function: initial;
-    animation-fill-mode: both;
-}
-@keyframes radiobutton1_animation {
-    from {margin-left: -600px}
-    to{  margin-left:0 }
-}
-#radiobutton1:checked ~ .slidercontrol #radiobutton1_label {background: #940d00;}
-#radiobutton1:checked ~ .slidercontrol #radiobutton2_1_label {position: relative}
-#radiobutton1:checked ~ .slidercontrol #radiobutton2_2_label {position: fixed;}
-
-#radiobutton2_1:checked ~ .wrapper > .slide1 {
-    animation-name: radiobutton2_1_animation;
-    animation-iteration-count: 1;
-    animation-duration: 0.9s;
-    animation-timing-function: initial;
-    animation-fill-mode: both;
-}
-@keyframes radiobutton2_1_animation {
-    to{  margin-left: -600px }
-}
-#radiobutton2_1:checked ~ .slidercontrol #radiobutton2_1_label {position: relative}
-#radiobutton2_1:checked ~ .slidercontrol #radiobutton2_2_label {position: fixed}
-#radiobutton2_1:checked ~ .slidercontrol #radiobutton2_1_label {background: #940d00;}
-
-#radiobutton2_2:checked ~ .wrapper > .slide1 {
-
-    animation-name: radiobutton2_2_animation;
-    animation-iteration-count: 1;
-    animation-duration: 0.9s;
-    animation-timing-function: initial;
-    animation-fill-mode: both;
-}
-@keyframes radiobutton2_2_animation {
-    from{ margin-left:-1220px;}
-    to{  margin-left: -600px }
-}
-
-#radiobutton2_2:checked ~ .slidercontrol #radiobutton2_2_label {position: relative}
-#radiobutton2_2:checked ~ .slidercontrol #radiobutton2_1_label {position: fixed}
-#radiobutton2_2:checked ~ .slidercontrol #radiobutton2_2_label {background: #940d00;}
-
-#radiobutton3:checked ~.wrapper > .slide1{
-    animation-name: radiobutton3_animation;
-    animation-iteration-count: 1;
-    animation-duration: 0.9s;
-    animation-timing-function: initial;
-    animation-fill-mode: both;
-}
-@keyframes radiobutton3_animation
-{
-    from
-    {margin-left: -600px;
-    }
-    to
-    {
-        margin-left:-1220px;
-    }
-}
-#radiobutton3:checked ~ .slidercontrol #radiobutton3_label {background: #940d00;}
-
 input {visibility: hidden; position: fixed}
+
+#radiobutton1:checked ~ .slidercontrol_bottom .slidercontrol_buttons #radiobutton1_label {background: #940d00;}
+#radiobutton2:checked ~ .slidercontrol_bottom .slidercontrol_buttons #radiobutton1_label {background: #940d00;}
+
 
 .window {
     background: rgba(102, 102, 102, 0.8);
