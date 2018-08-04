@@ -1,0 +1,228 @@
+@font-face
+{
+    font-family: FontAwesomeSet;
+    src: url('font/fontawesome-webfont.woff2') format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.wrapper input {
+	display: none;
+}
+.slider{
+	padding-left: 5%;
+	padding-right: 5%;
+	position: absolute;
+	z-index: -5;
+	top: 10vh;
+}
+img{
+	cursor: pointer;
+	width: 100%;
+}
+
+/* product card */
+.img{
+	border: none;
+	padding: 0px;
+}
+input:not(:checked) + .info:hover > .img{
+	overflow: hidden;
+	position: relative;
+	z-index: 200;
+	width: 100%;
+	top:-4px;
+	left: -4px;
+	border: #e26565 solid 5px;
+	background: #fffafa;
+	padding: 2px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+	cursor: pointer;
+
+}
+.modal-label{
+	cursor: pointer;
+}
+
+input:not(:checked) + .info:hover > .img > p{
+	display: block;
+	color: black;
+}
+/*not ckecked ??????*/
+
+p{
+	display: none;
+	text-align: justify;
+	overflow: hidden;
+}
+
+/*modal window*/
+.modal-label{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index:300;
+}
+.modal-input:checked ~ .info .img{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background: rgba(47, 27, 27, 0.54);
+	z-index: 999;
+}
+.modal-input:checked ~ .info .img img{
+	max-width: 65%;
+    position: relative;
+    top: 12vh;
+    opacity: 1;
+    cursor: default;
+    z-index: 999;
+}
+.modal-input:checked ~ .info .img p{
+	display: none;
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+}
+.modal-input:checked ~ .info .img{
+	border: none;
+	padding: 0;
+	left: 0;
+}
+
+/*button close*/
+
+.close
+{
+    display: none;
+}
+.modal-input:checked + .info .close
+{
+    display: block;
+    z-index: 11111;
+    position: absolute;
+    top: 0;
+    right: 2%;
+    width: auto;
+    font-size: 50pt;
+    color: white;
+    cursor: pointer;
+}
+@media(max-width:500px ){
+	.modal-input:checked + .info .close{
+		font-size: 25pt;
+	}
+	p{font-size: 10px;}
+}
+
+.slider_slide1,
+.slider_slide2,
+.slider_slide3,
+.slider_slide4{
+	float: left;
+	width: 23%;
+	padding: 1%;
+	position: relative;
+
+}
+.section-1:after,
+.section-2:after,
+.section-3:after,
+.section-4:after,
+.section-5:after,
+.section-6:after{
+	content: "";
+	display: table;
+	clear: both;
+	position: absolute;
+}
+
+/*Control panel*/
+.label::before{
+	font-family: FontAwesomeSet;
+	content: '\f111';
+	cursor: pointer;
+}
+.controls{
+	position: absolute;
+	z-index: -100;
+	margin: 0 auto;
+	text-align: center;
+	top: 50vh;
+	left: 47vw;
+}
+@media (max-width: 400px){
+	.controls{
+		font-size: 10px;
+		top: 30vh;
+	}
+	p{
+		font-size: 10px;
+	}
+
+}
+@media(max-width: 310px){
+	.controls{
+		font-size: 6px;	
+	}
+	p{
+		font-size: 6px;
+	}
+}
+.wrapper label:hover, 
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3),
+#slide4:checked ~ .controls label:nth-of-type(4),
+#slide5:checked ~ .controls label:nth-of-type(5),
+#slide6:checked ~ .controls label:nth-of-type(6) {
+	color: red;
+}
+#slide1:checked ~ .slider > .section-2,
+#slide1:checked ~ .slider > .section-3,
+#slide1:checked ~ .slider > .section-4,
+#slide1:checked ~ .slider > .section-5,
+#slide1:checked ~ .slider > .section-6{
+	display: none;
+}
+#slide2:checked ~ .slider > .section-1,
+#slide2:checked ~ .slider > .section-3,
+#slide2:checked ~ .slider > .section-4,
+#slide2:checked ~ .slider > .section-5,
+#slide2:checked ~ .slider > .section-6{
+	display: none;
+}
+#slide3:checked ~ .slider > .section-1,
+#slide3:checked ~ .slider > .section-2,
+#slide3:checked ~ .slider > .section-4,
+#slide3:checked ~ .slider > .section-5,
+#slide3:checked ~ .slider > .section-6{
+	display: none;
+}
+#slide4:checked ~ .slider > .section-1,
+#slide4:checked ~ .slider > .section-3,
+#slide4:checked ~ .slider > .section-2,
+#slide4:checked ~ .slider > .section-5,
+#slide4:checked ~ .slider > .section-6{
+	display: none;
+}
+#slide5:checked ~ .slider > .section-1,
+#slide5:checked ~ .slider > .section-3,
+#slide5:checked ~ .slider > .section-4,
+#slide5:checked ~ .slider > .section-2,
+#slide5:checked ~ .slider > .section-6{
+	display: none;
+}
+#slide6:checked ~ .slider > .section-1,
+#slide6:checked ~ .slider > .section-3,
+#slide6:checked ~ .slider > .section-4,
+#slide6:checked ~ .slider > .section-5,
+#slide6:checked ~ .slider > .section-2{
+	display: none;
+}

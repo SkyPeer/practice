@@ -1,0 +1,163 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', serif;
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+section, article, div {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    position: relative;
+}
+
+main, .section {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+    text-align: center;
+    width: 1000px;
+}
+
+.content-inner {
+    position: absolute;
+    top: 50px;
+    left: 90px;
+    right: 90px;
+    height: 200px;
+    white-space: nowrap;
+}
+
+.hide-left {
+    position: absolute;
+    width: 90px;
+    z-index: 1;
+    height: 600px;
+    background-color: #fff;
+}
+
+.hide-right {
+    position: absolute;
+    right: 0;
+    width: 95px;
+    z-index: 1;
+    height: 600px;
+    background-color: #fff;
+}
+
+.block {
+    display: inline-block;
+    width: 200px;
+    min-height: 200px;
+    vertical-align: top;
+    white-space: normal;
+}
+
+.block:hover .description {
+    display: block;
+}
+
+.set {
+    margin-top: 250px;
+}
+
+.set:checked:nth-of-type(1) ~ .content-inner {
+    transition: left 0.5s;
+}
+
+.set:checked:nth-of-type(2) ~ .content-inner {
+    left: -53%;
+    transition: left 0.5s;
+}
+
+.set:checked:nth-of-type(3) ~ .content-inner {
+    left: -110%;
+    transition: left 0.5s;
+}
+
+.set:checked:nth-of-type(4) ~ .content-inner {
+    left: -155%;
+    transition: left 0.5s;
+}
+
+.description {
+    background-color: #fff;
+    padding: 10px;
+    display: none;
+    width: 320px;
+    min-height: 320px;
+    position: relative;
+    top: -160px;
+    left: -80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    font-size: 0.8em;
+}
+
+.text {
+    text-align: left;
+}
+
+.big-image {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.big-image img {
+    vertical-align: middle;
+    max-width: 70%;
+    height: auto;
+}
+
+.big-image:target {
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    text-decoration: none;
+    line-height: 50px;
+    width: 50px;
+}
+
+@media screen and (min-width: 1000px) {
+    main {
+        width: 1000px;
+    }
+}
