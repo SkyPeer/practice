@@ -7,10 +7,8 @@
     src: url(./fonts/Ubuntu-Bold.ttf);
 }
 
-body
-{
+body {
     font-family: UbuntuRegular,Arial,sans-serif;
-/*    margin-top: 25px; */
     margin: 0;
 }
 
@@ -44,45 +42,26 @@ header .first_word {
 }
 
 ul {
-    /*float:left; */
-    /*display: block; */
-    /*position: relative; */
-
-    padding-top:20px;
+    padding-top:35px;
     padding-left:20px;
     padding-right:20px;
     width:70%;
     min-width: 650px;
     height: 300px;
     margin: 0 auto;
-    /* margin-left: auto;
-    margin-right: auto; */
-   /* border: red 2px dotted; */
-    /* position: absolute; */
-   /* left:50%;
-    bottom:50%;
-    transform: translateX(-50%) translateY(50%); */
-
     font-weight: bolder;
     box-shadow: 0 15px 70px -26px rgba(0, 0, 0, 0.98)
-    /*z-index: 15; */
 }
 
 .slidercontrol_bottom{
-    /*position: static; */
- /*   background-color: blue; */
-
-    /* border: red 3px dotted; */
     width:70%;
     margin: 20px auto;
-    /*padding-left:20px; */
-    /* padding-right:20px; */
     min-width: 650px;
 }
 
 .slidercontrol_buttons {
     margin: 0 auto;
-    width: 200px;
+    width: 150px;
 }
 
 li {
@@ -91,17 +70,12 @@ li {
     position: relative;
     margin: 0;
     width: 25%;
-    /*min-height: 300px ; */
     z-index: 20;
-    /*background-color: #940d00; */
-
 }
 
 .boximg {
     position: relative;
     width: 100%;
-    /*padding: 10px; */
-    /*min-height: 100px; */
     height: 150px;
 }
 
@@ -156,7 +130,7 @@ label {
     cursor: pointer;
     display: inline-block;
     height: 8px;
-    margin: 0 12px 0 16px;
+    margin: 0 12px 0 12px;
     position: relative;
     width: 8px;
     border-radius: 50%;
@@ -212,7 +186,7 @@ input {visibility: hidden; position: fixed}
 #radiobutton3:checked ~ ul li:nth-child(1),
 #radiobutton3:checked ~ ul li:nth-child(2),
 #radiobutton3:checked ~ ul li:nth-child(3),
-#radiobutton3:checked ~ ul li:nth-child(4){position:absolute; left:-1000px; top:-1000px; visibility: hidden}
+#radiobutton3:checked ~ ul li:nth-child(4){position:absolute; left:-1000px; top:-1000px; opacity: 0}
 
 #radiobutton3:checked ~ ul li:nth-child(4),
 #radiobutton3:checked ~ ul li:nth-child(5),
@@ -268,15 +242,10 @@ input {visibility: hidden; position: fixed}
 .window > .close:before {transform: rotate(45deg);}
 .window > .close:after {transform: rotate(-45deg);}
 
-.window img
-{
+.window img {
     max-width: 95%;
     max-height: 95%;
     position: absolute;
-    /*top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; */
     margin: auto;
     z-index: 300;
     transition: .8s all;
