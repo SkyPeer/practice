@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+        body
+        {
+            width: 100px;
+            height: 120px;
+            display: grid;
+            grid-template-areas:
+                    'd d d d'
+                    'a b b c'
+                    'a b b c'
+                    'a b b c'
+        }
+
+        div
+        {
+            border: 1px solid;
+        }
+
+        div:nth-child(1)
+        {
+            grid-area: a;
+            background-color: red;
+        }
+
+        div:nth-child(2)
+        {
+            grid-area: b;
+            background-color: blue;
+        }
+
+        div:nth-child(3)
+        {
+            grid-area: c;
+        background-color: chartreuse}
+
+        div:nth-child(4)
+        {
+            grid-area: d;
+            background-color: dimgray;
+        }
+    </style>
+    <title>
+
+    </title>
+</head>
+<body>
+
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+
+</body>
+
+</html>
