@@ -4,21 +4,29 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
-        body {
-            background-color: #ebebeb;
+        @font-face {
+            font-family: UbuntuRegular;
+            src: url(./fonts/Ubuntu-Regular.ttf);
+        }
+        @font-face {
+            font-family: UbuntuBold;
+            src: url(./fonts/Ubuntu-Bold.ttf);
         }
 
-.main-container
-{
-    margin-left: 15%;
-    margin-right: 15%;
-    display: flex;
-    align-content: center;
-    /*min-width: 700px; */
-   /* justify-content: space-around; */
-}
+        body {
+            background-color: #ebebeb;
+            font-family: UbuntuRegular,Arial,sans-serif;
+        }
 
-
+        .main-container
+        {
+            margin-left: 15%;
+            margin-right: 15%;
+            display: flex;
+            align-content: center;
+            /*min-width: 700px; */
+            /* justify-content: space-around; */
+        }
 
         .left{
             border: red 1px dotted;
@@ -36,7 +44,7 @@
 
         .center{
             /*flex-grow: 1; */
-            /*border: green 1px dotted; */
+            border: green 1px dotted;
             margin: 0 15px;
             display: grid;
             /*grid-area: auto; */
@@ -51,16 +59,63 @@
             grid-gap: 10px;
 
         }
-        .center > img {
-            display: block;
-            max-width: 100%;
-            opacity: 0.5;
-          /*height: auto; */
+
+        .imgbox {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 10;
         }
-        .center > img:hover
-        {
-            opacity: 1;
+
+        .gridimg{
+
+            width: 100% ;
+            min-height: 100%;
+            z-index: 20;
+            opacity: 0.75;
+            transition: all 0.8s;
+
         }
+
+        .description{
+            font-family: UbuntuRegular,Arial,sans-serif;
+            position: absolute;
+            background-color: black;
+            opacity: 0;
+            color: #FFF;
+            padding: 15px;
+            top:70%;
+            left:5px;
+            z-index: 50;
+            transition: all 0.8s;
+            transition-delay: 0.2s;
+        }
+
+        .imgbox:nth-child(1) {grid-area: a}
+        .imgbox:nth-child(1) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(2) {grid-area: b}
+        .imgbox:nth-child(2) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(3) {grid-area: c}
+        .imgbox:nth-child(3) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(4) {grid-area: d}
+        .imgbox:nth-child(4) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(5) {grid-area: e}
+        .imgbox:nth-child(5) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(6) {grid-area: f}
+        .imgbox:nth-child(6) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:nth-child(7) {grid-area: g}
+        .imgbox:nth-child(7) > .description:after {content: 'Котяра котяра'}
+
+        .imgbox:hover > .gridimg {opacity: 1; transition: all 0.8s}
+        .imgbox:hover > .description {opacity: 0.8; transition: all 1s}
+
+
 
         .right{
             align-self: flex-start;
@@ -83,20 +138,47 @@
 
 
 <div class="center">
-    <img src="./images/cat_08_coffeman.jpg" style="grid-area: a">
-    <img src="./images/cat_05_homecat.jpg" style="grid-area: b">
-    <img src="./images/cat_08_coffeman.jpg" style="grid-area: c">
-    <img src="./images/cat_08_coffeman.jpg" style="grid-area: d">
-    <img src="./images/cat_08_coffeman.jpg" style="grid-area: e">
-    <img src="./images/cat_05_homecat.jpg" style="grid-area: f">
-    <img src="./images/cat_09_usach.jpg" style="grid-area: g">
+
+        <div class="imgbox">
+            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_05_homecat.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+        <div class="imgbox">
+            <img src="./images/cat_05_homecat.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_09_usach.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
 </div>
-
-
 
 <div class="right">raiting</div>
 
 </div>
+
+
 
 </body>
 
