@@ -14,20 +14,17 @@
     margin-right: 15%;
     display: flex;
     align-content: center;
-    min-width: 700px;
+    /*min-width: 700px; */
    /* justify-content: space-around; */
 }
 
-        .main-container > div {
-    background-color: #d9d9d9;
-
-}
 
 
         .left{
             border: red 1px dotted;
             display: flex;
             flex-direction: column;
+            background-color: #d9d9d9;
         }
 
         .left > div{
@@ -39,22 +36,30 @@
 
         .center{
             /*flex-grow: 1; */
-            border: green 1px dotted;
-            margin: 0 5px;
+            /*border: green 1px dotted; */
+            margin: 0 15px;
             display: grid;
-            grid-template-columns: 33% 33% 33%;
+            /*grid-area: auto; */
+            grid-template-columns: auto auto auto;
             grid-template-rows: auto auto auto auto;
             grid-template-areas:
             "a b b"
             "c d e"
             "f f g"
             "h h h";
+            align-items: stretch;
+            grid-gap: 10px;
 
         }
         .center > img {
             display: block;
             max-width: 100%;
-           max-height: auto;
+            opacity: 0.5;
+          /*height: auto; */
+        }
+        .center > img:hover
+        {
+            opacity: 1;
         }
 
         .right{
@@ -84,7 +89,7 @@
     <img src="./images/cat_08_coffeman.jpg" style="grid-area: d">
     <img src="./images/cat_08_coffeman.jpg" style="grid-area: e">
     <img src="./images/cat_05_homecat.jpg" style="grid-area: f">
-    <img src="./images/cat_08_coffeman.jpg" style="grid-area: g">
+    <img src="./images/cat_09_usach.jpg" style="grid-area: g">
 </div>
 
 
