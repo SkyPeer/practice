@@ -127,32 +127,49 @@
 
 
         .right{
+
+            border: blue 1px dotted;
+            width: 200px;
+            background-color: #d9d9d9;
+            padding: 10px;
+        }
+        .right > .raitingbox{
+            width: 200px;
             display: flex;
             flex-direction:column;
             /* padding: 10px;*/
             align-self: flex-start;
-            border: blue 1px dotted;
-            width: 170px;
-            background-color: #d9d9d9;
-            padding: 10px;
         }
-        .right div > h1 {
+
+        .right > h1 {
             color: red;
             text-transform: uppercase;
             font-size: x-large;
+            margin-bottom: 10px;
         }
+
+        .right > #sort {
+            position: relative;
+            margin-left: 30%;
+            margin-bottom: 10px;
+        }
+
+        .right .raitingbox div > meter {  width: 150px  }
+        .right .raitingbox div> meter::-webkit-meter-bar {  background: rgba(255, 255, 255, 0);  }
+        .right .raitingbox div > meter::-webkit-meter-optimum-value {  background: linear-gradient(90deg, green 0%, white 95%, rgba(255,255,255,0) 100%);  }
+        .right .raitingbox div > meter::-webkit-meter-suboptimum-value {  background: linear-gradient(90deg, gold 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
+        .right .raitingbox div > meter::-webkit-meter-even-less-good-value {  background: linear-gradient(90deg, red 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
+
 
         .right div > .raiting
         {
             padding-left: 10px;
         }
 
-        .right div > meter
-        {
-            width: 140px;
-
-        }
-
+        #sort:checked ~ .raitingbox > div:nth-child(3) {order: 1;}
+        #sort:checked ~ .raitingbox > div:nth-child(1) {order: 2;}
+        #sort:checked ~ .raitingbox > div:nth-child(2) {order: 3;}
+        #sort:checked ~ .raitingbox > div:nth-child(4) {order: 4;}
 
     </style>
     <title>CatShop.Yandex</title>
@@ -162,7 +179,7 @@
 
 
     <div class="left">
-        <div>Абиссинская</div>
+        <div class="leftbutton">Абиссинская</div>
         <div>Британская</div>
         <div>Русская голубая</div>
         <div>Сиамская</div>
@@ -212,15 +229,41 @@
 </div>
 
 <div class="right">
-    <div><h1>рейтинг</h1></div>
-    <div><meter min="0" max="10" low="2" high="10" optimum="5" value="9"></meter><span class="raiting">5</span></div>
-    <div><meter>321</meter><span class="raiting">25</span></div>
-    <div><meter></meter><span class="raiting">25</span></div>
-    <div><meter></meter><span class="raiting">25</span></div>
+    <h1>рейтинг</h1>
+
+    <input type="checkbox" id="sort"/><label for="sort">По убыванию</label>
+
+    <div class="raitingbox">
+
+                <div>
+                    Абиссинская
+                    <meter min="0" max="10" optimum="10" low="5" high="9" value="9" class="custom"></meter>
+                    <span class="raiting">9</span>
+                </div>
+
+                 <div>
+                    Британская
+                    <meter min="0" max="10" optimum="10" low="5" high="9" value="8" class="custom"></meter>
+                    <span class="raiting">8</span>
+                 </div>
+
+                 <div>
+                    Русская голубая
+                    <meter min="0" max="10" optimum="10" low="5" high="9" value="10" class="custom"></meter>
+                    <span class="raiting">10</span>
+                 </div>
+
+                 <div>
+                    Сиамская
+                    <meter min="0" max="10" optimum="10" low="5" high="9" value="4" class="custom"></meter>
+                    <span class="raiting">4</span>
+                 </div>
+</div>
+</div>
 </div>
 
-</div>
 
+<p style="margin: 10px">Hello</p><p style="margin: 10px">Hello</p>
 
 
 </body>
