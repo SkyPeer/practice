@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    body{
+        padding: 20px;
+    }
+    meter {
+        box-shadow: 0 5px 5px -5px #999 inset
+    }
+
+    meter::-webkit-meter-bar {
+        background: #FFF;
+    }
+    meter::-webkit-meter-optimum-value {
+        background: linear-gradient(270deg, white 0%, green 37%);
+    }
+    meter::-webkit-meter-suboptimum-value {
+        background: linear-gradient(270deg, white 0%, gold 37%);
+    }
+    meter::-webkit-meter-even-less-good-value {
+        background: linear-gradient(270deg, white 0%, red 37%);
+    }
+
+    </style>
+</head>
+<body>
+
+<meter min="0" max="10" optimum="10" low="3" high="8" value="2" class="custom">1</meter><br>
+<meter min="0" max="10" optimum="10" low="2" high="8" value="5" class="custom">5</meter><br>
+<meter min="0" max="10" optimum="10" low="2" high="8" value="9" class="custom">9</meter><br>
+
+</body>
+
+</html>
