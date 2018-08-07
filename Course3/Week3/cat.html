@@ -39,12 +39,30 @@
             background-color: #d9d9d9;
         }
 
-        .left > div{
+        .left > label{
             border: red 1px dashed;
             padding: 10px;
             border-bottom: grey 1px double;
-
         }
+
+        .left > label:hover {background-color: #262626; color: white;
+        }
+        .filter {visibility: hidden}
+
+        #filter1:checked ~ .main-container .center .imgbox img {opacity:0.4}
+        #filter2:checked ~ .main-container .center .imgbox img {opacity:0.4}
+        #filter3:checked ~ .main-container .center .imgbox img {opacity:0.4}
+        #filter4:checked ~ .main-container .center .imgbox img {opacity:0.4}
+
+        #filter1:checked ~ .main-container .left > #filter1_label {background-color: #262626; color: white}
+        #filter1:checked ~ .main-container .center .imgbox:nth-child(2) img {opacity:1}
+        #filter1:checked ~ .main-container .center .imgbox:nth-child(4) img {opacity:1}
+
+        #filter4:checked ~ .main-container .left > #filter4_label {background-color: #262626; color: white}
+        #filter4:checked ~ .main-container .center .imgbox:nth-child(3) img {opacity:1}
+        #filter4:checked ~ .main-container .center .imgbox:nth-child(7) img {opacity:1}
+
+
 
         .center{
             /*flex-grow: 1; */
@@ -123,9 +141,6 @@
         .imgbox:hover > .gridimg {opacity: 1; transition: all 0.8s}
         .imgbox:hover > .description {opacity: 0.8; transition: all 1s}
 
-
-
-
         .right{
 
             border: blue 1px dotted;
@@ -175,18 +190,25 @@
     <title>CatShop.Yandex</title>
 </head>
 <body>
+<input class="filter" type="checkbox" id="filter1"/>
+<input class="filter" type="checkbox" id="filter2"/>
+<input class="filter" type="checkbox" id="filter3"/>
+<input class="filter" type="checkbox" id="filter4"/>
+
 <div class="main-container">
 
 
     <div class="left">
-        <div class="leftbutton">Абиссинская</div>
-        <div>Британская</div>
-        <div>Русская голубая</div>
-        <div>Сиамская</div>
+        <label id="filter1_label" for="filter1">Абиссинская</label>
+        <label id="filter2_label" for="filter2">Британская</label>
+        <label id="filter3_label" for="filter3">Русская голубая</label>
+        <label id="filter4_label" for="filter4">Сиамская</label>
     </div>
 
 
+
 <div class="center">
+
 
         <div class="imgbox">
             <img src="./images/cat_10_gray.jpg" class="gridimg">
@@ -230,9 +252,7 @@
 
 <div class="right">
     <h1>рейтинг</h1>
-
     <input type="checkbox" id="sort"/><label for="sort">По убыванию</label>
-
     <div class="raitingbox">
 
                 <div>
