@@ -20,11 +20,15 @@
 
         .main-container
         {
-            margin-left: 15%;
-            margin-right: 15%;
+            position: absolute;
+            /*width: 50%; */
+            /*left:50%;
+            transform: translateX(-50%); */
             display: flex;
             align-content: center;
-            /*min-width: 700px; */
+            /*width: 50%; */
+            min-width: 700px;
+            /*height: 100%; */
             /* justify-content: space-around; */
         }
 
@@ -44,6 +48,7 @@
 
         .center{
             /*flex-grow: 1; */
+            width:40%;
             border: green 1px dotted;
             margin: 0 15px;
             display: grid;
@@ -78,14 +83,14 @@
         }
 
         .description{
-            font-family: UbuntuRegular,Arial,sans-serif;
+            font-family: UbuntuRegular, Arial, sans-serif;
             position: absolute;
             background-color: black;
             opacity: 0;
             color: #FFF;
             padding: 15px;
             top:70%;
-            left:5px;
+            left:3px;
             z-index: 50;
             transition: all 0.8s;
             transition-delay: 0.2s;
@@ -95,7 +100,7 @@
         .imgbox:nth-child(1) > .description:after {content: 'Котяра котяра'}
 
         .imgbox:nth-child(2) {grid-area: b}
-        .imgbox:nth-child(2) > .description:after {content: 'Котяра котяра'}
+        .imgbox:nth-child(2) > .description:after {content: 'Кот "Рыболов" Фантомас, 2 года'}
 
         .imgbox:nth-child(3) {grid-area: c}
         .imgbox:nth-child(3) > .description:after {content: 'Котяра котяра'}
@@ -112,15 +117,42 @@
         .imgbox:nth-child(7) {grid-area: g}
         .imgbox:nth-child(7) > .description:after {content: 'Котяра котяра'}
 
+        .imgbox:nth-child(8) {grid-area: h}
+        .imgbox:nth-child(8) > .description:after {content: 'Кошачьи братья, пол года'}
+
         .imgbox:hover > .gridimg {opacity: 1; transition: all 0.8s}
         .imgbox:hover > .description {opacity: 0.8; transition: all 1s}
 
 
 
+
         .right{
+            display: flex;
+            flex-direction:column;
+            /* padding: 10px;*/
             align-self: flex-start;
             border: blue 1px dotted;
+            width: 170px;
+            background-color: #d9d9d9;
+            padding: 10px;
         }
+        .right div > h1 {
+            color: red;
+            text-transform: uppercase;
+            font-size: x-large;
+        }
+
+        .right div > .raiting
+        {
+            padding-left: 10px;
+        }
+
+        .right div > meter
+        {
+            width: 140px;
+
+        }
+
 
     </style>
     <title>CatShop.Yandex</title>
@@ -134,37 +166,23 @@
         <div>Британская</div>
         <div>Русская голубая</div>
         <div>Сиамская</div>
-</div>
+    </div>
 
 
 <div class="center">
 
         <div class="imgbox">
-            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <img src="./images/cat_10_gray.jpg" class="gridimg">
             <div class="description"></div>
         </div>
 
         <div class="imgbox">
-            <img src="./images/cat_05_homecat.jpg" class="gridimg">
+            <img src="./images/cat_04_fishercat.jpg" class="gridimg">
             <div class="description"></div>
         </div>
 
         <div class="imgbox">
-            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
-
-        <div class="imgbox">
-            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
-
-        <div class="imgbox">
-            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
-        <div class="imgbox">
-            <img src="./images/cat_05_homecat.jpg" class="gridimg">
+            <img src="./images/cat_11_siam1.jpg" class="gridimg">
             <div class="description"></div>
         </div>
 
@@ -172,9 +190,34 @@
             <img src="./images/cat_09_usach.jpg" class="gridimg">
             <div class="description"></div>
         </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+        <div class="imgbox">
+            <img src="./images/cat_05_homecat.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_11_siam2.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
+
+        <div class="imgbox">
+            <img src="./images/cat_12_brothers.jpg" class="gridimg">
+            <div class="description"></div>
+        </div>
 </div>
 
-<div class="right">raiting</div>
+<div class="right">
+    <div><h1>рейтинг</h1></div>
+    <div><meter value="10"></meter><span class="raiting">25</span></div>
+    <div><meter>321</meter><span class="raiting">25</span></div>
+    <div><meter></meter><span class="raiting">25</span></div>
+    <div><meter></meter><span class="raiting">25</span></div>
+</div>
 
 </div>
 
