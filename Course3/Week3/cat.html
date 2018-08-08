@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,46 +12,34 @@
             src: url(./fonts/Ubuntu-Bold.ttf);
         }
 
+        .root {
+            width: 60%;
+            /*height: 100vh; */
+            height: 100%;
+            border: 4px green dotted;
+            margin: 0 auto;
+        }
+
         body {
             background-color: #ebebeb;
             font-family: UbuntuRegular,Arial,sans-serif;
         }
-        header {
-            position: absolute;
-
-            font-family: UbuntuBold,arial,sans-serif;
-            font-size: large;
-            font-weight: bold;
-            margin: 0 auto
-        ;
-        }
 
         .main-container
         {
-            position: static;
-            /*left:50%; */
-            /*transform: translateX(-50%); */
-            /*width: auto; */
             display: flex;
-          /*  align-content: center; */
-            width: 60%;
+            /*width: 0; */
             margin: 0 auto;
-            /*min-width: 700px; */
-            /*height: 100%; */
-            /* justify-content: space-around; */
         }
 
-        .left{
-            /*border: red 1px dotted; */
 
+        .left{
             display: flex;
             flex-direction: column;
             background-color: #d9d9d9;
-
         }
 
         .left > label{
-            /*border: red 1px dashed; */
             padding: 10px;
             border-bottom: grey 1px double;
             transition: all 0.8s;
@@ -83,11 +70,7 @@
         #filter4:checked ~ .main-container .center .imgbox:nth-child(7) img {opacity:1}
 
 
-
         .center{
-
-            /*flex-basis: 100%; */
-            min-width: 430px;
             margin: 0 15px;
             display: grid;
             grid-template-columns: auto auto auto;
@@ -99,11 +82,10 @@
             "h h h";
             align-items: stretch;
             grid-gap: 15px;
-
         }
 
         .imgbox {
-            position: relative;
+           position: relative;
             height: 100%;
             width: 100%;
             z-index: 10;
@@ -162,20 +144,15 @@
         .imgbox:hover > .description {opacity: 0.6; transition: all 1s}
 
         .right{
-
-            /*border: blue 1px dotted; */
-            flex-basis: 200px;
-            /*width: 200px; */
             background-color: #d9d9d9;
             padding: 10px;
             align-self: flex-start;
         }
+
         .right > .raitingbox{
             width: 200px;
             display: flex;
             flex-direction:column;
-            /* padding: 10px;*/
-            /*align-self: flex-start; */
         }
 
         .right > h1 {
@@ -208,96 +185,98 @@
         #sort:checked ~ .raitingbox > div:nth-child(2) {order: 3;}
         #sort:checked ~ .raitingbox > div:nth-child(4) {order: 4;}
 
+        footer {
+            border: 1px red dotted;
+        }
+
     </style>
     <title>CatShop.Yandex</title>
 </head>
 <body>
-<input class="filter" type="checkbox" id="filter1"/>
-<input class="filter" type="checkbox" id="filter2"/>
-<input class="filter" type="checkbox" id="filter3"/>
-<input class="filter" type="checkbox" id="filter4"/>
-<header>Бабуленькины котятки</header>
 
-<div class="main-container">
-    <div class="left">
-        <label id="filter1_label" for="filter1">Абиссинская</label>
-        <label id="filter2_label" for="filter2">Британская</label>
-        <label id="filter3_label" for="filter3">Русская голубая</label>
-        <label id="filter4_label" for="filter4">Сиамская</label>
-    </div>
-    <div class="center">
-        <div class="imgbox">
-            <img src="./images/cat_10_gray.jpg" class="gridimg">
-            <div class="description"></div>
+<div class="root">
+
+    <input class="filter" type="checkbox" id="filter1"/>
+    <input class="filter" type="checkbox" id="filter2"/>
+    <input class="filter" type="checkbox" id="filter3"/>
+    <input class="filter" type="checkbox" id="filter4"/>
+
+    <div class="main-container">
+
+        <div class="left">
+            <label id="filter1_label" for="filter1">Абиссинская</label>
+            <label id="filter2_label" for="filter2">Британская</label>
+            <label id="filter3_label" for="filter3">Русская голубая</label>
+            <label id="filter4_label" for="filter4">Сиамская</label>
         </div>
 
-        <div class="imgbox">
-            <img src="./images/cat_04_fishercat.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
+        <div class="center">
 
-        <div class="imgbox">
-            <img src="./images/cat_11_siam1.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
+                <div class="imgbox">
+                    <img src="./images/cat_10_gray.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
 
-        <div class="imgbox">
-            <img src="./images/cat_09_usach.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
+                <div class="imgbox">
+                    <img src="./images/cat_04_fishercat.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
 
-        <div class="imgbox">
-            <img src="./images/cat_08_coffeman.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
-        <div class="imgbox">
-            <img src="./images/cat_05_homecat.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
+                <div class="imgbox">
+                    <img src="./images/cat_11_siam1.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
 
-        <div class="imgbox">
-            <img src="./images/cat_11_siam2.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
+                <div class="imgbox">
+                    <img src="./images/cat_09_usach.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
 
-        <div class="imgbox">
-            <img src="./images/cat_12_brothers.jpg" class="gridimg">
-            <div class="description"></div>
-        </div>
-</div>
-    <div class="right">
-    <h1>рейтинг</h1>
-    <input type="checkbox" id="sort"/><label for="sort">По убыванию</label>
-    <div class="raitingbox">
+                <div class="imgbox">
+                    <img src="./images/cat_08_coffeman.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
 
+             </div>
+
+        <div class="right">
+            <h1>рейтинг</h1>
+            <input type="checkbox" id="sort"/><label for="sort">По убыванию</label>
+            <div class="raitingbox">
                 <div>
                     Абиссинская
                     <meter min="0" max="10" optimum="10" low="5" high="9" value="9" class="custom"></meter>
                     <span class="raiting">9</span>
                 </div>
 
-                 <div>
+                <div>
                     Британская
                     <meter min="0" max="10" optimum="10" low="5" high="9" value="8" class="custom"></meter>
                     <span class="raiting">8</span>
-                 </div>
+                </div>
 
-                 <div>
+                <div>
                     Русская голубая
                     <meter min="0" max="10" optimum="10" low="5" high="9" value="10" class="custom"></meter>
                     <span class="raiting">10</span>
-                 </div>
+                </div>
 
-                 <div>
+                <div>
                     Сиамская
                     <meter min="0" max="10" optimum="10" low="5" high="9" value="4" class="custom"></meter>
                     <span class="raiting">4</span>
-                 </div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <footer>Footer Footer Footer Footer</footer>
+
 </div>
 
 
 </body>
+
 
 </html>

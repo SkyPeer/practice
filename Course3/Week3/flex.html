@@ -2,51 +2,55 @@
 <head>
     <style>
     body {
-        margin-top: 30px;
+        /*margin-top: 30px; */
         margin-left: 30px;
     }
 
-        .flex-container{
-            display: flex;
-            flex-direction: column;
-            width: 1000px;
+        .main{
+
+            /*flex-direction: column; */
+            width: 65%;
             height: 100%;
             border: 4px green dotted;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
 
         }
-        .flex-container > div
+        .main > div
         {
             border: 2px blue dotted;
-            margin: 10px;
+            /*margin: 10px; */
             padding: 20px;
-            width: 450px;
-            height: 50px;
+            /*width: 450px; */
+            /* *ight */
+        }
+
+        .content{
+            align-self: flex-start;
+            width: 100%;
         }
 
 
-    .flex-container > div:nth-child(2)
-    {
-        height: 800px;
+        .header{
+            background-color: red;
+            width: 100%;
+            align-self: flex-start;
+        }
 
-    }
-
-    .flex-container > div:nth-child(3)
-    {
-
-        background-color: red;
-        align-self: flex-end;
-
-    }
-
+    .footer
+        {
+        width: 100%;
+        }
     </style>
     <title>flex</title>
 
 </head>
 <body>
-<div class="flex-container">
+<div class="main">
 
-    <div>aaaaa</div>
-    <div>На макете слева выводится меню по породам котиков, по центру — карточки котиков, а справа — рейтинг пород котиков (породы выводятся по алфавиту).
+
+    <div class="content">На макете слева выводится меню по породам котиков, по центру — карточки котиков, а справа — рейтинг пород котиков (породы выводятся по алфавиту).
 
         Подвал должен быть прибит к нижней границе окна браузера, если котики влезают в один экран.
 
@@ -62,11 +66,9 @@
         возможность выбрать породу в меню и отфильтровать котиков только этой породы;
         при наведении на фотку котика выводить плашку с именем и возрастом котика;
         цвет рейтинга должен зависеть от его значения.
+    </div>
 
-        Необязательное задание (+10 к гибкости)</div>
-    <div>ccccc</div>
-
-
+    <div class="footer"><div>FOOOOOOOOOOOOOOOOOOTER</div></div>
 
 </div>
 
