@@ -33,20 +33,20 @@
         }
 
         .left{
-            border: red 1px dotted;
+            /*border: red 1px dotted; */
             display: flex;
             flex-direction: column;
             background-color: #d9d9d9;
+
         }
 
         .left > label{
-            border: red 1px dashed;
+            /*border: red 1px dashed; */
             padding: 10px;
             border-bottom: grey 1px double;
         }
 
-        .left > label:hover {background-color: #262626; color: white;
-        }
+        .left > label:hover {background-color: #262626; color: white;  }
         .filter {visibility: hidden}
 
         #filter1:checked ~ .main-container .center .imgbox img {opacity:0.4}
@@ -58,6 +58,14 @@
         #filter1:checked ~ .main-container .center .imgbox:nth-child(2) img {opacity:1}
         #filter1:checked ~ .main-container .center .imgbox:nth-child(4) img {opacity:1}
 
+        #filter2:checked ~ .main-container .left > #filter2_label {background-color: #262626; color: white}
+        #filter2:checked ~ .main-container .center .imgbox:nth-child(1) img {opacity:1}
+        #filter2:checked ~ .main-container .center .imgbox:nth-child(5) img {opacity:1}
+        #filter2:checked ~ .main-container .center .imgbox:nth-child(8) img {opacity:1}
+
+        #filter3:checked ~ .main-container .left > #filter3_label {background-color: #262626; color: white}
+        #filter3:checked ~ .main-container .center .imgbox:nth-child(6) img {opacity:1}
+
         #filter4:checked ~ .main-container .left > #filter4_label {background-color: #262626; color: white}
         #filter4:checked ~ .main-container .center .imgbox:nth-child(3) img {opacity:1}
         #filter4:checked ~ .main-container .center .imgbox:nth-child(7) img {opacity:1}
@@ -67,7 +75,8 @@
         .center{
             /*flex-grow: 1; */
             width:40%;
-            border: green 1px dotted;
+            min-width: 430px;
+            /*border: green 1px dotted; */
             margin: 0 15px;
             display: grid;
             /*grid-area: auto; */
@@ -143,17 +152,18 @@
 
         .right{
 
-            border: blue 1px dotted;
+            /*border: blue 1px dotted; */
             width: 200px;
             background-color: #d9d9d9;
             padding: 10px;
+            align-self: flex-start;
         }
         .right > .raitingbox{
             width: 200px;
             display: flex;
             flex-direction:column;
             /* padding: 10px;*/
-            align-self: flex-start;
+            /*align-self: flex-start; */
         }
 
         .right > h1 {
@@ -170,7 +180,7 @@
         }
 
         .right .raitingbox div > meter {  width: 150px  }
-        .right .raitingbox div> meter::-webkit-meter-bar {  background: rgba(255, 255, 255, 0);  }
+        .right .raitingbox div > meter::-webkit-meter-bar {  background: rgba(255, 255, 255, 0);  }
         .right .raitingbox div > meter::-webkit-meter-optimum-value {  background: linear-gradient(90deg, green 0%, white 95%, rgba(255,255,255,0) 100%);  }
         .right .raitingbox div > meter::-webkit-meter-suboptimum-value {  background: linear-gradient(90deg, gold 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
         .right .raitingbox div > meter::-webkit-meter-even-less-good-value {  background: linear-gradient(90deg, red 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
