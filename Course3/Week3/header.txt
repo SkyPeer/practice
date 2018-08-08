@@ -1,0 +1,11 @@
+<header>Бабуленькины котятки</header>
+
+header {
+          /*  position: absolute; */
+
+            font-family: UbuntuBold,arial,sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 25px;
+        }

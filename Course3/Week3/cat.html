@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,24 +13,40 @@
             src: url(./fonts/Ubuntu-Bold.ttf);
         }
 
-        .root {
-            width: 60%;
-            /*height: 100vh; */
-            height: 100%;
-            border: 4px green dotted;
-            margin: 0 auto;
-        }
-
         body {
+            margin: 0;
             background-color: #ebebeb;
             font-family: UbuntuRegular,Arial,sans-serif;
         }
 
+        .root {
+            width: 60%;
+            /*height: 100vh; */
+            height: 100vh;
+            /*border: 4px green dotted; */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+
+
         .main-container
         {
+            align-self: flex-start;
             display: flex;
-            /*width: 0; */
             margin: 0 auto;
+        }
+
+        header {
+            /*  position: absolute; */
+
+            font-family: UbuntuBold,arial,sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin: 25px 0;
         }
 
 
@@ -45,8 +62,8 @@
             transition: all 0.8s;
         }
 
-        .left > label:hover {background-color: #262626; color: white;  transition: all 0.8s}
-        .filter {visibility: hidden}
+        .left > label:hover {background-color: #262626; color: white;  transition: all 0.8s; cursor: pointer}
+        .filter {visibility: hidden; position: fixed; top:-100%}
 
         #filter1:checked ~ .main-container .center .imgbox img {opacity:0.4}
         #filter2:checked ~ .main-container .center .imgbox img {opacity:0.4}
@@ -186,14 +203,17 @@
         #sort:checked ~ .raitingbox > div:nth-child(4) {order: 4;}
 
         footer {
-            border: 1px red dotted;
+            width: 100%;
+            padding: 15px 0;
+
         }
+        footer > div:nth-child(3){color: darkblue}
 
     </style>
     <title>CatShop.Yandex</title>
 </head>
 <body>
-
+<header>Бабуленькины котятки</header>
 <div class="root">
 
     <input class="filter" type="checkbox" id="filter1"/>
@@ -202,6 +222,8 @@
     <input class="filter" type="checkbox" id="filter4"/>
 
     <div class="main-container">
+
+
 
         <div class="left">
             <label id="filter1_label" for="filter1">Абиссинская</label>
@@ -237,6 +259,22 @@
                     <div class="description"></div>
                 </div>
 
+                <div class="imgbox">
+                    <img src="./images/cat_05_homecat.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="./images/cat_11_siam2.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="./images/cat_12_brothers.jpg" class="gridimg">
+                    <div class="description"></div>
+                </div>
+
+
              </div>
 
         <div class="right">
@@ -271,7 +309,11 @@
 
 
     </div>
-    <footer>Footer Footer Footer Footer</footer>
+    <footer>
+    <hr>
+        <div style="float: left">&#169; ООО Бабуленькины котятки, 2015</div>
+        <div style="float: right">Наш адрес: улица Котова, д.5</div>
+    </footer>
 
 </div>
 
