@@ -3,224 +3,18 @@
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        @font-face {
-            font-family: UbuntuRegular;
-            src: url(./fonts/Ubuntu-Regular.ttf);
-        }
-        @font-face {
-            font-family: UbuntuBold;
-            src: url(./fonts/Ubuntu-Bold.ttf);
-        }
-
-        body {
-            margin: 0;
-            background-color: #ebebeb;
-            font-family: UbuntuRegular,Arial,sans-serif;
-        }
-
-        .root {
-            width: 60%;
-            /*height: 100vh; */
-            height: 100vh;
-            /*border: 4px green dotted; */
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-end;
-        }
-
-
-
-        .main-container
-        {
-            align-self: flex-start;
-            display: flex;
-            margin: 0 auto;
-        }
-
-        header {
-            /*  position: absolute; */
-
-            font-family: UbuntuBold,arial,sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            margin: 25px 0;
-        }
-
-
-        .left{
-            display: flex;
-            flex-direction: column;
-            background-color: #d9d9d9;
-        }
-
-        .left > label{
-            padding: 10px;
-            border-bottom: grey 1px double;
-            transition: all 0.8s;
-        }
-
-        .left > label:hover {background-color: #262626; color: white;  transition: all 0.8s; cursor: pointer}
-        .filter {visibility: hidden; position: fixed; top:-100%}
-
-        #filter1:checked ~ .main-container .center .imgbox img {opacity:0.4}
-        #filter2:checked ~ .main-container .center .imgbox img {opacity:0.4}
-        #filter3:checked ~ .main-container .center .imgbox img {opacity:0.4}
-        #filter4:checked ~ .main-container .center .imgbox img {opacity:0.4}
-
-        #filter1:checked ~ .main-container .left > #filter1_label {background-color: #262626; color: white}
-        #filter1:checked ~ .main-container .center .imgbox:nth-child(2) img {opacity:1}
-        #filter1:checked ~ .main-container .center .imgbox:nth-child(4) img {opacity:1}
-
-        #filter2:checked ~ .main-container .left > #filter2_label {background-color: #262626; color: white}
-        #filter2:checked ~ .main-container .center .imgbox:nth-child(1) img {opacity:1}
-        #filter2:checked ~ .main-container .center .imgbox:nth-child(5) img {opacity:1}
-        #filter2:checked ~ .main-container .center .imgbox:nth-child(8) img {opacity:1}
-
-        #filter3:checked ~ .main-container .left > #filter3_label {background-color: #262626; color: white}
-        #filter3:checked ~ .main-container .center .imgbox:nth-child(6) img {opacity:1}
-
-        #filter4:checked ~ .main-container .left > #filter4_label {background-color: #262626; color: white}
-        #filter4:checked ~ .main-container .center .imgbox:nth-child(3) img {opacity:1}
-        #filter4:checked ~ .main-container .center .imgbox:nth-child(7) img {opacity:1}
-
-
-        .center{
-            margin: 0 15px;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto auto auto auto;
-            grid-template-areas:
-            "a b b"
-            "c d e"
-            "f f g"
-            "h h h";
-            align-items: stretch;
-            grid-gap: 15px;
-        }
-
-        .imgbox {
-           position: relative;
-            height: 100%;
-            width: 100%;
-            z-index: 10;
-        }
-
-        .gridimg{
-
-            width: 100% ;
-            min-height: 100%;
-            z-index: 20;
-            opacity: 0.75;
-            transition: all 0.8s;
-
-        }
-
-        .description{
-            font-family: UbuntuRegular, Arial, sans-serif;
-            font-size: 14px;
-            position: absolute;
-            background-color: black;
-            opacity: 0;
-            color: #FFF;
-            padding: 15px;
-            top:70%;
-            left:3px;
-            z-index: 50;
-            transition: all 0.8s;
-            transition-delay: 0.2s;
-        }
-
-        .imgbox:nth-child(1) {grid-area: a}
-        .imgbox:nth-child(1) > .description:after {content: 'Серый, 4 года'}
-
-        .imgbox:nth-child(2) {grid-area: b}
-        .imgbox:nth-child(2) > .description:after {content: 'Рыбак, 2 года'}
-
-        .imgbox:nth-child(3) {grid-area: c}
-        .imgbox:nth-child(3) > .description:after {content: 'Очень сиамский'}
-
-        .imgbox:nth-child(4) {grid-area: d}
-        .imgbox:nth-child(4) > .description:after {content: 'Усач, молодой'}
-
-        .imgbox:nth-child(5) {grid-area: e}
-        .imgbox:nth-child(5) > .description:after {content: 'Кофеман, 3 года'}
-
-        .imgbox:nth-child(6) {grid-area: f}
-        .imgbox:nth-child(6) > .description:after {content: 'Домашний, пушистый'}
-
-        .imgbox:nth-child(7) {grid-area: g}
-        .imgbox:nth-child(7) > .description:after {content: 'Мышелов, 2 года'}
-
-        .imgbox:nth-child(8) {grid-area: h}
-        .imgbox:nth-child(8) > .description:after {content: 'Ушастые друзья, пол года'}
-
-        .imgbox:hover > .gridimg {opacity: 1; transition: all 0.8s}
-        .imgbox:hover > .description {opacity: 0.6; transition: all 1s}
-
-        .right{
-            background-color: #d9d9d9;
-            padding: 10px;
-            align-self: flex-start;
-        }
-
-        .right > .raitingbox{
-            width: 200px;
-            display: flex;
-            flex-direction:column;
-        }
-
-        .right > h1 {
-            color: red;
-            text-transform: uppercase;
-            font-size: x-large;
-            margin-bottom: 10px;
-        }
-
-        .right > #sort {
-            position: relative;
-            margin-left: 30%;
-            margin-bottom: 10px;
-        }
-
-        .right .raitingbox div > meter {  width: 150px  }
-        .right .raitingbox div > meter::-webkit-meter-bar {  background: rgba(255, 255, 255, 0);  }
-        .right .raitingbox div > meter::-webkit-meter-optimum-value {  background: linear-gradient(90deg, green 0%, white 95%, rgba(255,255,255,0) 100%);  }
-        .right .raitingbox div > meter::-webkit-meter-suboptimum-value {  background: linear-gradient(90deg, gold 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
-        .right .raitingbox div > meter::-webkit-meter-even-less-good-value {  background: linear-gradient(90deg, red 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
-
-
-        .right div > .raiting
-        {
-            padding-left: 10px;
-        }
-
-        #sort:checked ~ .raitingbox > div:nth-child(3) {order: 1;}
-        #sort:checked ~ .raitingbox > div:nth-child(1) {order: 2;}
-        #sort:checked ~ .raitingbox > div:nth-child(2) {order: 3;}
-        #sort:checked ~ .raitingbox > div:nth-child(4) {order: 4;}
-
-        footer {
-            width: 100%;
-            padding: 15px 0;
-
-        }
-        footer > div:nth-child(3){color: darkblue}
-
-    </style>
-    <title>CatShop.Yandex</title>
+    <link rel="stylesheet" href="index.css">
+    <title>CatShop.YandexTraining</title>
 </head>
 <body>
-<header>Бабуленькины котятки</header>
+
 <div class="root">
 
     <input class="filter" type="checkbox" id="filter1"/>
     <input class="filter" type="checkbox" id="filter2"/>
     <input class="filter" type="checkbox" id="filter3"/>
     <input class="filter" type="checkbox" id="filter4"/>
-
+    <header>Бабуленькины котятки</header>
     <div class="main-container">
 
 
@@ -275,7 +69,7 @@
                 </div>
 
 
-             </div>
+        </div>
 
         <div class="right">
             <h1>рейтинг</h1>
@@ -310,9 +104,9 @@
 
     </div>
     <footer>
-    <hr>
-        <div style="float: left">&#169; ООО Бабуленькины котятки, 2015</div>
-        <div style="float: right">Наш адрес: улица Котова, д.5</div>
+        <hr>
+            <div>&#169; ООО Бабуленькины котятки, 2015</div>
+            <div>Наш адрес: улица Котова, д.5</div>
     </footer>
 
 </div>
