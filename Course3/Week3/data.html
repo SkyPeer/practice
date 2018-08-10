@@ -1,0 +1,28 @@
+<html>
+<head>
+    <style>
+
+        body{
+            margin: 20px;
+        }
+
+        .test {
+            display: inline-block;
+            background-color: gray;
+            width: attr(data-width px);
+        }
+
+        .test:after {
+            content: attr(data-name);
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+
+<div class='test' data-name=" - CONTENT" data-width="200">teste</div>
+</body>
+
+
+</html>
+
