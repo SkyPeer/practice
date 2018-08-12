@@ -1,0 +1,260 @@
+html{
+  height: 100%
+}
+
+body{
+  height: 100%;
+  background: #aaa;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font: 40px serif;
+  text-align: center;
+  margin:0;
+ 
+  padding-bottom: 30px;
+
+}
+.wrapper {
+  display: flex;
+  border: 1px solid grey;
+  flex: 0 0 auto;
+}
+
+.article_right {
+  display: flex;
+  background: #999;
+  height: 100%;
+  order: 2;
+  width: 20%;
+  align-self: start;
+  flex-direction: column;
+  flex:2;
+}
+
+.article_left {
+  display: flex;
+  flex-wrap: wrap;
+  background: #999;
+  align-content: start;
+  flex:2;
+}
+
+.photo {
+  margin: 0.5%;
+  height: 400px;
+}
+
+.cats {
+  display: flex;
+  background: #aaa;
+  order: 1;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-content: flex-start;
+  height: 100%;
+  width: 1200px;
+  flex:6;
+}
+
+.cats > div:first-child {
+  width: 65.5%;
+  flex-grow: 1;
+}
+
+.reserve {
+  margin: 0;
+  flex: 1 0 auto;
+}
+
+.cats > div:nth-child(n+2) {
+	width: 32%;
+  flex-grow: 1;
+}
+
+.cats > div:nth-child(n+7) {
+	width: 65.5%;
+  flex-grow: 1;
+}             
+
+.cats > div:last-child {
+  width: 98%;
+  flex-grow: 1;
+}  
+
+.photo img {
+	width: 100%;
+  height: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 7px;
+}
+.checkbox + .wrapper .article_left label {
+  cursor: pointer;
+  border-bottom: 2px solid #636363;
+  width: 100%;
+  height: 50px;
+  font-size: 25px;
+  padding: 20px 5px 5px 20px;
+}
+
+.checkbox.abiss:checked ~ .wrapper .article_left .abiss,
+.checkbox.britain:checked ~ .wrapper .article_left .britain,
+.checkbox.pers:checked ~ .wrapper .article_left .pers,
+.checkbox.siam:checked ~ .wrapper .article_left .siam,
+.checkbox.all:checked ~ .wrapper .article_left .all {
+  background: #636363;
+  color: white;
+}
+
+.checkbox.abiss:checked ~ .wrapper .cats .pers,
+.checkbox.abiss:checked ~ .wrapper .cats .siam,
+.checkbox.abiss:checked ~ .wrapper .cats .britain,
+.checkbox.britain:checked ~ .wrapper .cats .pers,
+.checkbox.britain:checked ~ .wrapper .cats .siam,
+.checkbox.britain:checked ~ .wrapper .cats .abiss,
+.checkbox.siam:checked ~ .wrapper .cats .pers,
+.checkbox.siam:checked ~ .wrapper .cats .britain,
+.checkbox.siam:checked ~ .wrapper .cats .abiss,
+.checkbox.pers:checked ~ .wrapper .cats .siam,
+.checkbox.pers:checked ~ .wrapper .cats .abiss,
+.checkbox.pers:checked ~ .wrapper .cats .britain {
+   opacity: 0.3;
+}
+
+.checkbox.all:checked ~ .wrapper .cats .abiss,
+.checkbox.all:checked ~ .wrapper .cats .britain,
+.checkbox.all:checked ~ .wrapper .cats .siam,
+.checkbox.all:checked ~ .wrapper .cats .pers{
+  opacity:1;
+  }
+
+footer {
+  display:flex;
+  padding: 20px;
+  flex: 0 0 auto;
+  border-top: 1px solid grey;
+}
+
+.copy{
+  font: 20px serif;
+  text-align: left;
+  flex: 1;
+  margin-right: 20px; 
+}
+
+a {
+  font: 20px serif;
+  text-align: left;
+  color: blue;
+  text-decoration: none;
+  flex:1;
+}
+
+div p {
+  font-size: 20px;
+  width: 90%;
+  text-align: right;
+  margin: 0 0 -30px 0;
+}
+
+.rating_title {
+  font: 35px serif;
+  color: #B40404;
+  padding: 10px; 
+}
+
+.rating_menu{
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 20px 10px 0;
+  margin-bottom: 10px;
+}
+
+#rating {
+  transform:scale(2);
+  margin: 10px 10px 30px 10px;
+  align-self: flex-end;
+}
+
+.line {
+  height: 20px;
+  border: 1px solid #555;
+  align-self: center;
+}
+
+.rating.abiss .line {
+  background: linear-gradient(to right, red, white); 
+  width: 25%;
+}
+
+.rating.britain .line {
+  background: linear-gradient(to right, #A5DF00, white); 
+  width: 60%;
+}
+
+.rating.pers .line {
+  background: linear-gradient(to right, orange, white); 
+  width: 35%;
+}
+
+.rating.siam .line {
+  background: linear-gradient(to right, green, white); 
+  width: 75%;
+}
+
+.name {
+  font-size: 25px;
+}
+
+.value {
+  margin: 0px 10px 0px 0px; 
+  font: bold 40px serif;
+  padding: 0px;
+  align-self: flex-end;
+}
+
+.rating_menu {
+  padding: 0px 10px;
+}
+
+.rating_line {
+  padding-right: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#rating:checked ~ .rating.britain {order: 2;}
+#rating:checked ~ .rating.siam {order: 1;}
+#rating:checked ~ .rating.pers {order: 3;}
+#rating:checked ~ .rating.abiss {order: 4;}
+
+.description {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  background: #bbb;
+  opacity: 0.6;
+  display: inline-flex;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  padding: 5px;
+  margin: -200px 10px;
+}
+
+img:hover + .description { 
+  visibility: visible;
+}

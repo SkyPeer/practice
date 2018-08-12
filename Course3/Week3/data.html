@@ -15,12 +15,29 @@
         .test:after {
             content: attr(data-name);
         }
+        .test2:after {
+            content: attr(data-raiting);
+            color:green;
+            font-weight: bold;
+        }
+
+        .test2:before{
+            content: attr(data-raiting2);
+            color:red;
+        }
+
     </style>
     <title></title>
 </head>
 <body>
+<section data-raiting2="7892">
+
+    <span class="test2" data-raiting="123">2</span>
+
+</section>
 
 <div class='test' data-name=" - CONTENT" data-width="200">teste</div>
+
 </body>
 
 

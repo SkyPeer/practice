@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>Kitten</title>
+	<link href="stylesheets.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body>
+	<input type="checkbox" id="cat_1" class="cat_chk cat_chk_1" checked />
+	<input type="checkbox" id="cat_2" class="cat_chk cat_chk_2" checked />
+	<input type="checkbox" id="cat_3" class="cat_chk cat_chk_3" checked />
+	<input type="checkbox" id="cat_4" class="cat_chk cat_chk_4" checked />
+	<div class="page_layout">
+		<header class="page_header">
+			<h1>kittens.grand.ma</h1>
+		</header>
+		
+		<aside class="page_column-left">
+			<ul class="cat_navigation">
+				<li>
+					<label for="cat_1">Котюни</label>
+				</li>
+				<li>
+					<label for="cat_2">Котаны</label>
+				</li>
+				<li>
+					<label for="cat_3">Классика</label>
+				</li>
+				<li>
+					<label for="cat_4">Котищи</label>
+				</li>
+			</ul>
+		</aside>
+		<main class="page_content cat_cards">
+			<div class="cat_card cat_1" data-tooltip="Санса, 3 годика">
+				<img src="images/01.jpg" alt="Санса, 3 годика" />
+			</div>
+			<div class="cat_card cat_2" data-tooltip="Тоша, 4 годика">
+				<img src="images/02.jpg" alt="Тоша, 4 годика" />
+			</div>
+			<div class="cat_card cat_3" data-tooltip="Котаны, 2 годика">
+				<img src="images/03.jpg" alt="Котаны, 2 годика" />
+			</div>
+			<div class="cat_card cat_3" data-tooltip="Дым, 1.5 года">
+				<img src="images/04.jpg" alt="Дым, 1.5 года" />
+			</div>
+			<div class="cat_card cat_2" data-tooltip="Джон, 4 годика">
+				<img src="images/05.jpg" alt="Джон, 4 годика" />
+			</div>
+			<div class="cat_card cat_1" data-tooltip="Арька, 2 годика">
+				<img src="images/06.jpg" alt="Арька, 2 годика" />
+			</div>
+			<div class="cat_card cat_1" data-tooltip="Дуся, 5 годков">
+				<img src="images/07.jpg" alt="Дуся, 5 годков" />
+			</div>
+			<div class="cat_card cat_4" data-tooltip="Пафос, 7 годиков">
+				<img src="images/08.jpg" alt="Пафос, 7 годиков" />
+			</div>
+			<div class="cat_card cat_4" data-tooltip="Сташа, 10 годиков">
+				<img src="images/09.jpg" alt="Сташа, 10 годиков" />
+			</div>
+			<div class="cat_card cat_4" data-tooltip="Рамсюн, 4 годика">
+				<img src="images/10.jpg" alt="Рамсюн, 4 годика" />
+			</div>
+		</main>
+		<aside class="page_column-right rating">
+			<input type="checkbox" id="rating" class="rating_chk" />
+			<header class="rating_header">
+				<h2>Рейтинг*</h2>
+				<label class="fa rating_label fa-chevron-down" for="rating"></label>
+			</header>
+			<ul class="rating_list">
+				<li class="rating_value" data-value="10">Кот классический</li>
+				<li class="rating_value" data-value="6">Котан</li>
+				<li class="rating_value" data-value="8">Котище</li>
+				<li class="rating_value" data-value="7">Котюня</li>
+			</ul>
+			<div class="rating_notice">* Рейтинг составлен с учетом глубокого незнания пород кошек.</div>
+		</aside>
+		<footer class="page_footer">
+			<div>&copy; 2018, All right received</div>
+			<address>GrandMa's home: GM's city, GM's street, GM'house, LLC Grand.Ma</address>
+		</footer>
+	</div>
+</body>
+</html>

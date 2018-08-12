@@ -21,6 +21,16 @@
         background: linear-gradient(270deg, white 0%, red 37%);
     }
 
+    .meter {
+        background-image: linear-gradient(90deg, attr(data-color1), white 95%, rgba(255, 255, 255, 0) 100%);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100px;
+        border: 1px dotted black;
+
+
+    }
+
     </style>
 </head>
 <body>
@@ -28,7 +38,8 @@
 <meter min="0" max="10" optimum="10" low="3" high="8" value="2" class="custom">1</meter><br>
 <meter min="0" max="10" optimum="10" low="2" high="8" value="5" class="custom">5</meter><br>
 <meter min="0" max="10" optimum="10" low="2" high="8" value="9" class="custom">9</meter><br>
-
+<hr>
+<div class="meter" data-color1="green 0%">5</div>
 </body>
 
 </html>

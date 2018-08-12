@@ -7,6 +7,9 @@
     src: url(./fonts/Ubuntu-Bold.ttf);
 }
 
+
+
+
 body {
     margin: 0;
     background-color: #ebebeb;
@@ -39,7 +42,6 @@ header {
     text-align: center;
     margin: 2% auto;
     min-width: 346px;
-    text-wrap: none;
 }
 
 
@@ -84,15 +86,10 @@ header {
 
     margin: 0 15px;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-            "a b b"
-            "c d e"
-            "f f g"
-            "h h h";
     align-items: stretch;
     grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
 }
 
 .imgbox {
@@ -125,36 +122,21 @@ header {
     transition-delay: 0.2s;
 }
 
-.imgbox:nth-child(8n+1) {grid-area: a}
-.imgbox:nth-child(8n+1) > .description:after {content: 'Серый, 4 года'}
+.imgbox:nth-child(8n + 2)
+{grid-column: auto /span 2;}
+.imgbox:nth-child(8n + 6)
+{grid-column: auto /span 2;}
+.imgbox:nth-child(8n + 8)
+{grid-column: auto /span 3;}
 
-.imgbox:nth-child(8n+2) {grid-area: b}
-.imgbox:nth-child(8n+2) > .description:after {content: 'Рыбак, 2 года'}
-
-.imgbox:nth-child(8n+3) {grid-area: c}
-.imgbox:nth-child(8n+3) > .description:after {content: 'Очень сиамский'}
-
-.imgbox:nth-child(8n+4) {grid-area: d}
-.imgbox:nth-child(8n+4) > .description:after {content: 'Усач, молодой'}
-
-.imgbox:nth-child(8n+5) {grid-area: e}
-.imgbox:nth-child(8n+5) > .description:after {content: 'Кофеман, 3 года'}
-
-.imgbox:nth-child(8n+6) {grid-area: f}
-.imgbox:nth-child(8n+6) > .description:after {content: 'Домашний, пушистый'}
-
-.imgbox:nth-child(8n+7) {grid-area: g}
-.imgbox:nth-child(8n+7) > .description:after {content: 'Мышелов, 2 года'}
-
-.imgbox:nth-child(8n+8) {grid-area: h}
-.imgbox:nth-child(8n+8) > .description:after {content: 'Ушастые друзья, пол года'}
+.imgbox > .description:after {content: attr(data-description)}
 
 .imgbox:hover > .gridimg {opacity: 1; transition: all 0.8s}
 .imgbox:hover > .description {opacity: 0.6; transition: all 1s}
 
 .right{
     background-color: #d9d9d9;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     align-self: flex-start;
 }
 
@@ -179,7 +161,7 @@ header {
 
 .right .raitingbox div > meter {  width: 150px  }
 .right .raitingbox div > meter::-webkit-meter-bar {  background: rgba(255, 255, 255, 0);  }
-.right .raitingbox div > meter::-webkit-meter-optimum-value {  background: linear-gradient(90deg, green 0%, white 95%, rgba(255,255,255,0) 100%);  }
+.right .raitingbox div > meter::-webkit-meter-optimum-value {  background-image: linear-gradient(90deg, green 0%, white 95%, rgba(255, 255, 255, 0) 100%);}
 .right .raitingbox div > meter::-webkit-meter-suboptimum-value {  background: linear-gradient(90deg, gold 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
 .right .raitingbox div > meter::-webkit-meter-even-less-good-value {  background: linear-gradient(90deg, red 0%, white 95%, rgba(255, 255, 255, 0) 100%);  }
 
@@ -189,10 +171,11 @@ header {
     padding-left: 10px;
 }
 
-#sort:checked ~ .raitingbox > div:nth-child(3) {order: 1;}
-#sort:checked ~ .raitingbox > div:nth-child(1) {order: 2;}
-#sort:checked ~ .raitingbox > div:nth-child(2) {order: 3;}
-#sort:checked ~ .raitingbox > div:nth-child(4) {order: 4;}
+#sort:checked ~ .raitingbox > div[data-meter-value="9"] {order:9}
+#sort:checked ~ .raitingbox > div[data-meter-value="8"] {order: 8;}
+#sort:checked ~ .raitingbox > div[data-meter-value="10"] {order: 10;}
+#sort:checked ~ .raitingbox > div[data-meter-value="4"] {order: 4;}
+#sort:checked ~.raitingbox {flex-direction: column-reverse}
 
 footer {
     width: 100%;
@@ -202,3 +185,18 @@ footer {
 }
 footer > div:nth-child(2) {float: left}
 footer > div:nth-child(3){color: darkblue; float: right}
+
+@media(max-width: 1020px){
+    header {
+        font-size: 20px;
+    }
+    .left {
+        font-size: 12px;
+    }
+    .right {
+        font-size: 12px;
+    }
+    .right > h1 {
+        font-size: 14px;
+    }
+}
