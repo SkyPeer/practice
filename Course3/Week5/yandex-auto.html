@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+
+        .root{
+            margin: 15px auto 10px;
+            background-color: #f6f5f3;
+            width: 1020px;
+            padding-left: 10px;
+            padding-right: 10px
+        }
+
+        header
+        {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .logo
+        {
+            /*position: relative; */
+            /*float: right; */
+            position: relative;
+            float: right;
+            width: 167px;
+            height: 130px;
+            margin-right: 50px;
+            background-image: url("./images/logo_bg.png");
+        }
+
+        .logo-text
+        {
+            position: absolute;
+            left: 50%;
+            top:20%;
+            transform: translateX(-50%);
+        }
+
+        .slider
+        {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-template-areas:
+            "a b d"
+            "a c d";
+        }
+
+
+        .slider-left-arrow{grid-area: a; background-color: green}
+        .slider-left-arrow:after{content: "<< left-arrow";}
+
+        .slider-text{
+            grid-area: b;
+            font-size: large;
+
+        }
+
+        .slider-image{
+            display: block;
+            /*position: absolute; */
+            grid-area: c;
+            /*left:50%;
+            transform: translateX(-50%); */
+            margin: 0 auto;
+
+        }
+
+        .slider-right-arrow{grid-area: d; background-color: blue}
+        .slider-right-arrow:after{content: "right-arrow >>";}
+
+
+    </style>
+    <title>Yandex.Auto</title>
+</head>
+<body>
+
+<div class="root">
+
+    <header>
+
+        <div class="logo"><img class="logo-text" src="./images/logo-text.png" alt="logo" width="95" height="54"></div>
+
+    </header>
+
+    <main>
+        <section class="slider">
+            <div class="slider-left-arrow"></div>
+            <div class="slider-text">
+                <p>«Хозяйственный мужчина ищет
+                    надежную красавицу для прогулок по бездорожью. Полный привод
+                    обязателен»</p>
+            </div>
+            <img class="slider-image" src="./images/yandex_autos.png" width="596px" height="125" alt="sliderimg">
+            <div class="slider-right-arrow"></div>
+        </section>
+asdasdad
+    </main>
+    <footer></footer>
+
+
+
+</div>
+
+</body>
+</html>
