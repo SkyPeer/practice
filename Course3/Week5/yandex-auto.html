@@ -42,7 +42,7 @@
         {
             position: relative;
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: auto 596px auto;
             grid-template-rows: auto auto auto;
             grid-template-areas:
             "a b d"
@@ -52,12 +52,13 @@
 
         .slider-left-arrow{grid-area: a; background-color: green}
         .slider-left-arrow:after{content: "<< left-arrow";}
-
         .slider-text{
             grid-area: b;
-            font-size: large;
-
+            font-size: 30px;
         }
+        .slider-text:after{content:">>"}
+        .slider-text span {margin: 10px; width: 300px}
+
 
         .slider-image{
             display: block;
@@ -89,11 +90,12 @@
     <main>
         <section class="slider">
             <div class="slider-left-arrow"></div>
+
             <div class="slider-text">
-                <p>«Хозяйственный мужчина ищет
-                    надежную красавицу для прогулок по бездорожью. Полный привод
-                    обязателен»</p>
+                <span>Хозяйственный мужчина ищет надежную красавицу
+                      для прогулок по бездорожью. Полный привод обязателен</span>
             </div>
+
             <img class="slider-image" src="./images/yandex_autos.png" width="596px" height="125" alt="sliderimg">
             <div class="slider-right-arrow"></div>
         </section>
