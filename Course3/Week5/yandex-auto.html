@@ -5,17 +5,17 @@
     <style>
 
         @font-face {
-            font-family: Noto Sans;
+            font-family: NotoSans;
             src: url(./fonts/NotoSans-Regular.ttf);
         }
 
         @font-face {
-            font-family: Noto Sans Bold;
+            font-family: NotoSansBold;
             src: url(./fonts/NotoSans-Bold.ttf);
         }
 
         body{
-            font-family: 'Noto Sans', sans-serif;
+            font-family: NotoSans, Arial, sans-serif;
         }
 
         .root{
@@ -134,11 +134,84 @@
 
         .video-box
         {
+            position: relative;
             width: 641px;
-            height: 361px;
-            margin: 50px auto;
-            border: 2px red dotted;
+            height: auto;
+            margin: 50px auto 20px;
+            /*border: 2px red dotted; */
+            white-space: nowrap;
+            overflow: hidden
+
         }
+
+        .video-box-circle{
+            position: absolute;
+            width: 128px;
+            height: 128px;
+            left:50%;
+            top:50%;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: #ffdb4a;
+            border-radius: 100px;
+            background-repeat: no-repeat;
+            background-image: url("./images/big_arrow.png");
+            background-position-x: 60%;
+            background-position-y: 50%;
+            box-shadow: 0.7px 0.7px 0.5px #fc965d;
+            transition: all 0.3s;
+            opacity:0;
+            z-index: 30;
+        }
+
+        .video-box-text
+        {
+            position: absolute;
+            transform: translateY(-100%);
+            width: 100%;
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-size: large;
+            color:white;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+            z-index: 20;
+
+        }
+        .video-box-img {
+            transition: all 0.3s
+        }
+
+        .video-box:hover > .video-box-img {filter: blur(4px); transition: all 0.3s}
+        .video-box:hover > .video-box-circle{opacity: 1; transition: all 0.3s}
+        .video-box:hover > .video-box-text{transform: translateY(0); transition: all 0.3s}
+        .video-box:hover > .video-box-circle:hover{opacity: 0.7;  transition: all 0.3s; cursor: pointer}
+
+        .middle{position: relative}
+        .middle-text {position:relative;width: auto; font-size: 40px; text-align: center; left: 50%; transform: translateX(-50%)}
+
+        .middle-variables {
+            position: relative;
+            /*width: 90%; */
+            left: 50%; transform: translateX(-50%);
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-template-areas:
+                    "a1 a2 a3 a4"
+                    "b1 b2 b3 b4"
+                    "с1 с2 с3 с4";
+        }
+
+      /* .middle-variables */
+
+        .middle-variables div > img {display:block; margin: 0 auto}
+
+        .middle-variables > div:nth-child(1) {grid-area: a1}
+        .middle-variables > div:nth-child(2) {grid-area: a2}
+        .middle-variables > div:nth-child(3) {grid-area: a3}
+        .middle-variables > div:nth-child(4) {grid-area: a4}
 
 
     </style>
@@ -147,11 +220,8 @@
 <body>
 
 <div class="root">
-
     <header>
-
         <div class="logo"><img class="logo-text" src="./images/logo-text.png" alt="logo" width="95" height="54"></div>
-
     </header>
 
     <main>
@@ -175,19 +245,33 @@
             </div>
 
         </section>
+        <section class="video-box">
+            <div class="video-box-circle"></div>
+            <div class="video-box-text">Яндекс.Авто за минуту</div>
+            <img class="video-box-img" src="./images/auto_video.png" alt="video" width="641px" height="361px">
+        </section>
+        <section class="middle">
+            <div class="middle-text">Простой способ выбрать автомобиль</div>
+            <div class="middle-variables">
+                <div><img src="./images/book.png" alt="middle-variable-1"></div>
+                <div><img src="./images/lupa.png" alt="mdiile-variable-2"></div>
+                <div><img src="./images/circles.png" alt="mdiile-variable-3"></div>
+                <div><img src="./images/jeep.png" alt="mdiile-variable-4"></div>
 
-        <div class="video-box">
-            <div class="video-text">Яндекс.авто.....</div>
-            <img class="" src="./images/auto_video.png" alt="video" width="641px" height="361px">
-
-        </div>
+            </div>
+        </section>
     <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
 
     </main>
+
+
     <footer></footer>
-
-
-
 </div>
 
 </body>
