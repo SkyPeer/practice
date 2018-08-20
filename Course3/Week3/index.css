@@ -7,9 +7,6 @@
     src: url(./fonts/Ubuntu-Bold.ttf);
 }
 
-
-
-
 body {
     margin: 0;
     background-color: #ebebeb;
@@ -43,7 +40,6 @@ header {
     margin: 2% auto;
     min-width: 346px;
 }
-
 
 .left{
     display: flex;

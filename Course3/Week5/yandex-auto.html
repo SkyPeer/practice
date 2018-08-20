@@ -2,219 +2,7 @@
 <html>
 <head>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-
-        @font-face {
-            font-family: NotoSans;
-            src: url(./fonts/NotoSans-Regular.ttf);
-        }
-
-        @font-face {
-            font-family: NotoSansBold;
-            src: url(./fonts/NotoSans-Bold.ttf);
-        }
-
-        body{
-            font-family: NotoSans, Arial, sans-serif;
-        }
-
-        .root{
-            position: relative;
-            margin: 15px auto 10px;
-            background-color: #f6f5f3;
-            width: 1020px;
-            padding-left: 10px;
-            padding-right: 10px;
-
-        }
-
-        header
-        {
-            display: inline-block;
-            width: 100%;
-        }
-
-        .logo
-        {
-            /*position: relative; */
-            /*float: right; */
-            position: relative;
-            float: right;
-            width: 167px;
-            height: 130px;
-            margin-right: 75px;
-            background-image: url("./images/logo_bg.png");
-        }
-
-        .logo-text
-        {
-            position: absolute;
-            left: 50%;
-            top:20%;
-            transform: translateX(-50%);
-        }
-
-        .slider
-        {
-            position: relative;
-            display: grid;
-            grid-template-columns: 150px auto 150px;
-            grid-template-rows: auto auto auto;
-            grid-template-areas:
-            "a b d"
-            "a c d";
-        }
-
-
-        .slider-left-arrow{grid-area: a;}
-
-        .slider-circle {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            background-color: #ffdb4a;
-            border-radius: 50px;
-            background-repeat: no-repeat;
-            background-position: center;
-            box-shadow: 1.5px 1.5px 1.5px #fc965d;
-            transition: all 0.3s;
-        }
-
-        .slider-circle:hover{
-            opacity: 0.4;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .slider-left-arrow-circle{
-            top: 50%;
-            left: 100%;
-            transform: translateX(-100%) translateY(-50%);
-            background-image: url("./images/left_arrow.png");
-
-        }
-
-        .slider-right-arrow-circle{
-            top: 50%;
-            transform: translateY(-50%);
-            background-image: url("./images/right_arrow.png");
-        }
-
-        .slider-text{
-            grid-area: b;
-            font-size: 30px;
-        }
-        .slider-text .texttext {
-
-            display: block;
-            margin: 25px auto;
-            width: 550px;
-            tab-size: 16px;
-            text-indent: -22px;
-            /*padding-left: 50px; */
-
-        }
-
-
-        .slider-image{
-            display: block;
-            /*position: absolute; */
-            grid-area: c;
-            /*left:50%;
-            transform: translateX(-50%); */
-            margin: 0 auto;
-
-        }
-
-        .slider-right-arrow{grid-area: d;}
-        .slider-right-arrow-circle{
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .video-box
-        {
-            position: relative;
-            width: 641px;
-            height: auto;
-            margin: 50px auto 20px;
-            /*border: 2px red dotted; */
-            white-space: nowrap;
-            overflow: hidden
-
-        }
-
-        .video-box-circle{
-            position: absolute;
-            width: 128px;
-            height: 128px;
-            left:50%;
-            top:50%;
-            transform: translateX(-50%) translateY(-50%);
-            background-color: #ffdb4a;
-            border-radius: 100px;
-            background-repeat: no-repeat;
-            background-image: url("./images/big_arrow.png");
-            background-position-x: 60%;
-            background-position-y: 50%;
-            box-shadow: 0.7px 0.7px 0.5px #fc965d;
-            transition: all 0.3s;
-            opacity:0;
-            z-index: 30;
-        }
-
-        .video-box-text
-        {
-            position: absolute;
-            transform: translateY(-100%);
-            width: 100%;
-            text-align: center;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            font-size: large;
-            color:white;
-            background-color: rgba(0, 0, 0, 0.5);
-            transition: all 0.3s;
-            z-index: 20;
-
-        }
-        .video-box-img {
-            transition: all 0.3s
-        }
-
-        .video-box:hover > .video-box-img {filter: blur(4px); transition: all 0.3s}
-        .video-box:hover > .video-box-circle{opacity: 1; transition: all 0.3s}
-        .video-box:hover > .video-box-text{transform: translateY(0); transition: all 0.3s}
-        .video-box:hover > .video-box-circle:hover{opacity: 0.7;  transition: all 0.3s; cursor: pointer}
-
-        .middle{position: relative}
-        .middle-text {position:relative;width: auto; font-size: 40px; text-align: center; left: 50%; transform: translateX(-50%)}
-
-        .middle-variables {
-            position: relative;
-            /*width: 90%; */
-            left: 50%; transform: translateX(-50%);
-            margin-top: 25px;
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            grid-template-rows: auto auto auto;
-            grid-template-areas:
-                    "a1 a2 a3 a4"
-                    "b1 b2 b3 b4"
-                    "с1 с2 с3 с4";
-        }
-
-      /* .middle-variables */
-
-        .middle-variables div > img {display:block; margin: 0 auto}
-
-        .middle-variables > div:nth-child(1) {grid-area: a1}
-        .middle-variables > div:nth-child(2) {grid-area: a2}
-        .middle-variables > div:nth-child(3) {grid-area: a3}
-        .middle-variables > div:nth-child(4) {grid-area: a4}
-
-
-    </style>
+    <link rel="stylesheet" href="index.css">
     <title>Yandex.Auto</title>
 </head>
 <body>
@@ -237,41 +25,45 @@
                     для прогулок по бездорожью. Полный привод обязателен &raquo;
                 </span>
             </div>
-
             <img class="slider-image" src="./images/yandex_autos.png" width="596px" height="125" alt="sliderimg">
-
             <div class="slider-right-arrow">
                 <div class="slider-circle slider-right-arrow-circle"></div>
             </div>
-
         </section>
+
         <section class="video-box">
             <div class="video-box-circle"></div>
             <div class="video-box-text">Яндекс.Авто за минуту</div>
-            <img class="video-box-img" src="./images/auto_video.png" alt="video" width="641px" height="361px">
+            <img class="video-box-img" src="./images/yandex_auto.jpg" alt="video" width="641px" height="361px">
         </section>
+
         <section class="middle">
             <div class="middle-text">Простой способ выбрать автомобиль</div>
             <div class="middle-variables">
-                <div><img src="./images/book.png" alt="middle-variable-1"></div>
-                <div><img src="./images/lupa.png" alt="mdiile-variable-2"></div>
-                <div><img src="./images/circles.png" alt="mdiile-variable-3"></div>
-                <div><img src="./images/jeep.png" alt="mdiile-variable-4"></div>
+                    <div><img src="./images/book.png" alt="middle-variable-1"></div>
+                    <div><img src="./images/lupa.png" alt="mdiile-variable-2"></div>
+                    <div><img src="./images/circles.png" alt="mdiile-variable-3"></div>
+                    <div><img src="./images/jeep.png" alt="mdiile-variable-4"></div>
+
+                    <div class="middle-variables-title">Каталог</div>
+                    <div class="middle-variables-title">Поиск</div>
+                    <div class="middle-variables-title">Выборки авт...</div>
+                    <div class="middle-variables-title">Простой язык</div>
+
+                    <span class="middle-variables-text">Самый большой каталог с описанием автомобилей от современных — до 20 лет назад</span>
+                    <span class="middle-variables-text">Возможность искать по большему числу параметров, чем где бы то ни было</span>
+                    <span class="middle-variables-text">Выборки автомобилей в зависимости от ваших потребностей: «семейный», «для города», «для путешествий»</span>
+                    <span class="middle-variables-text">Возможность описания характеристик простым языком, понятным неискушенному пользователю</span>
 
             </div>
         </section>
-    <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
 
+        <section class="button-section">
+            <div class="button-section-text">Выбирайте. Находите. Заводите!</div>
+            <button class="button-control">Попробовать!</button>
+        </section>
 
     </main>
-
-
-    <footer></footer>
 </div>
 
 </body>
