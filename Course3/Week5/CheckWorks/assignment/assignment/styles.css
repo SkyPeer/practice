@@ -1,0 +1,235 @@
+@font-face {
+    font-family: FontAwesome;
+    src: url('fonts/Font Awesome 5 Free-Solid-900.otf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 1000px;
+    font: normal 14px Arial, sans-serif;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 1000px;
+    background: #f6f5f3;
+    border: solid 18px #fff;
+    padding: 0 10px;
+    display: flow;
+    flow-direction: column;
+}
+
+/* buttons */
+button {
+   align-self: center;
+   background: #ffdb4a;
+   border: none;
+   border-radius: 50%;
+   box-shadow: 1px 1px #fd9841;
+   cursor: pointer;
+   display: block;
+   box-sizing: border-box;
+}
+
+button::before {
+   font-family: FontAwesome;
+   display: block;
+   height: 100%;
+   width: 100%;
+   color: #fff;
+   text-align: center;
+   text-shadow: 0.5px 1px 1px #ff8b1c;
+}
+
+button:hover {
+   opacity: 0.8;
+}
+
+.button_right::before {
+   content: '\f105';
+}
+
+.button_left::before {
+    content: '\f104';
+}
+
+.button_play::before {
+    content: '\f04b';
+}
+
+/* header */
+header {
+    height: 130px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .logo {
+    height: 130px;
+    width: 140px;
+    margin: 0 60px 0 0;
+    padding: 0;
+    background: url('images/logo_yandex_auto.png') top center no-repeat;
+}
+
+/* carousel */
+.carousel {
+    display: flex;
+}
+
+.carousel__side {
+    flex: 1 160px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.carousel__side_right {
+    justify-content: flex-start;
+}
+
+.carousel__content {
+    flex: 4 640px;
+}
+
+.carousel__content p{
+    font-size: 2.5em;
+    text-indent: -0.5em;
+    line-height: 1.25em;
+}
+
+.carousel__content img{
+   margin-bottom: 40px;
+}
+
+.carousel__side button {
+    width: 60px;
+    height: 60px;
+    margin: 0 40px;
+}
+
+.carousel__side button::before {
+    font-size: 40px;
+    line-height: 60px;
+}
+
+
+/* video */
+.video {
+   width: 640px;
+   height: 360px;
+   margin: 20px auto;
+   background: url('images/video.png') center center no-repeat;
+   display: flex;
+   flex-flow: column;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.video__title {
+    width: 100%;
+    height: 50px;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    content: 'Яндекс.Авто за минуту';
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.video .button_play{
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: -50px;
+}
+
+.video .button_play::before{
+    font-size: 50px;
+    line-height: 125px;
+}
+
+
+/* car select options */
+
+.car-select__header {
+    font-size: 3.35em;
+    font-weight: normal;
+    padding: 40px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.car-select__list {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+.car-select__list li {
+   background: url('images/list_icons.png') top left no-repeat;
+   box-sizing: border-box;
+   padding: 90px 0 0 30px;
+   width: 240px;
+}
+
+.car-select__list .car-select__search {
+   background: url('images/list_icons.png') -240px 0 no-repeat;
+}
+
+.car-select__list .car-select__type {
+   background: url('images/list_icons.png') -480px 0 no-repeat;
+}
+
+.car-select__list .car-select__description {
+   background: url('images/list_icons.png') -720px 0 no-repeat;
+}
+
+.car-select__list li h3 {
+   font-size: 2.1em;
+   font-weight: normal;
+   margin: 0;
+   padding: 0 0 10px 0;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.car-select__list li p {
+   font-size: 1.15em;
+   color: #444;
+   line-height: 1.25em;
+}
+
+/* car select try options */
+
+.car-select-try__header {
+    font-size: 3em;
+    font-weight: normal;
+    padding: 40px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.car-select-try__button {
+   margin: 10px auto;
+   width: 320px;
+   height: 70px;
+   border-radius: 8px;
+   font-size: 2.5em;
+   border: none;
+   box-shadow: none;
+   color: #444;
+   background: linear-gradient(to bottom, #ffe34a, #ffdb01);
+}
+
+.car-select-try__button:hover {
+   opacity: 1;
+   background: linear-gradient(to bottom, #ffe12f, #ffe86a);
+}

@@ -1,0 +1,259 @@
+body {
+  font-family: Arial;
+  padding: 18px;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  quotes: "«" "»";
+  margin: 0;
+}
+
+blockquote:before {
+  content: open-quote;
+}
+
+blockquote:after {
+  content: close-quote;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 300;
+  margin: 0;
+  margin-top: 62px;
+}
+
+h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 300;
+  margin-top: 75px;
+}
+
+.wrapper {
+  background: #f6f5f3;
+  margin: 0 auto;
+  max-width: 984px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  align-self: flex-end;
+  margin-right: 75px;
+  width: 166px;
+  height: 82px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: white;
+  background-clip: content-box;
+  padding-bottom: 48px;
+
+}
+
+.logo:after {
+  bottom: 0;
+  content: "";
+  position: absolute;
+  display: block;
+  border-top: solid white 48px;
+  border-left: solid 83px transparent;
+  border-right: solid 83px transparent;
+}
+
+.carousel {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel_items {
+  padding-bottom: 10px;
+  flex: 4;
+}
+
+.carousel_item_text {
+  line-height: 43px;
+  font-size: 36px;
+}
+
+blockquote.carousel_item_text {
+  padding-left: 18px;
+  text-indent: -18px;
+}
+
+.carousel_item_images {
+  margin-top: 38px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.carousel_nav {
+  flex: 1;
+}
+
+.carousel_nav_left {
+  order: -1;
+}
+
+.carousel_nav_btn {
+  width: 60px;
+  height: 60px;
+  padding-top: 2px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.carousel_nav_left .carousel_nav_btn {
+  margin-left: auto;
+  margin-right: 20%;
+}
+
+.carousel_nav_right .carousel_nav_btn {
+  margin-left: 20%;
+}
+
+.carousel_nav_left .carousel_nav_btn:before {
+  margin-left: 33%;
+}
+
+.carousel_nav_right .carousel_nav_btn:before {
+  margin-left: auto;
+  margin-right: 33%;
+}
+
+.btn-icon {
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255, 219, 74);
+  box-shadow: 1px 1px 1px 0 rgb(255, 90, 0);
+}
+
+.icon:before {
+  content: "";
+  display: inline-block;
+  background: url('images/css_sprites.png');
+}
+
+.icon__arrow_left:before {
+  width: 18px;
+  height: 27px;
+  background-position: -47px -1px;
+}
+
+.icon__arrow_right:before {
+  width: 18px;
+  height: 27px;
+  background-position: -47px -30px;
+}
+
+.icon__play:before {
+  width: 44px;
+  height: 58px;
+  background-position: -1px -1px;
+}
+
+.video {
+  margin-top: 46px;
+  position: relative;
+}
+
+.video_name {
+  position: absolute;
+  top: 0;
+  background-color: rgba(41, 54, 60, 0.7);
+  height: 49px;
+  line-height: 49px;
+  width: 100%;
+  font-size: 29px;
+  color: white;
+  text-align: center;
+}
+
+.video_btn {
+  position: absolute;
+  box-sizing: border-box;
+  width: 125px;
+  height: 125px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 11px;
+  padding-top: 3px;
+  margin-top: 3px;
+  margin-left: -2px;
+}
+
+.advantages_items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 0 0 0 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.advantages_item {
+  margin: 0 0 0 2%;
+  min-width: 200px;
+  width: 23%;
+  position: relative;
+}
+
+.advantages_item_header {
+  font-size: 30px;
+  margin-bottom: 17px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.advantages_item_image {
+  height: 93px;
+  object-fit: scale-down;
+}
+
+.try_btn {
+  border: 0;
+  border-radius: 8px;
+  font-size: 37px;
+  height: 70px;
+  color: black;
+  padding: 0 40px;
+  background-image: linear-gradient(to top, rgb(255, 227, 74) 0%, rgb(255, 227, 160) 100%);
+  margin-top: 26px;
+}
+
+.try_btn:hover {
+  background-image: linear-gradient(to bottom, rgb(255, 219, 0) 0%, rgb(255, 227, 74) 100%);
+}
