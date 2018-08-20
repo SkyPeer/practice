@@ -21,7 +21,6 @@ body{
     width: 1020px;
     padding-left: 10px;
     padding-right: 10px;
-
 }
 
 header
@@ -96,15 +95,25 @@ header
 
 .slider-text{
     grid-area: b;
-    font-size: 30px;
+    position: relative;
+    display: block;
 }
 
-.slider-text .texttext {
+.slider-text-span {
+    float: left;
+    position: relative;
     display: block;
+    /* margin: 25px auto; */
+    width: 80%;
+    /* left: 50%;transform: translateX(-50%); */
+    padding-left: 10%;
+    padding-right: 10%;
     margin: 25px auto;
-    width: 550px;
-    tab-size: 16px;
-    text-indent: -22px;
+    font-size: 30px;
+    font-weight: bolder;
+    /* tab-size: 16px; */
+    text-indent: -13px; /* красная строка */
+    line-height: 39px; /* межстроковый интервал */
 }
 
 .slider-image{
@@ -127,7 +136,7 @@ header
     position: relative;
     width: 641px;
     height: 361px;
-    margin: 50px auto 20px;
+    margin: 50px auto 0;
     white-space: nowrap;
     overflow: hidden
 }
@@ -183,12 +192,13 @@ header
     font-size: 40px;
     text-align: center;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    margin: 50px 0;
 }
 
 .middle-variables {
     width: 90%;
-    margin: 35px auto 0;
+    margin: 0 auto;
     display: grid;
     grid-column-gap: 4%;
     justify-items: start;
@@ -203,21 +213,27 @@ header
 
 .middle-variables div {display:block; margin: auto 0}
 .middle-variables > div:nth-child(1) {grid-area: a1}
-.middle-variables > div:nth-child(2) {grid-area: a2; grid-column-gap: 10%;}
+.middle-variables > div:nth-child(2) {grid-area: a2;}
 .middle-variables > div:nth-child(3) {grid-area: a3}
 .middle-variables > div:nth-child(4) {grid-area: a4}
 
-
-.middle-variables-title {font-size: x-large}
 .middle-variables > .middle-variables-title:nth-child(1) {grid-area: b1}
-.middle-variables > .middle-variables-title:nth-child(2) {grid-area: b2; grid-column-gap: 10%;}
+.middle-variables > .middle-variables-title:nth-child(2) {grid-area: b2}
 .middle-variables > .middle-variables-title:nth-child(3) {grid-area: b3}
 .middle-variables > .middle-variables-title:nth-child(4) {grid-area: b4}
 
-.middle-variables > .middle-variables-text:nth-child(1) {grid-area: c1;}
-.middle-variables > .middle-variables-text:nth-child(2) {grid-area: c2;grid-column-gap: 10%;}
-.middle-variables > .middle-variables-text:nth-child(3) {grid-area: c3;}
-.middle-variables > .middle-variables-text:nth-child(4) {grid-area: c4;}
+.middle-variables-title {
+    width: 100%;
+    font-size: x-large;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.middle-variables > .middle-variables-text:nth-child(1) {grid-area: c1}
+.middle-variables > .middle-variables-text:nth-child(2) {grid-area: c2}
+.middle-variables > .middle-variables-text:nth-child(3) {grid-area: c3}
+.middle-variables > .middle-variables-text:nth-child(4) {grid-area: c4}
 .middle-variables-text {font-size: small; margin-top: 10px}
 
 
