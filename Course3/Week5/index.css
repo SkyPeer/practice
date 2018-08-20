@@ -197,10 +197,10 @@ header
 }
 
 .middle-variables {
-    width: 90%;
-    margin: 0 auto;
+    position: relative;
+    margin-left: 5%;
+    justify-content: space-around;
     display: grid;
-    grid-column-gap: 4%;
     justify-items: start;
     align-items: start;
     grid-template-columns: 23% 23% 23% 23%;
