@@ -4,8 +4,8 @@ var pust = {
         console.log('vasya govorit: ', this.name)
         var b = function () {
             console.log(1)
-        }
-        new b()
+        };
+        new b();
         return this;
     },
     go: function () {
@@ -25,18 +25,18 @@ function test() {
 var tt = {
     name:0,
     foo:5
-}
+};
 var bb = {
     name:'vas',
     foo:'pet'
-}
+};
 var ttt = Object.create(null)
-test.call(tt)
-test.call(bb)
+test.call(tt);
+test.call(bb);
 
-var p = pust.tell()
+var p = pust.tell();
 var pp = p.go();
 var ppp = pp.foo();
 
 pust.tell().go().foo();
-console.log(1)
+console.log(1);

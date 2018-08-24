@@ -59,3 +59,14 @@ Rabbit.prototype = Test; // есть одно свойство: constructor
 
 // оно равно Rabbit
 console.log(Rabbit.prototype.constructor == Object); // true
+
+console.log('----------------------------------------------------------------------------------------------------------------');
+
+function Student(name) {
+    this.name = name;
+}
+
+var billy = new Student('Billy')
+
+console.log('1 ', Student.prototype.constructor.name === 'Student');
+console.log('2 ', billy.constructor.name);
