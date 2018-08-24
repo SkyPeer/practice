@@ -64,9 +64,21 @@ console.log('-------------------------------------------------------------------
 
 function Student(name) {
     this.name = name;
+    //  prototype тут уже есть!!!!!!!!!
+}
+/*
+Student.prototype = {
+    sleep: function () {
+        console.log('bzzzzzzzzzzzz')
+     }
+} */ // таким образом поле .prototype у функции Student перезаписывается
+
+Student.prototype.sleep /*добовляем новый метод в прототип*/  = function () {
+    console.log('bzzzzzzzzzzzzzz')
 }
 
-var billy = new Student('Billy')
 
-console.log('1 ', Student.prototype.constructor.name === 'Student');
-console.log('2 ', billy.constructor.name);
+var billy = new Student('Billy')
+console.log('1 ', Student.prototype.constructor.name === 'Student'); // TRUE
+console.log('2 ', billy.constructor.name); //Student
+billy.sleep()
