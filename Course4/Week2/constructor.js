@@ -78,7 +78,10 @@ Student.prototype.sleep /*добовляем новый метод в прото
 }
 
 
-var billy = new Student('Billy')
+var billy = new Student('Billy');
 console.log('1 ', Student.prototype.constructor.name === 'Student'); // TRUE
 console.log('2 ', billy.constructor.name); //Student
-billy.sleep()
+billy.sleep();
+
+
+
