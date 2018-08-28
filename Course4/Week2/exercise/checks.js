@@ -11,29 +11,30 @@ numbers.append(20);
 
 assert.equal(numbers.count(), 2);
 assert.deepEqual(numbers.values(), [10, 20]);
-console.log('1st test ok');
-console.log(numbers instanceof Collection);
+/*console.log('1st test ok');
+console.log(numbers instanceof Collection); */
 
 
 // оздаем коллекцию букв
 
 var letters = Collection.from(['a', 'b', 'c']);
-console.log(letters);
+/*console.log(letters); */
 
 letters.append('d');
-console.log(letters.values());
+/*console.log(letters.values()); */
 assert.equal(letters.count(), 4);
 
-
 assert.deepEqual(letters.values(), ['a', 'b', 'c', 'd']);
-console.log(letters instanceof Collection);
+/*console.log(letters instanceof Collection); */
 
 
 // Смешиваем обе коллекции
 var items = new Collection();
+/*console.log('*numbers*: ', numbers);
+console.log('*letters*: ', letters); */
 items.append(numbers);
 items.append(letters);
-console.log(items);
+console.log(items.values());
 /*
 assert.equal(items.count(), 6);
 assert.deepEqual(items.values(), [10, 20, 'a', 'b', 'c', 'd']);

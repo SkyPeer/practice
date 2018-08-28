@@ -1,13 +1,8 @@
-
 module.exports = Collection;
-
 /**
  * Конструктор коллекции
  * @constructor
  */
-
-
-
 
 function Collection() {
     this.collection = [];
@@ -16,22 +11,30 @@ function Collection() {
 
 Collection.from = function (array) {
 
-var b =
-    {
-    collection: array
-    }
-    Object.setPrototypeOf(b, Collection.prototype)
-    return b;
+    var b = {collection: array}
 
+    Object.setPrototypeOf(b, Collection.prototype)
+
+    return b;
 };
 
-
 // Методы коллекции
-
 Collection.prototype =  {
 
+    testName: "ahhhGGGGGGG",
+
     append: function (appendArg) {
-        this.collection.push(appendArg)
+
+        /*console.log('ArrayisArray*appendArg*: ', Array.isArray(appendArg.collection));
+        console.log('*appendArg*: ', appendArg.collection); */
+
+        if (Array.isArray(appendArg.collection) == true){
+            this.collection.concat(appendArg)
+        }
+        else {
+            this.collection.push(appendArg)
+        }
+
     },
 
     count: function () {
