@@ -44,4 +44,4 @@ console.log('*B*  instance:',b instanceof Students,'| b.all: ',b.all());
 c = new Students();
 c.add(a);
 c.add(b);
-console.log('* C: *',c.all());
+console.log('*C*  instance:',c instanceof Students,'| c.all: ',c.all());
