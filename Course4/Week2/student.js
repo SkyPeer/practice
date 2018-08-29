@@ -1,5 +1,4 @@
 
-
 function Students(){
     this.students = [];
 }
@@ -9,6 +8,9 @@ Students.from = function (arg) {
     Object.setPrototypeOf(this, Students.prototype);
     return this;
 };
+
+
+
 
 Students.prototype.count = function ()
 {
