@@ -1,8 +1,16 @@
-    let arr = [ 1 , 5 , 2 , 5 ];
 
-function arrFilter (){
-    console.log(arguments);
-    return true;
+
+
+
+function arr(array, filterArg) {
+    filterArg = filterArg - 1
+    function arrFilter(item, index){
+        /*filterArg = filterArg - 1; */
+        return index != filterArg;
+    }
+    console.log(array.length)
+    let newArr = array.filter(arrFilter);
+    return newArr
 }
-let newArr = arr.filter(arrFilter());
-console.log('newarr:', newArr)
+
+console.log(' * newArr: ',arr([ 1 , 5 , 2 , 7 ], 4));

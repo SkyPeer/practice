@@ -49,6 +49,17 @@ Students.prototype.all = function () {
     return this.students;
 };
 
+Students.prototype.removeAt = function (removeAtArg) {
+    
+    function studentsFilter(item, index) {
+        return index != removeAtArg
+    }
+
+    var filteredStudentsArray = this.students.filter(studentsFilter)
+    this.students = filteredStudentsArray;
+    return this.students;
+};
+
 
 a = new Students();
 a.add('ivan');
@@ -62,4 +73,5 @@ c = new Students();
 c.add(a);
 c.add(b);
 console.log('*C*  instance:',c instanceof Students,'| c.all: ',c.all(), '* COUNT :', c.count());
-console.log(c.at(5));
+console.log(c.at(1));
+console.log('filtered:', c.removeAt(2));

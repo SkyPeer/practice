@@ -5,7 +5,7 @@ var Collection = require('./index');
 // Создаем коллекцию чисел
 
 var numbers = new Collection();
-console.log(numbers);
+/*console.log(numbers); */
 numbers.append(10);
 numbers.append(20);
 
@@ -34,13 +34,13 @@ var items = new Collection();
 console.log('*letters*: ', letters); */
 items.append(numbers);
 items.append(letters);
-console.log(items.values());
-/*
+/*console.log(items.values()); */
+
 assert.equal(items.count(), 6);
 assert.deepEqual(items.values(), [10, 20, 'a', 'b', 'c', 'd']);
-*/
 
-/*
+
+
 // Проверяем получение элемента
 assert.equal(items.at(0), null);
 assert.equal(items.at(1), 10);
@@ -53,5 +53,5 @@ assert.equal(items.removeAt(2), true);
 assert.equal(items.removeAt(5), true);
 
 assert.deepEqual(items.values(), [10, 'a', 'b', 'c']);
-*/
+
 console.info('OK!');
