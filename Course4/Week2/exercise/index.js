@@ -48,15 +48,29 @@ Collection.prototype.count = function () {
 Collection.prototype.append = function (newCollection) {
 
 
-
-    if (newCollection instanceof  Collection)
+    if (newCollection instanceof Collection)
     {
+     //  console.log('instance');
+
         for (var i=0; i<newCollection.collection.length; i++)
         {
             this.collection.push(newCollection.collection[i])
         }
     }
+
+  /*if (Array.isArray(newCollection.collection)) {
+
+
+        for (var i=0; i<newCollection.length; i++)
+        {
+            console.log('array');
+            this.collection.push(newCollection[i])
+        }
+    }*/
+
+
     else {
+      //  console.log('else');
         this.collection.push(newCollection);
     }
 };
@@ -65,8 +79,8 @@ Collection.prototype.append = function (newCollection) {
  * Создание коллекции из массива значений
  */
 Collection.from = function (arg) {
-    this.collection = arg;
-    Object.setPrototypeOf(this, Collection.prototype);
-    return this;
+    var collectionArray = new Collection;
+    collectionArray.collection = arg;
+    return collectionArray;
 };
 
