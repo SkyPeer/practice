@@ -58,17 +58,6 @@ Collection.prototype.append = function (newCollection) {
         }
     }
 
-  /*if (Array.isArray(newCollection.collection)) {
-
-
-        for (var i=0; i<newCollection.length; i++)
-        {
-            console.log('array');
-            this.collection.push(newCollection[i])
-        }
-    }*/
-
-
     else {
       //  console.log('else');
         this.collection.push(newCollection);
