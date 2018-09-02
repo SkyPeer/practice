@@ -31,12 +31,13 @@ Collection.prototype.removeAt = function (removeAtArg) {
 
     else{
         removeAtArg = removeAtArg - 1;
-        function collectionFilter(item, index) {return index != removeAtArg}
+    /*    function collectionFilter(item, index) {return index != removeAtArg}
 
             var filteredCollectionArray = this.collection.filter(collectionFilter);
 
             this.collection = filteredCollectionArray;
-
+       */
+        this.collection.splice(removeAtArg, 1);
         return true;
     }
 };
@@ -48,14 +49,17 @@ Collection.prototype.count = function () {
 Collection.prototype.append = function (newCollection) {
 
 
-    if (newCollection instanceof Collection)
-    {
-     //  console.log('instance');
+    if (newCollection instanceof Collection) {
+        //  console.log('instance');
+        /*
+            for (var i=0; i<newCollection.collection.length; i++)
+            {
+                this.collection.push(newCollection.collection[i])
+            }
+        } */
 
-        for (var i=0; i<newCollection.collection.length; i++)
-        {
-            this.collection.push(newCollection.collection[i])
-        }
+        this.collection = this.collection.concat(newCollection.collection);
+        /*console.log(this.collection) */
     }
 
     else {
@@ -72,4 +76,3 @@ Collection.from = function (arg) {
     collectionArray.collection = arg;
     return collectionArray;
 };
-

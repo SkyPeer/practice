@@ -22,7 +22,7 @@ var items = new Collection();
 items.append(numbers);
 items.append(letters);
 
-console.log(items.values())
+//console.log(items.values())
 
 assert.equal(items.count(), 6);
 assert.deepEqual(items.values(), [10, 20, 'a', 'b', 'c', 'd']);
