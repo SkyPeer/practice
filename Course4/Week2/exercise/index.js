@@ -63,7 +63,7 @@ Collection.prototype.append = function (newCollection) {
     }
 
     else {
-      //  console.log('else');
+
         this.collection.push(newCollection);
     }
 };

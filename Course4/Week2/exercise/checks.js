@@ -3,6 +3,7 @@ var assert = require('assert');
 var Collection = require('./index');
 
 // Создаем коллекцию чисел
+var z = Collection(2);
 var numbers = new Collection();
 numbers.append(10);
 numbers.append(20);
