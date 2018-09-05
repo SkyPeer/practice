@@ -8,13 +8,13 @@
             color: white;
         }
 
-        .div1
+        .root
         {
             left: 50%;
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
-        .div1,.div2,.div3 {
+        .root,.div2,.div3, p {
             position: relative;
             border: 3px black dotted;
             border-color: aliceblue;
@@ -23,20 +23,23 @@
             width: 70%;
         }
 
+
     </style>
     <title>
         DivDivDiv...
     </title>
 </head>
 <body>
-<div class="div1">
+<div class="root">
     div #1
     <div class="div2">
         div #2
         <div class="div3">
             div #3
+            <p>Paragraph</p>
         </div>
     </div>
+    <script src="script.js"></script>
 </div>
 </body>
 </html>
