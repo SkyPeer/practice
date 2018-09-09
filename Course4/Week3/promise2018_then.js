@@ -4,10 +4,7 @@ console.log('3');
 setTimeout(function(){ console.log('4'); }, 1000);
 */
 
-
 var arr = [1, 7, 6, 5, 4, 4, 770, 65, 25, 14];
-
-
 
 var fs = require('fs'); // 'fs' название модуля fs - FileSys в Node.js
 
@@ -29,7 +26,7 @@ var bigFileSize = new Promise(function (resolve, reject) {
 });
 
 
-promise.then
+promise.then 
 /*var promise2 = new Promise(function (resolve, reject) {
     console.time('smallFile');
      var stat = fs.statSync('video.3gp');
