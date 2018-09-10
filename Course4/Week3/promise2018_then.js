@@ -9,9 +9,10 @@ var arr = [1, 7, 6, 5, 4, 4, 770, 65, 25, 14];
 var fs = require('fs'); //   'fs' название модуля fs - FileSys в Node.js
 
 var bigFileSize = new Promise(function (resolve, reject) {
-    console.time('bigFile');
+   console.time('bigFile');
    var stat = fs.statSync('video.webm');
-    resolve(stat.size)
+   console.timeEnd('bigFile')
+   resolve(stat.size)
    /*
    fs.readFile('video.webm', function callBackAfterRead(err, data)   //- Эта функция будет вызывана, когда завершится операция чтения файла.
                                                                     //  Функция получит два параметра. Первый - информация о каких-либо ошибках, второй - содержимое файла.
@@ -38,7 +39,7 @@ function bigFileSizeMB (){
 }
 
 function bigFileSizeLog (){
-    console.log(arguments[0].toFixed(2) + ' mb')
+    console.log('FileSize: ', arguments[0].toFixed(2) + ' mb')
 }
 
 //promise.then
