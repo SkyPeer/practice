@@ -6,27 +6,42 @@ setTimeout(function(){ console.log('4'); }, 1000);
 
 var arr = [1, 7, 6, 5, 4, 4, 770, 65, 25, 14];
 
-var fs = require('fs'); // 'fs' название модуля fs - FileSys в Node.js
+var fs = require('fs'); //   'fs' название модуля fs - FileSys в Node.js
 
 var bigFileSize = new Promise(function (resolve, reject) {
     console.time('bigFile');
-   /* var stat = fs.statSync('bigvideo.avi'); */
-    fs.readFile('video.avi', function callBackAfterRead(err, data)   /* - Эта функция будет вызывана, когда завершится операция чтения файла. */
-    {                                                                   /*  Функция получит два параметра. Первый - информация о каких-либо ошибках, второй - содержимое файла.*/
+   var stat = fs.statSync('video.webm');
+    resolve(stat.size)
+   /*
+   fs.readFile('video.webm', function callBackAfterRead(err, data)   //- Эта функция будет вызывана, когда завершится операция чтения файла.
+                                                                    //  Функция получит два параметра. Первый - информация о каких-либо ошибках, второй - содержимое файла.
+   {
         console.timeEnd('bigFile');
 
         if (err){
             reject('ошибка!'); //reject(err);
         }
         else{
-            resolve('ок!'
-                /*console.log('Filesize: ' + Math.round((stat.size / 1024 / 1024 / 1024) * 100) / 100 + ' Gb') */)
+            resolve(1
+                //console.log('Filesize: ' + Math.round((stat.size / 1024 / 1024 / 1024) * 100) / 100 + ' Gb')
+            )
         }
-    })
+    })*/
 });
 
+bigFileSize
+    .then(bigFileSizeMB, console.error)
+    .then(bigFileSizeLog, console.error)
 
-promise.then 
+function bigFileSizeMB (){
+    return arguments[0] / 1024 / 1024
+}
+
+function bigFileSizeLog (){
+    console.log(arguments[0].toFixed(2) + ' mb')
+}
+
+//promise.then
 /*var promise2 = new Promise(function (resolve, reject) {
     console.time('smallFile');
      var stat = fs.statSync('video.3gp');
@@ -57,4 +72,7 @@ myFunction();
 function arrayTestFunction() {
     return arr.splice(1,4)
 }
-console.log(bigFileSize)
+//function  bigfilesizelog() {
+//    console.log(bigFileSize)
+//}
+//setTimeout(bigfilesizelog, 2000);
