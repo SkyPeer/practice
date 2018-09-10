@@ -5,11 +5,11 @@ var parallel = require('./index');
 parallel(
     [
         // Операция, которая выполняется 500ms
-        function (next) {
-            setTimeout(function () {
-                next(null, '500ms');
-            }, 500);
-        },
+            function (next) {
+                setTimeout(function () {
+                    next(null, '500ms');
+                }, 500);
+            },
 
         // Операция, которая выполняется 50ms
         function (next) {

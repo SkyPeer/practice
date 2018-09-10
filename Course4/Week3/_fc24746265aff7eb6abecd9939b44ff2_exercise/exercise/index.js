@@ -15,3 +15,10 @@ module.exports = function (operations, callback) {
     console.log('operatios: ',operations)
     console.log('callback: ', callback)
 };
+
+function test(next) {
+    setTimeout(
+        function () {next(null, '500ms');},
+        500);
+}
+test();
