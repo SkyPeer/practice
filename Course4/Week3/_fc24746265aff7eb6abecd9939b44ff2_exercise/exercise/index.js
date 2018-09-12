@@ -16,9 +16,8 @@ module.exports = function (operations, callback) {
     console.log('callback: ', callback)
 };
 
-function test(next) {
+function (next) {
     setTimeout(
         function () {next(null, '500ms');},
         500);
 }
-test();
