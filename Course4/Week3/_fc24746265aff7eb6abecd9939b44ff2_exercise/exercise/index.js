@@ -39,7 +39,7 @@ var promise2 = new Promise (function (resolve, reject) {
 });
 
 promise2.then(function (data) {
-        console.log('Promise = ', data);
+        console.log('Promises = ', data);
     }
     ,console.error);
 
