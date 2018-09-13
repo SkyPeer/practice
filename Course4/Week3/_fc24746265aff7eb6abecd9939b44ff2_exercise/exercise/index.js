@@ -2,22 +2,46 @@
  * @param {Function[]} operations
  * @param {Function} callback
  */
-module.exports = function (operations, callback) {
 
+var promise = new Promise (function(resolve, reject) {
 
-        for (var i = 0; i < operations.length; i++) {
-            operations[i] = new Promise(function (resolve, reject) {
+    var aaa = function (next) {
+        setTimeout(function () {next(null, '500ms');}, 500);} //orig
 
-            })
+    aaa(function (err, data) {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(data);
+        }
+    })
+});
 
+    
+
+promise.then(function (data) {
+    console.log('Promise = ', data);
     }
+    ,console.error);
 
-    console.log('operatios: ',operations)
-    console.log('callback: ', callback)
-};
+var promise2 = new Promise (function (resolve, reject) {
 
-function (next) {
-    setTimeout(
-        function () {next(null, '500ms');},
-        500);
-}
+
+    var aaa = function(next) {setTimeout(function () {next('ERROR');}, 10);};
+
+    aaa(function (err, data) {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(data);
+        }
+    })
+});
+
+promise2.then(function (data) {
+        console.log('Promise = ', data);
+    }
+    ,console.error);
+
+
+

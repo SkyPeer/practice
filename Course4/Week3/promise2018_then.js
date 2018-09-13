@@ -11,8 +11,7 @@ var fs = require('fs'); //   'fs' название модуля fs - FileSys в 
             console.timeEnd('bigFile');
 
     resolve(stat.size);
-
-    reject(consoleError)
+    reject(consoleError);
 
 });
 
