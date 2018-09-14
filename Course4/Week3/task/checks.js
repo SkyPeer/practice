@@ -5,11 +5,11 @@ var parallel = require('./index');
 parallel(
     [
         // Операция, которая выполняется 500ms
-        function (next) {
-            setTimeout(function () {
-                next(null, '500ms');
-            }, 500);
-        },
+            function (next) {
+                setTimeout(function () {
+                    next(null, '500ms');
+                }, 500);
+            },
 
         // Операция, которая выполняется 50ms
         function (next) {
@@ -28,14 +28,15 @@ parallel(
 
     // Обработка результата выполнения операций (результирующий callback)
     function (errors, result) {
+        console.log('func-errors test1 = ', errors)
+        console.log('func-result test1 = ', result)
         assert.deepEqual(errors, null);
         assert.deepEqual(result, ['500ms', '50ms', '200ms']);
-
         completeTest();
     }
 );
 
-// Пример, когда одна из операций завершается ошибкой
+//Пример, когда одна из операций завершается ошибкой
 parallel(
     [
         // Операция, которая выполняется 500ms
@@ -60,9 +61,10 @@ parallel(
         }
     ],
     function (error, results) {
+     /*   console.log('func-errors = ', errors)
+         console.log('func-result = ', result) */
         assert.deepEqual(error, 'ERROR');
         assert.equal(results, null);
-
         completeTest();
     }
 );
