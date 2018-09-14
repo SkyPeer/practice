@@ -6,23 +6,24 @@ module.exports = function (operations, callback) {
 
     var promises = []
 
-    operations.forEach(function (operation, indexOfOperations, operationsArray) {
-
+    for (var i=0;  i < operations.length; i++)
+    {
         promises.push(new Promise(function (resolve, reject) {
 
-            var __operation = operationsArray[indexOfOperations];
-            __operation(function (err, data) {
+            var aaa = operations[i];
+            aaa(function (err, data) {
                 if (err) {
                     reject(err);
                 } else {
                     resolve(data);
                 }
             })
-        }))
-    })
 
+        }))
+    }
     Promise.all(promises).then(
         function (result) {callback(null, result);},
         function (error) {callback(error, null);}
+
     )
 };

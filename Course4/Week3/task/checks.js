@@ -61,8 +61,8 @@ parallel(
         }
     ],
     function (error, results) {
-     /*   console.log('func-errors = ', errors)
-         console.log('func-result = ', result) */
+     //   console.log('func-errors = ', errors)
+         //console.log('func-result = ', result)
         assert.deepEqual(error, 'ERROR');
         assert.equal(results, null);
         completeTest();
