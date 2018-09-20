@@ -17,26 +17,35 @@ for (var i=0; i < inputs.length; i++)
 }, true);
 
     inputs[i].addEventListener("blur", function( event ) { // потеря фокуса
-        //console.log(event.target);
+        console.log(event.target.dataset.validator);
        // console.log(event.target.tagName);
         event.target.style.background = "";
         //checkname(event.target.value);
         //console.log(this.dataset.hasOwnProperty('required')) // this = event.target
 
+
+        if (this.dataset.hasOwnProperty('letters') /*&& checkletters(event.target.value)*/){
+            console.log(' checkletters - OK !!!!')
+        }
+
         if (this.dataset.hasOwnProperty('required') && event.target.value == ''){
             error();
         }
 
-        if (this.dataset.validator == 'letters'){
-            console.log('letters !!!')
-        }
+
+
 
         function error() {
             event.target.style.background = "pink";
-            console.log(event.target.id, ' ERROR!!!')
-        }
+            console.log(event.target.id, ' ERROR!!!');
+       }
         //console.log
-        
+        function checkletters(value) {
+            var letters = /^[A-Za-z][А-Яа-я]+$/;
+            if (value.match(letters)){return true;}
+            else{return false;}
+        }
+
 
 
     }, true);
