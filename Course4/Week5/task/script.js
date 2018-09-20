@@ -24,8 +24,9 @@ for (var i=0; i < inputs.length; i++)
         //console.log(this.dataset.hasOwnProperty('required')) // this = event.target
 
 
-        if (this.dataset.hasOwnProperty('letters') /*&& checkletters(event.target.value)*/){
+        if (event.target.dataset.validator == 'letters' && checkletters(event.target.value) == true){
             console.log(' checkletters - OK !!!!')
+
         }
 
         if (this.dataset.hasOwnProperty('required') && event.target.value == ''){
@@ -41,7 +42,7 @@ for (var i=0; i < inputs.length; i++)
        }
         //console.log
         function checkletters(value) {
-            var letters = /^[A-Za-z][А-Яа-я]+$/;
+            var letters = /^[A-Za-z]+$/;
             if (value.match(letters)){return true;}
             else{return false;}
         }
