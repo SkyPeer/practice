@@ -8,21 +8,11 @@ var inputs = form.querySelectorAll('input');
 
 for (var i=0; i < inputs.length; i++)
 {
-
     inputs[i].addEventListener("focus", function( event ) { //фокус
-    //console.log(event.target);
-   // console.log(this); // this - узел на котором произошло событие
-       // console.log(event)
-      //  event.target.style.background = "pink";
 }, true);
 
     inputs[i].addEventListener("blur", function( event ) { // потеря фокуса
 
-/*        if (event.target.dataset.hasOwnProperty('required')){
-            if (event.target.value == ''){error('required');}
-            else{defaultFunc()}
-
-        }*/
 
         // check name
         if (event.target.dataset.validator == 'letters'){
@@ -31,7 +21,19 @@ for (var i=0; i < inputs.length; i++)
             {error('checkname')}
         }
 
-        if (event.target.dataset.validator == 'number' || event.target.hasOwnProperty('validator-min') || event.target.hasOwnProperty('validator-max')){
+        if (event.target.dataset.validator == 'regexp') {
+
+                if(regExpCheck(event.target.value, event.target.dataset.validatorPattern)){
+                    okay('regExp')
+                }
+                else
+            {
+                error('regExp')
+            }
+        }
+
+        // check number
+        if (event.target.dataset.validator == 'number' /*|| event.target.hasOwnProperty('validator-min') || event.target.hasOwnProperty('validator-max')*/){
 
             if (checknumber(event.target.value, event.target.dataset.validatorMin, event.target.dataset.validatorMax)){
                 okay('checknumber')
@@ -40,26 +42,23 @@ for (var i=0; i < inputs.length; i++)
                 error('checknumber')
             }
 
-
-
-            /* console.log(event.target.dataset.validator-max);*/
-        }
-
-
-     /*   else
-        {
-            error('letters');
-        } */
-
-
-
-        function defaultFunc() {
-            event.target.style.background = ''
         }
 
         function error(funcName) {
-            event.target.style.background = "pink";
-            console.log(event.target.id, ' ERROR!!!', 'errorfunc', funcName, 'validator', event.target.dataset.validator);
+
+            console.log('error.value:', event.target.value);
+
+            if (event.target.value == '' && event.target.dataset.hasOwnProperty('required') == false)
+            {
+                console.log(event.target.id, ' NOT ERROR!!!', 'func', funcName, 'validator', event.target.dataset.validator);
+                event.target.style.background = '';
+            }
+            else
+            {
+                event.target.style.background = "pink";
+                console.log(event.target.id, ' ERROR!!!', 'errorfunc', funcName, 'validator', event.target.dataset.validator);
+            }
+
        }
 
        function okay(funcName) {
@@ -80,6 +79,13 @@ for (var i=0; i < inputs.length; i++)
             }
         }
 
+        function regExpCheck(value, pattern) {
+            var __pattern = new RegExp(pattern);
+            console.log('regExpCheck: pattern:', __pattern, ' value:', value);
+            return __pattern.test(value)
+        }
+
+
         function checknumber(value, min, max) {
          /*  console.log('checknumber value: ', value, ' min: ',min, ' max:', max)
            console.log('typeof value', typeof value); */
@@ -95,6 +101,3 @@ for (var i=0; i < inputs.length; i++)
 
     }, true);
 }
-
-
-
