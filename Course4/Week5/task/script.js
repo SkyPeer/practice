@@ -8,10 +8,13 @@ var inputs = form.querySelectorAll('input');
 
 for (var i=0; i < inputs.length; i++)
 {
+    console.log('input:', i ,' ', inputs[i]);
+
     inputs[i].addEventListener("focus", function( event ) { //фокус
 }, true);
 
     inputs[i].addEventListener("blur", function( event ) { // потеря фокуса
+
 
 
         // check name
