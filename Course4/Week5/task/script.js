@@ -15,7 +15,9 @@ var __validator = inputs[i].dataset.validator;
         }, true); //фокус
 
 
-    //if (__validator == 'letters'){__input.addEventListener('blur', checkLetters( event ) )} // потеря фокуса
+    if (__validator == 'letters'){__input.addEventListener('blur', function( event ) {
+        checkLetters( event.target )
+    },true )} // потеря фокуса
 
 
     if (__validator == 'number'){ __input.addEventListener('blur', function( event ){
@@ -68,20 +70,21 @@ var __validator = inputs[i].dataset.validator;
 
     }, true);*/
 }
-/*
-function checkLetters(value) {
 
+function checkLetters(target) {
+
+    var __value = target.value;
     var lettersEng = /^[A-Za-z]+$/;
     var lettersRus = /^[А-Яа-я]+$/;
 
-    if ( value.match(lettersEng) || value.match(lettersRus) ){
-        return true;
+    if ( __value.match(lettersEng) || __value.match(lettersRus) ){
+        okay('checkLetters')
     }
     else{
-        return false;
+        error('checkLetters', target)
     }
 }
-*/
+
 
 
 
@@ -91,58 +94,62 @@ function checkNumber(target) {
     var __min = target.dataset.validatorMin;
     var __max = target.dataset.validatorMax;
 
-    console.log('checkNumber DATA  value:', __value, ', min:', __min, 'max', __max)
+  //  console.log('checkNumber DATA  value:', __value, ', min:', __min, 'max', __max)
 
-    //var valueInt = parseInt(__value);
-    //console.log('typeof valueInt', typeof valueInt);
-    if (__min == undefined || __max == undefined && isNaN(parseInt(__value)) !== true) {
-        console.log('NUMBER OK!')
+    var valueInt = parseInt(__value);
+ //   console.log('typeof valueInt', typeof valueInt, 'valueInt:', valueInt, 'isNaN:', isNaN(valueInt) == true);
+
+
+    if (isNaN(valueInt) == true || (valueInt >= __min && valueInt <= __max) == false)
+    {
+        error('checkNumber', target)
     }
-    if (isNaN(parseInt(__value)) !== true && parseInt(__value) >= __min && parseInt(__value) <= __max) {
-        console.log('NUMBER OK!')
+    if (isNaN(valueInt) == false && (__min == undefined || __max == undefined)) {
+        okay('checkNumber')
     }
-    else{
-        console.log('NUMBER ERROR')
+    if (isNaN(valueInt) == false && (valueInt >= __min && valueInt <= __max) == true) {
+        okay('checkNumber')
     }
+
+
 }
-
 
 
 function checkRegExp(target) {
     var __pattern = new RegExp(target.dataset.validatorPattern);
     var __value = target.value;
     //console.log('regExpCheck: pattern:', __pattern, ' value:', __value);
-    if  (__pattern.test(__value)){ console.log('REGEXP OK')}
+    if  (__pattern.test(__value)){
+        okay('checkRegExp')}
     else
     {
-        console.log('REGEXP ERROR')
+        error('checkRegExp', target)
     }
 }
 
 
 
-/*
 function okay(funcName) {
-    console.log(event.target.id, ' OKAY!', 'Okayfunc', funcName, 'validator', event.target.dataset.validator);
+    console.log(' OKAY!', 'Okayfunc:', funcName);
     event.target.style.background = "#00982354";
 }
-*/
 
 
-/*
-function error(funcName) {
 
-    console.log('error.value:', event.target.value);
 
-    if (event.target.value == '' && event.target.dataset.hasOwnProperty('required') == false)
+function error(funcName, target) {
+
+    console.log('error.value:', target.value);
+
+    if (target.value == '' && target.dataset.hasOwnProperty('required') == false)
     {
-        console.log(event.target.id, ' NOT ERROR!!!', 'func', funcName, 'validator', event.target.dataset.validator);
+        console.log(' NOT ERROR!!!', 'func', funcName, 'validator', target.dataset.validator);
         event.target.style.background = '';
     }
     else
     {
         event.target.style.background = "pink";
-        console.log(event.target.id, ' ERROR!!!', 'errorfunc', funcName, 'validator', event.target.dataset.validator);
+        console.log('ERROR!!!', 'errorfunc:', funcName, 'validator:', target.dataset.validator);
     }
 
-}*/
+}
