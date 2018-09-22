@@ -1,7 +1,7 @@
 'use strict';
-var form = document.getElementById("profile");
-var inputs = form.querySelectorAll('input');
 
+var form = document.getElementById('profile');
+var inputs = form.querySelectorAll('input');
 
 for (var i=0; i < inputs.length; i++)
 {
@@ -21,7 +21,7 @@ var __validator = inputs[i].dataset.validator;
 
 
     if (__validator == 'number'){ __input.addEventListener('blur', function( event ){
-        checkNumber(event.target)
+        checkNumber( event.target )
     }, true) } // потеря фокуса
 
     if (__validator == 'regexp'){ __input.addEventListener('blur', function (event) {
