@@ -15,6 +15,8 @@ for (var i=0; i < inputs.length; i++)
 
     inputs[i].addEventListener("blur", function( event ) { // потеря фокуса
 
+
+
         // check name
         if (event.target.dataset.validator == 'letters'){
             if (checkletters(event.target.value) == true){okay('checkname')}
