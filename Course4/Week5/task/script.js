@@ -7,6 +7,7 @@ for (var i=0; i < inputs.length; i++)
 {
     // console.log('input:', i ,' ', inputs[i]);
 
+    
 var __input = inputs[i];
 var __validator = inputs[i].dataset.validator;
 
