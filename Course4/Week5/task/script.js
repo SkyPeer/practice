@@ -1,170 +1,137 @@
 'use strict';
 
-console.log(window.validate)
-
 var form = document.getElementById('profile');
-var inputs = form.querySelectorAll('input');
 
-for (var i=0; i < inputs.length; i++)
-{
-    // console.log('input:', i ,' ', inputs[i]);
+function validateForm(options) {
+    var formId = options.formId;
+    var formValidClass = options.formValidClass;
+    var formInvalidClass = options.formInvalidClass;
+    var inputErrorClass = options.inputErrorClass;
+    var inputs = form.querySelectorAll('input');
 
+}
 
-var __input = inputs[i];
-var __validator = inputs[i].dataset.validator;
+//console.log(form);
 
-
-    inputs[i].addEventListener("focus", function( event ) {
-        }, true); //фокус
-
-
-    if (__validator == 'letters'){__input.addEventListener('blur', function( event ) {
-        checkLetters( event.target )
-        event.stopPropagation();
-    },false )} // потеря фокуса
+form.addEventListener('focus', function (event) {
+}, true);
 
 
-    if (__validator == 'number'){ __input.addEventListener('blur', function( event ){
-        checkNumber( event.target )
-    }, true) } // потеря фокуса
+form.addEventListener('blur', function (event) {
+    //console.log('THIS: ' , this)  // <form>....
+    //console.log('event.target', event.target);
+    if (event.target.tagName === 'INPUT') {
+        checkInput(event.target)
+    }
 
-    if (__validator == 'regexp'){ __input.addEventListener('blur', function (event) {
-        checkRegExp( event.target )
-    }, true) }  // потеря фокуса
-
-
-
-/*
-    inputs[i].addEventListener("blur", function( event ) { // потеря фокуса
+}, true);
 
 
-        console.log('|| EVENT TARGET', event.target, '||');
+console.log(inputs);
+inputs.forEach(function (input) {
+    input.addEventListener('blur', function (event) {
 
-        // check name
-        if (event.target.dataset.validator == 'letters'){
-            if (checkletters(event.target.value) == true){okay('checkname')}
-            else
-            {error('checkname')}
-        }
+    }, true)
+});
 
-        //regexp
-        if (event.target.dataset.validator == 'regexp') {
+form.addEventListener('submit', function (event) {
 
-                if(regExpCheck(event.target.value, event.target.dataset.validatorPattern)){
-                    okay('regExp')
-                }
-                else
-            {
-                error('regExp')
-            }
-        }
+    event.preventDefault();
 
-        // check number
-        if (event.target.dataset.validator == 'number'){
+    console.log(event.target);
 
-            if (checknumber(event.target.value, event.target.dataset.validatorMin, event.target.dataset.validatorMax)){
-                okay('checknumber')
-            }
-            else{
-                error('checknumber')
-            }
+    //  checkNumber()
 
-        }
+}, true);
 
 
-    }, true);*/
+function checkInput(target) {
+//console.log('checkInput targetL', target.dataset.validator)
+    var validator = target.dataset.validator;
+
+    switch (validator) {
+        case 'letters':
+            checkLetters(target);
+            break;
+        case 'number':
+            checkNumber(target);
+            break;
+        case 'regexp':
+            checkRegExp(target);
+            break;
+    }
 }
 
 function checkLetters(target) {
+    var value = target.value;
+    var pattern = /^[A-Za-zА-Яа-я]+$/;
 
-    var __value = target.value;
-    var lettersEng = /^[A-Za-z]+$/;
-    var lettersRus = /^[А-Яа-я]+$/;
-
-    if ( __value.match(lettersEng) || __value.match(lettersRus) ){
-        okay('checkLetters');
+    if (!pattern.test(value)) {
+        //Надо повесить класс из options
     }
-    else{
-        target.style.background = "pink";
-        error('checkLetters', target)
+    else {
+        console.log('checkLetters pass ' + value)
     }
 }
 
+
 function checkNumber(target) {
 
-    var __value = target.value;
-    var __min = target.dataset.validatorMin;
-    var __max = target.dataset.validatorMax;
+    var value = +target.value;
+    var min = +target.dataset.validatorMin;
+    var max = +target.dataset.validatorMax;
 
-  //  console.log('checkNumber DATA  value:', __value, ', min:', __min, 'max', __max)
-
-    var valueInt = parseInt(__value);
- //   console.log('typeof valueInt', typeof valueInt, 'valueInt:', valueInt, 'isNaN:', isNaN(valueInt) == true);
+    //  console.log('checkNumber DATA  value:', __value, ', min:', __min, 'max', __max)
 
 
-    if (isNaN(valueInt) == true || (valueInt >= __min && valueInt <= __max) == false)
-    {
+    //   console.log('typeof valueInt', typeof valueInt, 'valueInt:', valueInt, 'isNaN:', isNaN(valueInt) == true);
+    if (isNaN(value)) {
         error('checkNumber', target)
     }
-    if (isNaN(valueInt) == false && (__min == undefined || __max == undefined)) {
-        okay('checkNumber')
-    }
-    if (isNaN(valueInt) == false && (valueInt >= __min && valueInt <= __max) == true) {
-        okay('checkNumber')
-    }
 
-
+    if (max && value > max) {
+        error('checkNumber', target)
+    }
+    if (min && value < min) {
+        error('checkNumber', target)
+    }
 }
 
 function checkRegExp(target) {
     var __pattern = new RegExp(target.dataset.validatorPattern);
     var __value = target.value;
     //console.log('regExpCheck: pattern:', __pattern, ' value:', __value);
-    if  (__pattern.test(__value)){
-        okay('checkRegExp')}
-    else
-    {
+    if (__pattern.test(__value)) {
+        okay('checkRegExp')
+    }
+    else {
         error('checkRegExp', target)
     }
 }
 
+
 function okay(funcName) {
     console.log(' OKAY!', 'Okayfunc:', funcName);
-   // event.target.style.background = "#00982354";
+    event.target.style.background = "#00982354";
 }
-
 
 function error(funcName, target) {
 
     console.log('error.target:', target);
     console.log('error.value:', target.value);
 
-    if (target.value == '' && target.dataset.hasOwnProperty('required') == false)
-    {
+    if (target.value == '' && target.dataset.hasOwnProperty('required') == false) {
         console.log(' NOT ERROR!!!', 'func', funcName, 'validator', target.dataset.validator);
         event.target.style.background = '';
-       // event.stopPropagation();
+        // event.stopPropagation();
     }
-    else
-    {
+    else {
         console.log('ERROR!!!', 'errorfunc:', funcName, 'validator:', target.dataset.validator);
-       // event.stopPropagation();
+        //event.stopPropagation();
+
         //if (event.target !== 'INPUT') {return;}
         //else{event.currentTarget.style.background = "pink";}
         // не удалось остановть с помощью  event.stopPropagation();
-        event.currentTarget.style.background = "pink";
-        event.stopImmediatePropagation();
+        event.target.style.background = "pink";
     }
-
 }
-
-form.addEventListener('submit', function (event) {
-
-    event.preventDefault();
-    console.log('preventDefault: ', event.currentTarget);
-    //console.log(inputs[0].);
-    checkLetters(inputs[0])
-
-    //checkLetters(inputs[0])
-
-}, true);
