@@ -1,5 +1,7 @@
 'use strict';
 
+console.log(window.validate)
+
 var form = document.getElementById('profile');
 var inputs = form.querySelectorAll('input');
 
@@ -7,7 +9,7 @@ for (var i=0; i < inputs.length; i++)
 {
     // console.log('input:', i ,' ', inputs[i]);
 
-    
+
 var __input = inputs[i];
 var __validator = inputs[i].dataset.validator;
 
@@ -80,14 +82,15 @@ function checkLetters(target) {
 
     if ( __value.match(lettersEng) || __value.match(lettersRus) ){
         okay('checkLetters')
+        //target.style.background = "#00982354";
+        //console.log('LETTERS OK!!!')
     }
     else{
+        target.style.background = "pink";
+        //console.log('LETTERS ERROR!!!')
         error('checkLetters', target)
     }
 }
-
-
-
 
 function checkNumber(target) {
 
@@ -115,7 +118,6 @@ function checkNumber(target) {
 
 }
 
-
 function checkRegExp(target) {
     var __pattern = new RegExp(target.dataset.validatorPattern);
     var __value = target.value;
@@ -128,18 +130,15 @@ function checkRegExp(target) {
     }
 }
 
-
-
 function okay(funcName) {
     console.log(' OKAY!', 'Okayfunc:', funcName);
     event.target.style.background = "#00982354";
 }
 
 
-
-
 function error(funcName, target) {
 
+    console.log('error.target:', target);
     console.log('error.value:', target.value);
 
     if (target.value == '' && target.dataset.hasOwnProperty('required') == false)
@@ -154,3 +153,14 @@ function error(funcName, target) {
     }
 
 }
+
+form.addEventListener('submit', function (event) {
+
+    event.preventDefault();
+    console.log('preventDefault: ', event.target);
+    //console.log(inputs[0].);
+    checkLetters(inputs[0])
+
+    //checkLetters(inputs[0])
+
+}, true);
