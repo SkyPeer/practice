@@ -20,7 +20,8 @@ var __validator = inputs[i].dataset.validator;
 
     if (__validator == 'letters'){__input.addEventListener('blur', function( event ) {
         checkLetters( event.target )
-    },true )} // потеря фокуса
+        event.stopPropagation();
+    },false )} // потеря фокуса
 
 
     if (__validator == 'number'){ __input.addEventListener('blur', function( event ){
@@ -81,13 +82,10 @@ function checkLetters(target) {
     var lettersRus = /^[А-Яа-я]+$/;
 
     if ( __value.match(lettersEng) || __value.match(lettersRus) ){
-        okay('checkLetters')
-        //target.style.background = "#00982354";
-        //console.log('LETTERS OK!!!')
+        okay('checkLetters');
     }
     else{
         target.style.background = "pink";
-        //console.log('LETTERS ERROR!!!')
         error('checkLetters', target)
     }
 }
@@ -132,7 +130,7 @@ function checkRegExp(target) {
 
 function okay(funcName) {
     console.log(' OKAY!', 'Okayfunc:', funcName);
-    event.target.style.background = "#00982354";
+   // event.target.style.background = "#00982354";
 }
 
 
@@ -145,11 +143,17 @@ function error(funcName, target) {
     {
         console.log(' NOT ERROR!!!', 'func', funcName, 'validator', target.dataset.validator);
         event.target.style.background = '';
+       // event.stopPropagation();
     }
     else
     {
-        event.target.style.background = "pink";
         console.log('ERROR!!!', 'errorfunc:', funcName, 'validator:', target.dataset.validator);
+       // event.stopPropagation();
+        //if (event.target !== 'INPUT') {return;}
+        //else{event.currentTarget.style.background = "pink";}
+        // не удалось остановть с помощью  event.stopPropagation();
+        event.currentTarget.style.background = "pink";
+        event.stopImmediatePropagation();
     }
 
 }
@@ -157,7 +161,7 @@ function error(funcName, target) {
 form.addEventListener('submit', function (event) {
 
     event.preventDefault();
-    console.log('preventDefault: ', event.target);
+    console.log('preventDefault: ', event.currentTarget);
     //console.log(inputs[0].);
     checkLetters(inputs[0])
 
