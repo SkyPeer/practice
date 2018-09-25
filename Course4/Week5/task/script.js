@@ -5,8 +5,8 @@ function validateForm(options) {
     var formValidClass = options.formValidClass;
     var formInvalidClass = options.formInvalidClass;
     var inputErrorClass = options.inputErrorClass;
-
     var form = document.getElementById(formId);
+
 
     form.addEventListener('focus', function (event) {
 
@@ -16,21 +16,19 @@ function validateForm(options) {
 
     form.addEventListener('blur', function (event) {
 
-        if (event.target.tagName === 'INPUT') {
-            checkInput(event.target)
-        }
+        if (event.target.tagName === 'INPUT') {checkInput(event.target)}
 
     }, true);
-
+    
     form.addEventListener('submit', function (event) {
 
         event.preventDefault();
 
-        console.log(event.target);
+        checkForm();
 
         form.classList.remove(formInvalidClass);
         form.classList.remove(formValidClass);
-        
+
         if (form.querySelector('.input_error') !== null)
         {
             form.classList.add(formInvalidClass)
@@ -40,8 +38,15 @@ function validateForm(options) {
         }
 
     }, true);
+    
+    function checkForm() {
+        var inputsCheck = form.querySelectorAll('INPUT');
+        inputsCheck.forEach(function(input){
+            checkInput(input);
+        });
 
-
+    }
+    
     function checkInput(target) {
 
         var validator = target.dataset.validator;
@@ -69,8 +74,7 @@ function validateForm(options) {
         }
 
     }
-
-
+    
     function checkNumber(target) {
 
         var value = +target.value;
@@ -85,8 +89,7 @@ function validateForm(options) {
         if (max && value > max) {error(target);}
         if (min && value < min) {error(target);}
     }
-
-
+    
     function checkRegExp(target) {
         var pattern = new RegExp(target.dataset.validatorPattern);
         var value = target.value;
@@ -97,15 +100,24 @@ function validateForm(options) {
     }
 
     function error(target) {
-        var dataset = target.dataset.hasOwnProperty('required');
-
-        if (target.value == '' && dataset == false) {
+        if (target.value == '' && checkRequired(target)) {
             return;
         }
         else {
             target.classList.add(inputErrorClass);
         }
     }
-
+    
+    function checkRequired(target) {
+        var dataset = target.dataset.hasOwnProperty('required');
+        
+        if (dataset){
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
 }
 
