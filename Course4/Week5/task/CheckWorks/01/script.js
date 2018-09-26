@@ -44,7 +44,8 @@ function validateForm({formId, formValidClass,formInvalidClass,inputErrorClass})
 
 
                         if(inputForCheck.dataset.validator == 'number'){
-                                if(/[^0-9]/.test(inputForCheck.value) == false){
+                            if(/[^0-9]/.test(inputForCheck.value) == false){
+                                //if(isNaN(parseInt(inputForCheck.value)) == false){
                                         if(inputForCheck.dataset.hasOwnProperty('validatorMin')){
                                                 if(inputForCheck.value <= Number(inputForCheck.dataset.validatorMax) && inputForCheck.value >= Number(inputForCheck.dataset.validatorMin)){
                                                         inputForCheck.classList.remove(inputErrorClass);
