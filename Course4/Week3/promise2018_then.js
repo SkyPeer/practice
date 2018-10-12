@@ -2,7 +2,7 @@ var arr = [1, 7, 6, 5, 4, 4, 770, 65, 25, 14];
 
 var fs = require('fs'); //   'fs' название модуля fs - FileSys в Node.js
 
-    var bigFileSize = new Promise(function (resolve, reject) {
+var bigFileSize = new Promise(function (resolve, reject) {
 
             console.time('bigFile');
 
