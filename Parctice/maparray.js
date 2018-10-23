@@ -13,17 +13,18 @@ let sc = [
     { _id: "5bceaaeb0c898a5cbe26a397", scTitle: "Мастерская Иваныча", scVendors: "APPLE, Samsung", scAdress: "Москва, ул. Москва, тел +74951234567"}
     ]
 
-var item = sc.find(item => item._id === '5bcea6360c898a5cbe269f9a');
+//var item = sc.find(item => item._id === '5bcea6360c898a5cbe269f9a');
 
 let scOptions=[]
 
 sc.map((element)=>(scOptions.push({value: element._id, label: element.scTitle})))
 
-var item = myArray.find(item => item.id === 2);
+//var item = myArray.find(item => item.id === 2);
 
 // print
-console.log(item.name);
+//console.log(item.name);
 // print
 console.log(scOptions);
 
-console.log()
+var item = sc.find(item => item._id === "5bcea6360c898a5cbe269f9a")
+console.log(item.scTitle, item.scAdress)
