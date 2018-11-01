@@ -1,7 +1,7 @@
 
 let arr = [1,2,3,4,5,6];
 
-console.log(arr.map(mapper));
+//console.log(arr.map(mapper));
 
 function mapper(value) {
     return value + 1
@@ -24,7 +24,13 @@ sc.map((element)=>(scOptions.push({value: element._id, label: element.scTitle}))
 // print
 //console.log(item.name);
 // print
-console.log(scOptions);
+
+//console.log(scOptions);
 
 var item = sc.find(item => item._id === "5bcea6360c898a5cbe269f9a")
-console.log(item.scTitle, item.scAdress)
+//console.log(item.scTitle, item.scAdress)
+item.scTitle = '123';
+//console.log(item.scTitle, item.scAdress)
+
+console.log(sc)
+
