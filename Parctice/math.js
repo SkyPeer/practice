@@ -1,0 +1,1 @@
+console.log(Math.ceil(31/10))
