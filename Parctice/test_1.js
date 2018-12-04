@@ -1,9 +1,9 @@
-let str  = '12323123123123';
+let str  = '1aa323123123123';
 
 console.log(str.length);
-str.length = 5;
+str.length = 35;
 console.log(str.length)
-
+console.log(str[2])
 console.log('----------------------------------------')
 
 function f() {
@@ -92,3 +92,4 @@ console.log(1/Infinity) //0
 console.log(NaN + "1") // NaN1
 console.log(-5/0) // -Infinity
 console.log(0/0) // NaN
+console.log(9/0) // Infinity
