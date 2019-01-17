@@ -19,8 +19,8 @@ var user2 = {
     lastName: 'Johns'
 };
 
-console.log('user.name:', user.getFullName()); //user.name: Tom Smit
-console.log('user.name:', user.getFullName.apply(user2)); //user.name: Alex Johns
+console.log('/user.name:', user.getFullName()); //user.name: Tom Smit
+console.log('/user.name:', user.getFullName.apply(user2)); //user.name: Alex Johns
 console.log('----------------------------------------------------------');
 
 function ahhh(){
