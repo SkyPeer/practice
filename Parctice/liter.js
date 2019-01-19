@@ -2,7 +2,7 @@ let a = true;
 let b = false;
 
 
-console.log( 'a=',(a ? 'TRUE!' : 'FALSE!'), ', b=', ( b ? 'TRUE!' : 'FALSE!') ) //a= TRUE! , b= FALSE!
+console.log( 'a=',(a ? 'TRUE!!' : 'FALSE!'), ', b=', ( b ? 'TRUE!' : 'FALSE!') ) //a= TRUE! , b= FALSE!
 
 
 //------------------------------------------------------
