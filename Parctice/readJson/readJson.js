@@ -16,6 +16,6 @@ let jsonArray = fs.readFileSync("default.json");
         }
     }
 });*/
-console.log(JSON.parse(jsonArray));
+console.log('fileBegin', JSON.parse(jsonArray));
 
 
