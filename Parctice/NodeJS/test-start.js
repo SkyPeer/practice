@@ -11,7 +11,7 @@ console.log('NodeJs StartTestingScript')
 });*/
 
 var a = process.argv
-console.log(' ---- process.argv:', a[2],a[3], '-----', /*typeof a,*/ /*Object.keys(a)*/)
+console.log(' -- process.argv:', a[2],a[3], '-----', /*typeof a,*/ /*Object.keys(a)*/)
 
 
 var argv = process.argv.slice(2);
