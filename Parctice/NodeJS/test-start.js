@@ -2,7 +2,7 @@
 // https://nodejs.org/docs/latest/api/process.html
 // $ node process-args.js one two=three four
 // cmd: node test-start arg=123
-
+// FIXME requre needed
 //node test-start.js user passs
 console.log('NodeJs StartTestingScript')
 
