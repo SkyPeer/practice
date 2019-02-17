@@ -1,0 +1,4 @@
+0:27 18.02.2019
+https://www.mkyong.com/java/how-to-set-java_home-on-windows-10/
+
+java -cp . HelloWorldApp
