@@ -10,7 +10,7 @@ class Props = {
 
         ]
     test: function () {
-        console.log('test-ok')
+        console.log('testok!')
     }
 }
 export {Props}
