@@ -13,4 +13,4 @@
 // to start node test-start2.js --user:John
 
 var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv['user']); // 'John'
+console.log(argv['user']); // 'John'
