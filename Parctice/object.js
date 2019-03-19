@@ -7,7 +7,7 @@ obj[name] = 23 // add to Obj
 console.log(obj)
 
 let lastname = 'lastNameKey'
-obj[lastname] = 30
+obj[lastname] = 32
 console.log(obj)
 console.log(Object.keys(obj))
 
