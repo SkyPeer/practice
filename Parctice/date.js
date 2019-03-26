@@ -19,6 +19,6 @@ finishDate.setDate(createdDate.getDate()+60)
 console.log('Дата окончания сервисных работ:', finishDate.getDate(),finishDate.getMonth()+1,finishDate.getFullYear())
 
 var days = finishDate - currentDate
-console.log('days', days)
+console.log('days = ', days)
 
 console.log (Math.round(days / 1000 / 60 / 60/ 24))
