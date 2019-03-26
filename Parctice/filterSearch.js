@@ -7,7 +7,7 @@ let phones = [
     ]
 
 
- /*   console.log(phones)*/
+ /*   console.log(phones) */
 console.log('------------------------------')
 
 /*var arg = 'Samsung'
