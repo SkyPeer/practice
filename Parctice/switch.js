@@ -9,7 +9,7 @@ function hello(arg) {
         case(a < 10)  :
             console.log('2')
             break;
-        case(b == 0):
+        case(!b == 0):
             console.log('---ba case')
             break;
         default:
@@ -17,5 +17,5 @@ function hello(arg) {
     }
 
 }
-hello(15)
+hello(65)
 
