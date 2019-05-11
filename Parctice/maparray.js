@@ -29,8 +29,8 @@ sc.map((element)=>(scOptions.push({value: element._id, label: element.scTitle}))
 
 var item = sc.find(item => item._id === "5bcea6360c898a5cbe269f9a")
 //console.log(item.scTitle, item.scAdress)
-item.scTitle = '123';
+item.scTitle = '122';
 //console.log(item.scTitle, item.scAdress)
 
-console.log(sc)
+console.log(item)
 
