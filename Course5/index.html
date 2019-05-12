@@ -57,10 +57,11 @@
         function myFunction() {  
         var size = 9
             for (let i = 0 ; i<size ; i++){
-                var x = document.createElement("div");
-                x.setAttribute("class", "item");
-                x.innerHTML = '# ' + (i+1);
-                items.appendChild(x);
+                var item = document.createElement("div");
+                item.setAttribute("class", "item");
+                item.setAttribute("id", i);
+                item.innerHTML = '# ' + (i+1);
+                items.appendChild(item);
             }
             
         }
