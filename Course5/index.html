@@ -1,11 +1,72 @@
 <html>
-    <head>
 
-    </head>
-    <title>
-        Task 5 
-    </title>
-    <body>
-        Hello World!
-    </body>
+<head>
+    <style>
+        #items {
+            width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            /* //grid-template-columns: 100px 300px 100px;  */
+            grid-auto-rows: auto;
+            padding: 10px;
+            counter-reset: div
+        }
+
+        /* .item:nth-child(n+10) {
+            grid-column: auto / span 3;
+            background-color: yellow;
+            
+        } */
+
+
+        /* .item:nth-child(2n){
+            background-color: yellow;
+            grid-column: auto / span 3; */
+            /* grid-column: 2 
+        } */
+
+        .item {
+            height: 35px;
+            margin: 10px;
+            border: solid;
+        }
+    </style>
+</head>
+<title>
+    Task 5
+</title>
+
+<body>
+    Hello World! Game
+    <div id="items">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+    </div>
+    <!-- <script src="./script.js"></script> -->
+    <button onclick="myFunction()">HAHAHA</button>
+    <script>
+        
+        function myFunction() {  
+        var size = 9
+            for (let i = 0 ; i<size ; i++){
+                var x = document.createElement("div");
+                x.setAttribute("class", "item");
+                x.innerHTML = '# ' + (i+1);
+                items.appendChild(x);
+            }
+            
+        }
+        </script>
+
+
+</body>
+
 </html>
