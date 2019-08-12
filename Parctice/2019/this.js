@@ -53,3 +53,36 @@ var person = new Person(user2)
 //console.log('person', person.firstName, 'lastName', person.lastName, 'age', person.age)
 console.log('PersonObj:', person, 'PersonAgeProto', person.age)
 //console.log('userObj', user)
+
+
+var obj1 ={
+    x: 777
+}
+
+var obj2 = {
+    a: 2,
+    b: 5,
+
+    // __proto__ указывает на объект    
+
+}
+
+obj2.__proto__ = obj1
+
+console.log(obj2.x)
+
+function foo2 () {
+    console.log(this.a=obj2.a)
+}
+
+function foo3 () {
+    console.log(this.a=obj2.b)
+}
+
+
+foo3.prototype = foo2
+
+
+var foo4 = new foo3()
+
+console.log(foo3.prototype)
