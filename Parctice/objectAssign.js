@@ -18,4 +18,4 @@ var usersWithGroups = users.map(user => {
 
   return Object.assign({}, user, { group: Object.values(gorupOjb)[0] });
 });
-console.log("usersWithGroups", usersWithGroups[1]);
+console.log("RESULT", usersWithGroups);
