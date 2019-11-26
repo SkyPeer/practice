@@ -48,7 +48,7 @@ StudentConstructor.prototype = Test;
 var ivan = new StudentConstructor('ivan');
 
 console.dir(ivan);
-console.dir(ivan.constructor.name);
+console.dir("ivan.constructor.name", ivan.constructor.name);
 
 console.log(ivan.constructor === Test);
 
