@@ -24,7 +24,7 @@ filteredList = function(){
 console.log(filteredList())*/
 
 
-/*console.log('-------------------------------------------')
+console.log('-------------------------------------------')
 console.log(phones.match('sam'))*/
 console.log('-------------------------------------------')
 
