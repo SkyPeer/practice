@@ -168,3 +168,73 @@ console.log("tryRemove3", tryeRemove3); // [{ id: 222 }]
 const tryRemove4 = _.reject(arr4, ["id", 222]);
 console.log("arr4", arr4); // [{ id: 111 }, { id: 222 }, { id: 333 }]
 console.log("tryRemove4", tryRemove4); // [{ id: 111 }, { id: 333 }]
+
+const popularUsers = [
+  {
+    id: 1,
+    name: "Amanda",
+    isActive: true,
+    likes: 110,
+  },
+  {
+    id: 2,
+    name: "Charlie",
+    isActive: false,
+    likes: 30,
+  },
+  {
+    id: 3,
+    name: "Bill",
+    isActive: true,
+    likes: 90,
+  },
+];
+
+const getPopularUser = function (users) {
+  // tryStep 1
+  //   const activeUsers = _.reject(users, ["isActive", false]);
+  //   return _.filter(activeUsers, function (user) {
+  //     return user.likes > 100;
+  //   });
+  // tryStep 2
+  //   return _.reject(popularUsers, function (user) {
+  //     return !user.isActive || user.likes < 100;
+  //   });
+
+  //tryStep 3
+  return _.filter(users, function (user) {
+    return user.isActive && user.likes > 100;
+  });
+};
+
+const popularUsersResult = getPopularUser(popularUsers);
+console.log("popularUsersResult", popularUsersResult);
+
+///***************  */ _.some _.every
+
+// var isSomeActive = _.some(popularUsers, function (user) {
+//   return user.isActive === true;
+// });
+
+var isSomeActive = _.some(popularUsers, { isActive: true, likes: 110 });
+console.log("isSomeActive", isSomeActive);
+
+var isAllActive = _.every(popularUsers, function (user) {
+  return user.isActive === true;
+});
+console.log("isAllActive", isAllActive);
+
+//   ---- ORDERBY
+
+var orderResult = _.orderBy(popularUsers, ["likes", "name"], ["asc", "desc"]);
+console.log("orderResult", orderResult);
+
+const groupBy = function (list, prop) {
+  return list.reduce(function (aggregator, element) {
+    (aggregator[element[prop]] = aggregator[element[prop]] || []).push(element);
+    return aggregator;
+  }, {});
+};
+
+const groupByResult = groupBy(popularUsers, "isActive");
+console.log("groupByResult", groupByResult);
