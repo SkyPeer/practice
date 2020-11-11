@@ -131,6 +131,8 @@ var productsFilterTask = [
   },
 ];
 
+console.log("MAAAP name", _.map(productsFilterTask, "name"));
+
 var searchProducts = function (products, searchValue) {
   //   return _.filter(products, ["name", searchValue]);
   return _.filter(products, function (product) {
