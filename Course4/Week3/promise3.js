@@ -25,7 +25,7 @@ function httpGet(url) {
     });
 }
 
-httpGet("http://media-2.com/wp-content/uploads/2016/02/iphone2.png")
+httpGet("http://arroway.cloud/wp-content/uploads/2018/12/bg2018.png")
     .then(
         response => console.log(`Fulfilled: ${response}`),
         error => console.log(`Rejected: ${error}`)
