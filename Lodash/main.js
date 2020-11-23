@@ -29,7 +29,7 @@ _.each(products, function (item, key) {
   arr.push(item.name);
 });
 
-console.log("arr:", arr);
+console.log(" --- arr:", arr);
 
 /********************/
 
