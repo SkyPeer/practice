@@ -240,3 +240,39 @@ const groupBy = function (list, prop) {
 
 const groupByResult = groupBy(popularUsers, "isActive");
 console.log("groupByResult", groupByResult);
+
+
+var array = [1,2,3,4];
+var anotherOne = [2,4];
+var filteredArray = [];
+
+const obj1 = {
+	a:'testRule1',
+	b:37
+}
+const obj2 = {
+	a:'testRule2',
+  b:44
+}
+
+
+const obj22 = {
+	a:'testRule2',
+  b:44
+}
+
+const obj11 = {
+	a:'testRule1',
+	b:35
+}
+
+
+
+const arr111 = [{...obj1}, {...obj2}]
+const arr222 = [{...obj11}, {...obj22}]
+
+const ttt = _.differenceBy(arr222, arr111, 'b')
+console.log('ttt', ttt)
+/* 
+filteredArray = _.difference(array, anotherOne);
+console.log(filteredArray) */
