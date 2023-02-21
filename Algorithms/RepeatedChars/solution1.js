@@ -1,8 +1,9 @@
-const str = 'ababa';
-//const result = {};
+console.time("taskTimer");
+const str = 'evypvuudavxdncjpqpuwjbsdvdpcslitqrszcdlmjndnibejyqbkjuxgpakkjaonjhtfesgfwnwflpwoptyczjgwieigreknyixxjiettofzgzpmnkbdtcoqxjizoxqubwhklqqyyxdkeizdfcritzbvzmunpxlokitgtgejvcojudkohixswslucslijpzkozidvalqevypvuudavxdncjpqpuwjbsdvdpcslitqrszcdlmjndnibejyqbkjuxgpakkjaonjhtfesgfwnwflpwoptyczjgwieigreknyixxjiettofzgzpmnkbdtcoqxjizoxqubwhklqqyyxdkeizdfcritzbvzmunpxlokitgtgejvcojudkohixswslucslijpzkozidvalqevypvuudavxdncjpqpuwjbsdvdpcslitqrszcdlmjndnibejyqbkjuxgpakkjaonjhtfesgfwnwflpwoptyczjgwieigreknyixxjiettofzgzpmnkbdtcoqxjizoxqubwhklqqyyxdkeizdfcritzbvzmunpxlokitgtgejvcojudkohixswslucslijpzkozidvalq';
+
 let value = '';
 let totalCounter = 0;
-console.time("taskTimer");
+
 for (let i = 0; i < str.length; i++) {
 
   let counter = 0;
@@ -20,6 +21,6 @@ for (let i = 0; i < str.length; i++) {
 
 }
 
-console.log('value: ', value)
-console.log('totalCounter: ', totalCounter)
+// console.log('value: ', value)
+// console.log('totalCounter: ', totalCounter)
 console.timeEnd("taskTimer");
