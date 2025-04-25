@@ -1,39 +1,61 @@
-def romanToInt(s):
-    """
-    :type s: str
-    :rtype: int
-    """
-    s_dict = {
-        'IV': 4,
-        'IX': 9,
-        'XL': 40,
-        'XC': 90,
-        'CD': 400,
-        'CM': 900,
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    }
-    req = s
-    result = 0
+# def romanToInt(s):
+#     """
+#     :type s: str
+#     :rtype: int
+#     """
 
-    # prepare data
-    for val in s_dict:
-        if val in req:
-            replace_va = ' ' + str(s_dict[val])
-            req = req.replace(val, replace_va)
+class Solution:
+        def RomantoInteger(self, s: str):
+            s_dict = {
+                # 'IV': 4,
+                # 'IX': 9,
+                # 'XL': 40,
+                # 'XC': 90,
+                # 'CD': 400,
+                # 'CM': 900,
+                'I': 1,
+                'V': 5,
+                'X': 10,
+                'L': 50,
+                'C': 100,
+                'D': 500,
+                'M': 1000
+            }
+            i = 0
+            result = 0
 
-    values_list = req.lstrip().split(' ')
+            print('range', range(10, 1))
 
-    for val in values_list:
-        result = result + int(val)
+            while i < len(s):
 
-    return result
+                current_element = s_dict.get(s[i])
+
+                if i + 1 < len(s):
+                    next_element = s_dict.get(s[i+1])
+                else:
+                    next_element = s_dict.get(s[i])
+
+                if  current_element < next_element:
+                    result += next_element - current_element
+                    i += 2
+                else:
+                    result += current_element
+                    i += 1
 
 
-print(romanToInt('MCMXCIV'))
-print(romanToInt('III'))
+            return result
+
+sol = Solution()
+result = sol.RomantoInteger('III')
+print('result', result)
+# pass
+
+
+# print(romanToInt('MCMXCIV'))
+# print(romanToInt('III'))
+
+
+# Input: s = "MXCIV" len 5
+# i = 1
+# total = 1000 + 90 + 4 = 1094
+
