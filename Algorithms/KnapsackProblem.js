@@ -1,17 +1,3 @@
-console.time("check time complexity");
-
-const getMatrix = (maxX, maxY) => {
-    const arr = [];
-    for (let i = 0; i<maxX; i++) {
-        const row = []
-        arr.push(row)
-        for (let j = 0; j < maxY; j++) {
-            row.push(Math.floor(Math.random() * 10));
-        }
-    }
-    return arr;
-}
-
 const items = [
     {
         name: 'Guitar',
@@ -28,69 +14,77 @@ const items = [
     }
 ]
 
-const capacity = 4;
+/**
+ * Gets the items that were selected in the optimal solution
+ * @param {number} capacity - The maximum weight the knapsack can hold
+ * @param {number[]} weights - Array of item weights
+ * @param {number[]} values - Array of item values
+ * @returns {number[]} - Array of indices of selected items
+ */
+function getSelectedItems(capacity, weights, values) {
 
-const getOptionalValue = () => {
+    // values = [1500, 3000, 2000];
+    // weights = [1, 4, 3];
+    // capacity = 4
+    // n = 3
 
-    const sortedValues = [...items]
-    // console.log(sortedValues);
+    const n = weights.length;
 
-    // let prevMax = 0;
-    const matrix = [];
+    const dp = Array(n + 1).fill()
+        .map(() => Array(capacity + 1).fill(0));
 
-    let counter = 0
+    // [
+    //     [ 0, 0, 0, 0, 0 ],
+    //     [ 0, 0, 0, 0, 0 ],
+    //     [ 0, 0, 0, 0, 0 ],
+    //     [ 0, 0, 0, 0, 0 ]
+    // ]
 
-    for (let i = 0; i < items.length; i++) {
-        matrix.push([]);
 
-        // console.log('-------')
-        // console.log(sortedValues[i]);
-        // // console.log('matrix', matrix);
-        // console.log('-------')
 
-        for (let j = 0; j < capacity; j++) {
+    const selected = [];
 
-            // j - capacity
-
-            const curValue = sortedValues[i]; // {}
-            // const currentCost = curValue.cost;
-            const prevMax = i > 0 ? matrix[i-1][j] : 0;
-
-            const space = (i > 0 && j >= curValue.weight) ? matrix[i - 1][j - curValue.weight] : 0
-            const val = prevMax + space
-
-            matrix[i].push(Math.max(prevMax, val));
-
-            // ++counter
-
-            // matrix[i].push(prevMax);
-            // matrix[i].push(prevMax);
+    // Build the dp table
+    for (let i = 1; i <= n; i++) {
+        for (let w = 0; w <= capacity; w++) {
+            if (weights[i - 1] <= w) {
+                                            // 1500      + 0                              0
+                dp[i][w] = Math.max(
+                    values[i - 1] + dp[i - 1][w - weights[i - 1]],
+                    dp[i - 1][w]);
+            } else {
+                dp[i][w] = dp[i - 1][w];
+            }
         }
     }
 
-    console.log('counter', counter)
-    return matrix
+    console.log('dp', dp)
 
+    let w = capacity;
+    for (let i = n; i > 0; i--) {
 
+        console.log('dp[i][w]', dp[i][w], ' dp[i - 1][w]', dp[i - 1][w])
+
+        if (dp[i][w] !== dp[i - 1][w]) {
+
+            // console.log('dp[i][w]', dp[i][w], ' dp[i - 1][w]', dp[i - 1][w])
+
+            selected.push(i - 1);
+            w -= weights[i - 1];
+        }
+    }
+    console.log('selected', selected);
+    return selected.reverse();
 }
 
-const result = getOptionalValue();
-console.log(result);
+// Example usage
+const capacity = 4;
+const weights = [1, 4, 3];
+const values = [1500, 3000, 2000];
 
-
-// const printMatrix = (matrix) => {
-//     const print = matrix.map((d) => d.join(" | ")).join("\n")
-//     return console.log(print)
-// }
-//
-//
-// const foo = () => {
-//     const matrix = getMatrix(4,4)
-//     printMatrix(matrix);
-// }
-
-
-// foo()
-
-
-console.timeEnd("check time complexity");
+const selectedItems = getSelectedItems(capacity, weights, values);
+console.log('Selected items (indices):', selectedItems);
+console.log('Selected items details:');
+selectedItems.forEach(index => {
+    console.log(`Item ${index}: Weight = ${weights[index]}, Value = ${values[index]}`);
+}); 
